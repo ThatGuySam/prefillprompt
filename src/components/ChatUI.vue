@@ -20,11 +20,10 @@ export default defineComponent({
 </script>
 
 <template>
-  {{ defaultMockupRatio }}
   <div
     class="builder-device-wrapper max-w-sm w-100 border border-blue-500"
     :style="{
-      width: `${defaultMockupWidth}px`,
+      width: defaultMockupWidth,
     }"
   >
     <div
@@ -47,7 +46,7 @@ export default defineComponent({
                 1:24
               </div>
 
-              <div class="time">
+              <div class="network">
                 5G
               </div>
             </div>
@@ -56,10 +55,25 @@ export default defineComponent({
               class="builder-device-message-frame relative w-full h-full flex flex-col rounded-2xl"
             >
               <div class="builder-device-message-frame-upper h-full flex flex-col divide-y dark:divide-gray-700">
-                <div class="builder-device-frame-header w-full bg-gray-100 dark:bg-gray-800 rounded-t-lg p-2">
+                <div
+                  :class="[
+                    'builder-device-frame-header w-full bg-gray-100 dark:bg-gray-800 rounded-t-lg p-2',
+                    'flex flex-row justify-between items-center',
+                  ]"
+                >
+                  <Icon
+                    name="heroicons-outline:menu"
+                    size="24"
+                    opacity="0.5"
+                  />
                   <div class="font-medium text-center">
-                    New Message
+                    PrefillPrompt
                   </div>
+                  <Icon
+                    name="heroicons-outline:pencil-alt"
+                    size="24"
+                    opacity="0.5"
+                  />
                 </div>
 
                 <div class="builder-device-recipient w-full text-sm flex justify-between py-1">
