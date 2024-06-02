@@ -1,22 +1,20 @@
-<script type="ts">
-import { defineComponent } from 'vue'
+<script setup type="ts">
+import { onMounted } from 'vue'
 
-export default defineComponent({
-    emits: ['update:recipient', 'update:body'],
-    setup() {
-        return {
-            qrSvg: 'test',
-            recipient: 'test',
-            body: 'test',
-            isAtCopyUrl: false,
-            copyUrl: 'test',
-            canWebShare: false,
-            hasAnyInput: false,
-            noKeyboard: true,
-            defaultMockupWidth: 375,
-            defaultMockupRatio: 1.6,
-        }
-    },
+defineEmits(['update:recipient', 'update:body'])
+
+const qrSvg = 'test'
+const body = 'test'
+const isAtCopyUrl = false
+const copyUrl = 'test'
+const canWebShare = false
+const hasAnyInput = false
+const noKeyboard = true
+const defaultMockupWidth = 375
+const defaultMockupRatio = 1.6
+
+onMounted(() => {
+    console.log('Mounted')
 })
 </script>
 
