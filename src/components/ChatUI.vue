@@ -1,5 +1,5 @@
 <script setup type="ts">
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 
 defineEmits(['update:recipient', 'update:body'])
 
@@ -12,10 +12,12 @@ const hasAnyInput = false
 const noKeyboard = true
 const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
+const shareUrl = '/api/prompt?q=test'
 
-onMounted(() => {
-    console.log('Mounted')
-})
+// onMounted(async () => {
+//     const apiResponse = await fetch('/api/prompt?q=hello')
+//     console.log(await apiResponse.json())
+// })
 </script>
 
 <template>
@@ -67,11 +69,13 @@ onMounted(() => {
                                     <div class="font-medium text-center">
                                         PrefillPrompt
                                     </div>
-                                    <Icon
-                                        name="heroicons-outline:pencil-alt"
-                                        size="24"
-                                        opacity="0.5"
-                                    />
+                                    <a :href="shareUrl">
+                                        <Icon
+                                            name="heroicons-outline:pencil-alt"
+                                            size="24"
+                                            :opacity="hasAnyInput ? 1 : 0.5"
+                                        />
+                                    </a>
                                 </div>
 
                                 <div class="builder-device-messages-area w-full h-full flex flex-col justify-around items-center space-y-3 py-6 px-2">
