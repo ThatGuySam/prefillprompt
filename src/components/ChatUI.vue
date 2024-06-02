@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+    emits: ['update:recipient', 'update:body'],
     setup() {
         return {
             qrSvg: 'test',
@@ -29,7 +30,6 @@ export default defineComponent({
         <div
             class="builder-device-ratio relative border border-red-500"
             :style="{
-                // paddingTop: `${defaultMockupRatio*100}%`
                 aspectRatio: 1 / defaultMockupRatio,
             }"
         >
