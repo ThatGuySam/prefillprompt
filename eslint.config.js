@@ -2,6 +2,7 @@ import antfu from '@antfu/eslint-config'
 
 const DEFAULT_SPACE_INDENT = 4
 
+// https://github.com/antfu/eslint-config
 export default antfu(
     {
         vue: true,
