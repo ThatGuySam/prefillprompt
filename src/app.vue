@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <ChatUI />
-  </div>
+    <div>
+        <ChatUI />
+    </div>
 </template>
