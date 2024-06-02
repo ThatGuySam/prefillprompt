@@ -173,7 +173,7 @@ export default defineComponent({
                                         />
                                     </span>
                                     <div
-                                        class="flex items-center w-full border border-gray-300 overflow-hidden"
+                                        class="flex items-center w-full border border-gray-700 overflow-hidden"
                                         :style="{
                                             'border-radius': '1em',
                                         }"
