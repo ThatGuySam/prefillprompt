@@ -85,7 +85,7 @@ export default defineComponent({
                                                     opacity: Number(!hasAnyInput),
                                                 }"
                                             >
-                                                Add a Recipient or Message
+                                                Type a Prompt you want to share
                                             </div>
                                             <div
                                                 class="relative rounded overflow-hidden transition-opacity duration-200 ease-in-out"
