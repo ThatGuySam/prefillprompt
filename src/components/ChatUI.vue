@@ -212,14 +212,6 @@ export default defineComponent({
                                         </span>
                                     </div>
                                 </div>
-                                <div
-                                    v-if="noKeyboard === false"
-                                    class="font-medium"
-                                >
-                                    <keyboard
-                                        class="w-full opacity-25 px-2"
-                                    />
-                                </div>
                             </div>
                         </div>
                     </div>
