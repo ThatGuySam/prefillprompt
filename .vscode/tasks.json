@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "Start terminals",
+            "dependsOn": [
+                "Dev Tools"
+                // "Tests"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            // The name that shows up in terminal tab
+            "label": "Tests",
+            // The task will launch a shell
+            "type": "shell",
+            "command": "pnpm test:watch", // use same name as in package.json
+            // Mark as a background task to avoid the spinner animation on the terminal tab
+            // "isBackground": true,
+            // Create the tasks in a terminal group
+            "presentation": {
+                "group": "dev-default"
+            }
+        },
+        {
+            // The name that shows up in terminal tab
+            "label": "Dev Tools",
+            // The task will launch a shell
+            "type": "shell",
+            "command": "pnpm run dev",
+            // Mark as a background task to avoid the spinner animation on the terminal tab
+            // "isBackground": true,
+            // Create the tasks in a terminal group
+            "presentation": {
+                "group": "dev-default"
+            }
+        }
+    ]
+}
