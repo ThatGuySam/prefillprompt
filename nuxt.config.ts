@@ -2,5 +2,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: 'src/',
-  modules: ["@nuxt/ui"]
+  modules: ["@nuxt/ui", "nuxt-icon"]
 })
