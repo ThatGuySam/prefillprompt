@@ -54,10 +54,10 @@ export default defineComponent({
                         <div
                             class="builder-device-message-frame relative w-full h-full flex flex-col rounded-2xl"
                         >
-                            <div class="builder-device-message-frame-upper h-full flex flex-col divide-y dark:divide-gray-700">
+                            <div class="builder-device-message-frame-upper h-full flex flex-col">
                                 <div
                                     :class="[
-                                        'builder-device-frame-header w-full bg-gray-100 dark:bg-gray-800 rounded-t-lg p-2',
+                                        'builder-device-frame-header w-full rounded-t-lg p-2',
                                         'flex flex-row justify-between items-center',
                                     ]"
                                 >
@@ -74,27 +74,6 @@ export default defineComponent({
                                         size="24"
                                         opacity="0.5"
                                     />
-                                </div>
-
-                                <div class="builder-device-recipient w-full text-sm flex justify-between py-1">
-                                    <label for="recipient" class="sr-only">
-                                        Recipient Phone Number
-                                    </label>
-                                    <div class="flex rounded-md w-full">
-                                        <span class="inline-flex items-center px-3 font-light text-gray-500">
-                                            To:
-                                        </span>
-                                        <input
-                                            id="recipient"
-                                            type="text"
-                                            name="recipient"
-                                            class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md border-gray-300 bg-transparent"
-                                            placeholder=""
-                                            inputmode="tel"
-                                            :value="recipient"
-                                            @input="$emit('update:recipient', $event.target.value)"
-                                        >
-                                    </div>
                                 </div>
 
                                 <div class="builder-device-messages-area w-full h-full flex flex-col justify-around items-center space-y-3 py-6 px-2">
