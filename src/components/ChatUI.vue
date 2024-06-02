@@ -8,11 +8,12 @@ const body = 'test'
 const isAtCopyUrl = false
 const copyUrl = 'test'
 const canWebShare = false
-const hasAnyInput = false
 const noKeyboard = true
 const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
 const shareUrl = '/api/prompt?q=test'
+
+const hasAnyInput = computed(() => body.trim().length > 0)
 
 // onMounted(async () => {
 //     const apiResponse = await fetch('/api/prompt?q=hello')
@@ -133,9 +134,6 @@ const shareUrl = '/api/prompt?q=test'
                                         >
                                             <a :href="copyUrl" class="text-blue-500">
                                                 <button class="border border-blue-500 rounded px-2 py-1">Test Link</button>
-                                            </a>
-                                            <a href="#options" class="md:hidden text-blue-500">
-                                                <button class="border border-blue-500 rounded px-2 py-1">Options</button>
                                             </a>
 
                                             <button
