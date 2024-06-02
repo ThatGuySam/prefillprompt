@@ -11,7 +11,7 @@ export default defineComponent({
             copyUrl: 'test',
             canWebShare: false,
             hasAnyInput: false,
-            noKeyboard: false,
+            noKeyboard: true,
             defaultMockupWidth: 375,
             defaultMockupRatio: 1.6,
         }
