@@ -102,18 +102,6 @@ export default defineComponent({
                                                     opacity: Number(hasAnyInput),
                                                 }"
                                             >
-                                                <app-icon-shape
-                                                    class="absolute inset-0 w-full text-white"
-                                                    :style="{
-                                                        stroke: 'rgb(0, 0, 0)',
-                                                        strokeLocation: 'outside',
-                                                        strokeWidth: 6,
-                                                    }"
-                                                    :path-style="{
-                                                        transform: 'scale(.9)',
-                                                        transformOrigin: 'center',
-                                                    }"
-                                                />
                                                 <Icon
                                                     name="heroicons-outline:camera"
                                                     color="white"
