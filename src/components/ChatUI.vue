@@ -20,7 +20,7 @@ onMounted(() => {
 
 <template>
     <div
-        class="builder-device-wrapper max-w-sm w-100 border border-blue-500"
+        class="builder-device-wrapper max-w-sm w-full border border-blue-500"
         :style="{
             width: defaultMockupWidth,
         }"
