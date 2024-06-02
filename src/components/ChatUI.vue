@@ -114,7 +114,10 @@ export default defineComponent({
                                                         transformOrigin: 'center',
                                                     }"
                                                 />
-                                                <camera
+                                                <Icon
+                                                    name="heroicons-outline:camera"
+                                                    color="white"
+                                                    size="24"
                                                     class="absolute inset-0 w-full text-black"
                                                     :style="{
                                                         transform: 'scale(.45)',
@@ -162,9 +165,10 @@ export default defineComponent({
                                     noKeyboard ? '' : 'h-full',
                                 ]"
                             >
-                                <div class="flex items-end space-x-4 px-2">
+                                <div class="flex items-end space-x-2 px-2">
                                     <span class="inline-flex h-full items-end font-light text-gray-500">
-                                        <camera
+                                        <Icon
+                                            name="heroicons-outline:camera"
                                             class="p-1"
                                             :style="{
                                                 height: 34,
