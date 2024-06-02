@@ -22,23 +22,23 @@ const shareUrl = '/api/prompt?q=test'
 
 <template>
     <div
-        class="builder-device-wrapper max-w-sm w-full border border-blue-500"
+        class="builder-device-wrapper max-w-sm w-full"
         :style="{
             width: defaultMockupWidth,
         }"
     >
         <div
-            class="builder-device-ratio relative border border-red-500"
+            class="builder-device-ratio relative"
             :style="{
                 aspectRatio: 1 / defaultMockupRatio,
             }"
         >
             <div
-                class="builder-device-outer absolute inset-0 border-3 overflow-hidden shadow-2xl p-5 border border-yellow-500"
+                class="builder-device-outer absolute inset-0 border border-3 border-gray-300 overflow-hidden shadow-2xl p-5"
                 style="border-radius: 30px;"
             >
                 <div
-                    class="builder-device-inner w-full h-full shadow-2xl overflow-hidden pb-8 border border-purple-500"
+                    class="builder-device-inner w-full h-full shadow-2xl overflow-hidden pb-8"
                 >
                     <div class="builder-device-background relative w-full h-full">
                         <div class="builder-device-top-bar w-full text-xs font-semibold flex justify-between rounded-t-lg py-2 px-4">
