@@ -1,7 +1,7 @@
 <script setup type="ts">
 // import { onMounted } from 'vue'
 
-defineEmits(['update:recipient', 'update:body'])
+defineEmits(['update:body'])
 
 const qrSvg = 'test'
 const body = 'test'
