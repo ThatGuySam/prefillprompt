@@ -1,10 +1,9 @@
 <script setup type="ts">
-// import { onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 defineEmits(['update:body'])
 
 const qrSvg = 'test'
-const body = 'test'
 const isAtCopyUrl = false
 const canWebShare = false
 const noKeyboard = true
@@ -12,12 +11,22 @@ const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
 const shareUrl = '/api/prompt?q=test'
 
-const hasAnyInput = computed(() => body.trim().length > 0)
+const promptInput = ref(null)
+const body = ref('')
 
-// onMounted(async () => {
-//     const apiResponse = await fetch('/api/prompt?q=hello')
-//     console.log(await apiResponse.json())
-// })
+const hasAnyInput = computed(() => {
+    return body.value?.trim().length > 0
+})
+
+onMounted(() => {
+    // nextTick(() => {
+    //     // Auto focus on the content editable
+    //     if (promptInput.value) {
+    //         console.log('promptInput', promptInput.value.focus)
+    //     // this.$refs[promptInput].value.focus()
+    //     }
+    // })
+})
 </script>
 
 <template>
@@ -169,19 +178,19 @@ const hasAnyInput = computed(() => body.trim().length > 0)
                                             'border-radius': '1em',
                                         }"
                                     >
-                                        <!-- We use v-once so that out text cursor doesn't reset on keypress since we're in a contenteditable span -->
-                                        <span
-                                            v-once
-                                            id="body"
+                                        <ContentEditable
+                                            ref="promptInput"
+                                            v-model="body"
                                             contenteditable
+                                            autofocus
+                                            tag="span"
                                             role="textbox"
                                             type="text"
                                             name="body"
                                             aria-label="Message Body"
                                             class="outline-none block text-left w-full border-0 px-4"
                                             placeholder=""
-                                            @input="$emit('update:body', $event.target.textContent)"
-                                        >{{ body }}</span>
+                                        />
 
                                         <span class="inline-flex h-full items-end font-light text-gray-500">
                                             <svg
