@@ -6,8 +6,11 @@ import { getSiteHost } from '~/lib/utils'
 
 defineEmits(['update:body'])
 
+// Docs - https://vueuse.org/core/useClipboard/
 const { copy } = useClipboard()
+// Docs - https://vueuse.org/core/useShare/
 const shareApi = useShare()
+// Docs - https://ui.nuxt.com/components/notification#usage
 const toast = useToast()
 
 const isAtCopyUrl = false
