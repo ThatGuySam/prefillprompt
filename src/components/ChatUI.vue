@@ -23,7 +23,7 @@ const hasAnyInput = computed(() => {
     return body.value?.trim().length > 0
 })
 const shareUrl = computed(() => {
-    return `${getSiteHost()}/api/prompt?q=${body.value}`
+    return `${getSiteHost() || ''}/api/prompt?q=${body.value}`
 })
 
 function copyShareUrl() {

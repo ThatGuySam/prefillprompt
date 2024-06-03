@@ -1,9 +1,9 @@
-export function getSiteHost() {
-    const hasWindow = typeof window !== 'undefined'
+import { hasWindow } from 'std-env'
 
+export function getSiteHost() {
     if (!hasWindow && window?.location?.href?.length > 2) {
         return window.location.href
     }
 
-    return 'http://localhost:3000'
+    return undefined
 }
