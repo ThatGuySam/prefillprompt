@@ -8,6 +8,12 @@ dependencies:
   '@nuxt/ui':
     specifier: ^2.16.0
     version: 2.16.0(nuxt@3.11.2)(vite@5.2.12)(vue@3.4.27)
+  '@vueuse/core':
+    specifier: ^10.10.0
+    version: 10.10.0(vue@3.4.27)
+  '@vueuse/nuxt':
+    specifier: ^10.10.0
+    version: 10.10.0(nuxt@3.11.2)(vue@3.4.27)
   nuxt:
     specifier: ^3.11.2
     version: 3.11.2(@opentelemetry/api@1.8.0)(@unocss/reset@0.60.4)(eslint@9.4.0)(floating-vue@5.2.2)(typescript@5.4.5)(unocss@0.60.4)(vite@5.2.12)(vue-tsc@1.8.27)
@@ -3119,6 +3125,24 @@ packages:
 
   /@vueuse/metadata@10.10.0:
     resolution: {integrity: sha512-UNAo2sTCAW5ge6OErPEHb5z7NEAg3XcO9Cj7OK45aZXfLLH1QkexDcZD77HBi5zvEiLOm1An+p/4b5K3Worpug==}
+    dev: false
+
+  /@vueuse/nuxt@10.10.0(nuxt@3.11.2)(vue@3.4.27):
+    resolution: {integrity: sha512-l8uFNuFASmcjPEaKAbigUrQZDtVQ9wRTfbuIBEpr3oAGnYtXGwBoQqYGnZopUR1Kdh8qiurpKuwvzVQnrzDjyw==}
+    peerDependencies:
+      nuxt: ^3.0.0
+    dependencies:
+      '@nuxt/kit': 3.11.2
+      '@vueuse/core': 10.10.0(vue@3.4.27)
+      '@vueuse/metadata': 10.10.0
+      local-pkg: 0.5.0
+      nuxt: 3.11.2(@opentelemetry/api@1.8.0)(@unocss/reset@0.60.4)(eslint@9.4.0)(floating-vue@5.2.2)(typescript@5.4.5)(unocss@0.60.4)(vite@5.2.12)(vue-tsc@1.8.27)
+      vue-demi: 0.14.8(vue@3.4.27)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - vue
     dev: false
 
   /@vueuse/shared@10.10.0(vue@3.4.27):
