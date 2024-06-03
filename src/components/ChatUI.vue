@@ -19,15 +19,26 @@ const defaultMockupRatio = 1.6
 const promptInput = ref(null)
 const body = ref('')
 
+function getPromptUrl() {
+    const host = window?.location?.host
+    const protocol = host?.includes('localhost') ? 'http' : 'https'
+
+    return `${protocol}://${host}/api/prompt?q=${body.value}`
+}
+
 const hasAnyInput = computed(() => {
     return body.value?.trim().length > 0
 })
-const shareUrl = computed(() => {
-    return `${getSiteHost() || ''}/api/prompt?q=${body.value}`
+const promptUrl = computed(() => {
+    return getPromptUrl()
 })
 
-function copyShareUrl() {
-    copy(shareUrl.value)
+function copyPromptUrl() {
+    if (!process.client) {
+        throw new Error('This function can only be called on the client side')
+    }
+
+    copy(getPromptUrl())
 
     toast.add({
         title: 'Copied!',
@@ -41,7 +52,7 @@ function webShare() {
     shareApi.share({
         title: 'Share Prompt',
         text: 'Check out this Prompt',
-        url: shareUrl.value,
+        url: promptUrl.value,
     })
 }
 
@@ -49,7 +60,7 @@ const shareMethods = [
     {
         name: 'Copy',
         icon: 'i-heroicons-link',
-        action: copyShareUrl,
+        action: copyPromptUrl,
     },
     // {
     //     name: 'QR Code',
@@ -126,7 +137,7 @@ onMounted(() => {
                                     <div class="font-medium text-center">
                                         PrefillPrompt
                                     </div>
-                                    <a :href="shareUrl" target="_blank">
+                                    <a :href="promptUrl" target="_blank">
                                         <Icon
                                             name="heroicons-outline:pencil-alt"
                                             size="24"
@@ -175,7 +186,7 @@ onMounted(() => {
                                             v-else
                                             class="flex gap-2 text-xs text-center"
                                         >
-                                            <a :href="shareUrl" class="text-blue-500" target="_blank">
+                                            <a :href="promptUrl" class="text-blue-500" target="_blank">
                                                 <button class="border border-blue-500 rounded px-2 py-1">Test Link</button>
                                             </a>
 
