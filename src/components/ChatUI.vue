@@ -5,6 +5,7 @@ import { useClipboard } from '@vueuse/core'
 defineEmits(['update:body'])
 
 const { copy } = useClipboard()
+const shareApi = useShare()
 const toast = useToast()
 
 const isAtCopyUrl = false
@@ -34,6 +35,14 @@ function copyShareUrl() {
     })
 }
 
+function webShare() {
+    shareApi.share({
+        title: 'Share Prompt',
+        text: 'Check out this Prompt',
+        url: shareUrl.value,
+    })
+}
+
 const shareMethods = [
     {
         name: 'Copy',
@@ -45,12 +54,15 @@ const shareMethods = [
     //     icon: 'heroicons-outline:qrcode',
     //     action: 'qr',
     // // },
-    // {
-    //     name: 'Share',
-    //     icon: 'i-heroicons-share',
-    //     action: 'web-share',
-    // },
 ]
+
+if (shareApi.isSupported) {
+    shareMethods.push({
+        name: 'Prompt',
+        icon: 'i-heroicons-arrow-up-on-square',
+        action: webShare,
+    })
+}
 
 onMounted(() => {
     // nextTick(() => {
@@ -141,7 +153,7 @@ onMounted(() => {
                                                     padded
                                                     square
                                                     color="white"
-                                                    class="scale-150 p-4"
+                                                    class="scale-150 p-4 mx-4"
                                                     @click="method.action"
                                                 />
                                             </template>
