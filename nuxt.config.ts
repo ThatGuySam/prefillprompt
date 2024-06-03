@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         'nuxt-icon',
         '@vueuse/nuxt',
     ],
+    // Render modes - https://nuxt.com/docs/guide/concepts/rendering#hybrid-rendering
     routeRules: {
         // Homepage pre-rendered at build time
         '/': { ssr: false },
