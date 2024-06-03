@@ -1,15 +1,17 @@
 <script setup type="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useClipboard } from '@vueuse/core'
 
 defineEmits(['update:body'])
 
-const qrSvg = 'test'
+const { copy } = useClipboard()
+const toast = useToast()
+
 const isAtCopyUrl = false
 const canWebShare = false
 const noKeyboard = true
 const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
-const shareUrl = '/api/prompt?q=test'
 
 const promptInput = ref(null)
 const body = ref('')
@@ -17,6 +19,38 @@ const body = ref('')
 const hasAnyInput = computed(() => {
     return body.value?.trim().length > 0
 })
+const shareUrl = computed(() => {
+    return `/api/prompt?q=${body.value}`
+})
+
+function copyShareUrl() {
+    copy(shareUrl.value)
+
+    toast.add({
+        title: 'Copied!',
+        description: 'The Prompt URL has been copied to your clipboard.',
+        status: 'success',
+        duration: 2000,
+    })
+}
+
+const shareMethods = [
+    {
+        name: 'Copy',
+        icon: 'i-heroicons-link',
+        action: copyShareUrl,
+    },
+    // {
+    //     name: 'QR Code',
+    //     icon: 'heroicons-outline:qrcode',
+    //     action: 'qr',
+    // // },
+    // {
+    //     name: 'Share',
+    //     icon: 'i-heroicons-share',
+    //     action: 'web-share',
+    // },
+]
 
 onMounted(() => {
     // nextTick(() => {
@@ -98,32 +132,19 @@ onMounted(() => {
                                             >
                                                 Type a Prompt you want to share
                                             </div>
-                                            <div
-                                                class="relative rounded overflow-hidden transition-opacity duration-200 ease-in-out"
-                                                :style="{
-                                                    opacity: Number(hasAnyInput),
-                                                }"
-                                                v-html="qrSvg"
-                                            />
-                                            <div
-                                                class="camera-container absolute left-1/5 top-1/5 translate-x-1/2 translate-y-1/2 transition-opacity duration-200 ease-in-out"
-                                                :style="{
-                                                    height: '31%',
-                                                    width: '31%',
-                                                    opacity: Number(hasAnyInput),
-                                                }"
-                                            >
-                                                <Icon
-                                                    name="heroicons-outline:camera"
+                                            <template v-if="hasAnyInput">
+                                                <UButton
+                                                    v-for="method in shareMethods"
+                                                    :key="method.action"
+                                                    :icon="method.icon"
+                                                    size="xl"
+                                                    class="p-6"
+                                                    square
                                                     color="white"
-                                                    size="24"
-                                                    class="absolute inset-0 w-full text-black"
-                                                    :style="{
-                                                        transform: 'scale(.45)',
-                                                        transformOrigin: 'center',
-                                                    }"
+                                                    variant="solid"
+                                                    @click="method.action"
                                                 />
-                                            </div>
+                                            </template>
                                         </div>
                                     </div>
 
