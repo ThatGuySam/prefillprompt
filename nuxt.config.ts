@@ -7,4 +7,8 @@ export default defineNuxtConfig({
         'nuxt-icon',
         '@vueuse/nuxt',
     ],
+    routeRules: {
+        // Homepage pre-rendered at build time
+        '/': { ssr: false },
+    },
 })
