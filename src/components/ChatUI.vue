@@ -2,6 +2,8 @@
 import { computed, onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 
+import { getSiteHost } from '~/lib/utils'
+
 defineEmits(['update:body'])
 
 const { copy } = useClipboard()
@@ -21,7 +23,7 @@ const hasAnyInput = computed(() => {
     return body.value?.trim().length > 0
 })
 const shareUrl = computed(() => {
-    return `/api/prompt?q=${body.value}`
+    return `${getSiteHost()}/api/prompt?q=${body.value}`
 })
 
 function copyShareUrl() {
