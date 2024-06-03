@@ -78,7 +78,7 @@ onMounted(() => {
                                     <div class="font-medium text-center">
                                         PrefillPrompt
                                     </div>
-                                    <a :href="shareUrl">
+                                    <a :href="shareUrl" target="_blank">
                                         <Icon
                                             name="heroicons-outline:pencil-alt"
                                             size="24"
@@ -140,7 +140,7 @@ onMounted(() => {
                                             v-else
                                             class="flex gap-2 text-xs text-center"
                                         >
-                                            <a :href="shareUrl" class="text-blue-500">
+                                            <a :href="shareUrl" class="text-blue-500" target="_blank">
                                                 <button class="border border-blue-500 rounded px-2 py-1">Test Link</button>
                                             </a>
 
