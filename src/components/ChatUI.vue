@@ -138,10 +138,10 @@ onMounted(() => {
                                                     :key="method.action"
                                                     :icon="method.icon"
                                                     size="xl"
-                                                    class="p-6"
+                                                    padded
                                                     square
                                                     color="white"
-                                                    variant="solid"
+                                                    class="scale-150 p-4"
                                                     @click="method.action"
                                                 />
                                             </template>
