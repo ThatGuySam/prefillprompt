@@ -26,5 +26,24 @@ export default defineEventHandler(async (event) => {
         return
     }
 
+    // Claude URL API
+    if (modelName === 'claude') {
+        await sendRedirect(
+            event,
+            `https://claude.ai/new?q=${encodeURIComponent(promptText)}`,
+            UNCACHED_REDIRECT_CODE,
+        )
+        return
+    }
+
+    if (modelName === 'perplexity') {
+        await sendRedirect(
+            event,
+            `https://www.perplexity.ai/search?q=${encodeURIComponent(promptText)}`,
+            UNCACHED_REDIRECT_CODE,
+        )
+        return
+    }
+
     throw new Error(`Model ${modelName} is not yet supported`)
 })
