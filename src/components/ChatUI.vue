@@ -2,8 +2,6 @@
 import { computed, onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 
-import { getSiteHost } from '~/lib/utils'
-
 defineEmits(['update:body'])
 
 // Docs - https://vueuse.org/core/useClipboard/
