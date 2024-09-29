@@ -1,11 +1,15 @@
 {
     "cSpell.words": [
         "antfu",
+        "arcticons",
         "contenteditable",
         "heroicons",
+        "Icones",
         "nuxt",
         "Nuxt",
+        "openai",
         "prefillprompt",
+        "qrcode",
         "vueuse"
     ],
     // Enable the ESlint flat config support
