@@ -116,7 +116,7 @@ onMounted(() => {
                             </div>
 
                             <div class="network">
-                                5G
+                                6G
                             </div>
                         </div>
 
