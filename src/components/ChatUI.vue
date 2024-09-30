@@ -1,7 +1,7 @@
 <script setup type="ts" lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
-import type { Writeable } from 'type-fest'
+import qs from 'qs'
 
 defineEmits(['update:body'])
 
@@ -41,11 +41,19 @@ function getPromptUrl() {
     const host = window?.location?.host
     const protocol = host?.includes('localhost') ? 'http' : 'https'
 
-    const params = new URLSearchParams()
-    params.append('q', body.value)
-    params.append('m', selectedModelId.value)
+    // We want to use the qs package instead of native URLSearchParams
+    // because it uses %20 instead of + for spaces
+    // Qualtrics uses %20
+    const encodedParams = qs.stringify({
+        q: body.value,
+        m: selectedModelId.value,
+    })
 
-    return `${protocol}://${host}/api/prompt?${params.toString()}`
+    // const params = new URLSearchParams()
+    // params.append('q', body.value)
+    // params.append('m', selectedModelId.value)
+
+    return `${protocol}://${host}/api/prompt?${encodedParams}`
 }
 
 const hasAnyInput = computed(() => {
