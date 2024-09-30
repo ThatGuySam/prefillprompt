@@ -222,12 +222,14 @@ onMounted(() => {
                                                 <span class="truncate">{{ model.label }}</span>
                                             </template>
                                             <!-- Default slot to customize options -->
-                                            <!-- <template #default="model">
-                                                <div class="flex items-center space-x-2">
-                                                    <UIcon :name="model" class="w-5 h-5" />
-                                                    Test
+                                            <template #default>
+                                                <div class="w-32 flex items-center space-x-2">
+                                                    <Icon
+                                                        :name="selectedModel.icon"
+                                                        size="16"
+                                                    />
                                                 </div>
-                                            </template> -->
+                                            </template>
                                         </USelectMenu>
                                         <div
                                             class="flex gap-2 text-xs text-center"
