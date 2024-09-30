@@ -1,6 +1,7 @@
-<script setup type="ts">
+<script setup type="ts" lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
+import type { Writeable } from 'type-fest'
 
 defineEmits(['update:body'])
 
@@ -11,20 +12,40 @@ const shareApi = useShare()
 // Docs - https://ui.nuxt.com/components/notification#usage
 const toast = useToast()
 
-const isAtCopyUrl = false
-const canWebShare = false
 const noKeyboard = true
 const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
 
+// Define the models with their icons
+// Icones - https://icones.js.org/
+const initialModels = [
+    { id: 'chatgpt', label: 'ChatGPT', icon: 'simple-icons:openai' },
+    { id: 'claude', label: 'Claude', icon: 'simple-icons:anthropic' },
+    { id: 'perplexity', label: 'Perplexity', icon: 'simple-icons:perplexity' },
+] as const
+
+type ModelOption = typeof initialModels[number]
+
+const models = ref([...initialModels])
+
 const promptInput = ref(null)
 const body = ref('')
+
+/** Selected model */
+const selectedModelId = ref<ModelOption['id']>('chatgpt')
+const selectedModel = computed(() =>
+    models.value.find(model => model.id === selectedModelId.value),
+)
 
 function getPromptUrl() {
     const host = window?.location?.host
     const protocol = host?.includes('localhost') ? 'http' : 'https'
 
-    return `${protocol}://${host}/api/prompt?q=${body.value}`
+    const params = new URLSearchParams()
+    params.append('q', body.value)
+    params.append('m', selectedModelId.value)
+
+    return `${protocol}://${host}/api/prompt?${params.toString()}`
 }
 
 const hasAnyInput = computed(() => {
@@ -44,8 +65,8 @@ function copyPromptUrl() {
     toast.add({
         title: 'Copied!',
         description: 'The Prompt URL has been copied to your clipboard.',
-        status: 'success',
-        duration: 2000,
+        // status: 'success',
+        timeout: 2000,
     })
 }
 
@@ -161,7 +182,7 @@ onMounted(() => {
                                             <template v-if="hasAnyInput">
                                                 <UButton
                                                     v-for="method in shareMethods"
-                                                    :key="method.action"
+                                                    :key="method.name"
                                                     :icon="method.icon"
                                                     size="xl"
                                                     padded
@@ -180,24 +201,40 @@ onMounted(() => {
                                             opacity: Number(hasAnyInput),
                                         }"
                                     >
-                                        <div v-if="isAtCopyUrl">
-                                            Scan to copy
-                                        </div>
+                                        <USelectMenu
+                                            v-if="selectedModel"
+                                            v-model="selectedModelId"
+                                            :options="models"
+                                            value-attribute="id"
+                                        >
+                                            <!-- Leading slot to show only the icon when closed -->
+                                            <template #leading>
+                                                <Icon
+                                                    :name="selectedModel.icon"
+                                                    size="16"
+                                                />
+                                            </template>
+                                            <template #option="{ option: model }">
+                                                <Icon
+                                                    :name="model.icon"
+                                                    size="16"
+                                                />
+                                                <span class="truncate">{{ model.label }}</span>
+                                            </template>
+                                            <!-- Default slot to customize options -->
+                                            <!-- <template #default="model">
+                                                <div class="flex items-center space-x-2">
+                                                    <UIcon :name="model" class="w-5 h-5" />
+                                                    Test
+                                                </div>
+                                            </template> -->
+                                        </USelectMenu>
                                         <div
-                                            v-else
                                             class="flex gap-2 text-xs text-center"
                                         >
                                             <a :href="promptUrl" class="text-blue-500" target="_blank">
                                                 <button class="border border-blue-500 rounded px-2 py-1">Test Link</button>
                                             </a>
-
-                                            <button
-                                                v-if="canWebShare"
-                                                class="border text-blue-500 border-blue-500 rounded px-2 py-1"
-                                                @click="share"
-                                            >
-                                                Save
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
