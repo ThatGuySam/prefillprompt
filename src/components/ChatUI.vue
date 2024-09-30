@@ -201,36 +201,6 @@ onMounted(() => {
                                             opacity: Number(hasAnyInput),
                                         }"
                                     >
-                                        <USelectMenu
-                                            v-if="selectedModel"
-                                            v-model="selectedModelId"
-                                            :options="models"
-                                            value-attribute="id"
-                                        >
-                                            <!-- Leading slot to show only the icon when closed -->
-                                            <template #leading>
-                                                <Icon
-                                                    :name="selectedModel.icon"
-                                                    size="16"
-                                                />
-                                            </template>
-                                            <template #option="{ option: model }">
-                                                <Icon
-                                                    :name="model.icon"
-                                                    size="16"
-                                                />
-                                                <span class="truncate">{{ model.label }}</span>
-                                            </template>
-                                            <!-- Default slot to customize options -->
-                                            <template #default>
-                                                <div class="w-32 flex items-center space-x-2">
-                                                    <Icon
-                                                        :name="selectedModel.icon"
-                                                        size="16"
-                                                    />
-                                                </div>
-                                            </template>
-                                        </USelectMenu>
                                         <div
                                             class="flex gap-2 text-xs text-center"
                                         >
@@ -247,19 +217,40 @@ onMounted(() => {
                                     noKeyboard ? '' : 'h-full',
                                 ]"
                             >
-                                <div class="flex items-end space-x-2 px-2">
-                                    <span class="inline-flex h-full items-end font-light text-gray-500">
-                                        <Icon
-                                            name="heroicons-outline:camera"
-                                            class="p-1"
-                                            :style="{
-                                                height: 34,
-                                                width: 34,
-                                            }"
-                                        />
-                                    </span>
+                                <div class="flex items-end space-x-2 px-2 pl-7">
+                                    <USelectMenu
+                                        v-if="selectedModel"
+                                        v-model="selectedModelId"
+                                        :options="models"
+                                        value-attribute="id"
+                                        class="absolute left-0 py-1"
+                                    >
+                                        <!-- Leading slot to show only the icon when closed -->
+                                        <template #leading>
+                                            <Icon
+                                                :name="selectedModel.icon"
+                                                size="16"
+                                            />
+                                        </template>
+                                        <template #option="{ option: model }">
+                                            <Icon
+                                                :name="model.icon"
+                                                size="16"
+                                            />
+                                            <span class="truncate">{{ model.label }}</span>
+                                        </template>
+                                        <!-- Default slot to customize options -->
+                                        <template #default>
+                                            <div class="w-32 flex items-center space-x-2">
+                                                <Icon
+                                                    :name="selectedModel.icon"
+                                                    size="24"
+                                                />
+                                            </div>
+                                        </template>
+                                    </USelectMenu>
                                     <div
-                                        class="flex items-center w-full border border-gray-700 overflow-hidden"
+                                        class="flex items-center w-full border relative border-gray-700 overflow-hidden"
                                         :style="{
                                             'border-radius': '1em',
                                         }"
