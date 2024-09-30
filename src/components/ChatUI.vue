@@ -217,13 +217,13 @@ onMounted(() => {
                                     noKeyboard ? '' : 'h-full',
                                 ]"
                             >
-                                <div class="flex items-end space-x-2 px-2 pl-7">
+                                <div class="flex items-end space-x-2 px-2 pl-9">
                                     <USelectMenu
                                         v-if="selectedModel"
                                         v-model="selectedModelId"
                                         :options="models"
                                         value-attribute="id"
-                                        class="absolute left-0 py-1"
+                                        class="absolute left-0 py-1 px-2"
                                     >
                                         <!-- Leading slot to show only the icon when closed -->
                                         <template #leading>
