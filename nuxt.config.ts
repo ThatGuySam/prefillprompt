@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     srcDir: 'src/',
     modules: [
         '@nuxt/ui',
-        'nuxt-icon',
         '@vueuse/nuxt',
     ],
     // Render modes - https://nuxt.com/docs/guide/concepts/rendering#hybrid-rendering
