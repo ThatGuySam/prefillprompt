@@ -26,6 +26,8 @@
     },
     "devDependencies": {
         "@antfu/eslint-config": "^2.20.0",
+        "@types/eslint": "~9.6.1",
+        "@types/qs": "~6.9.16",
         "eslint": "9.4.0",
         "typescript": "^5.4.5",
         "vue-tsc": "^1"
