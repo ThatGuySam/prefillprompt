@@ -1,6 +1,6 @@
 <script setup type="ts" lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { useClipboard } from '@vueuse/core'
+import { useClipboard, useStorage } from '@vueuse/core'
 import qs from 'qs'
 
 defineEmits(['update:body'])
@@ -32,7 +32,7 @@ const promptInput = ref(null)
 const body = ref('')
 
 /** Selected model */
-const selectedModelId = ref<ModelOption['id']>('chatgpt')
+const selectedModelId = useStorage<ModelOption['id']>('selectedModelId', 'chatgpt')
 const selectedModel = computed(() =>
     models.value.find(model => model.id === selectedModelId.value),
 )
