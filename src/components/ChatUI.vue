@@ -159,7 +159,7 @@ onMounted(() => {
                                         'flex flex-row justify-between items-center',
                                     ]"
                                 >
-                                    <Icon
+                                    <UIcon
                                         name="heroicons-outline:menu"
                                         size="24"
                                         opacity="0.5"
@@ -168,7 +168,7 @@ onMounted(() => {
                                         PrefillPrompt
                                     </div>
                                     <a :href="promptUrl" target="_blank">
-                                        <Icon
+                                        <UIcon
                                             name="heroicons-outline:pencil-alt"
                                             size="24"
                                             :opacity="hasAnyInput ? 1 : 0.5"
@@ -235,13 +235,13 @@ onMounted(() => {
                                     >
                                         <!-- Leading slot to show only the icon when closed -->
                                         <template #leading>
-                                            <Icon
+                                            <UIcon
                                                 :name="selectedModel.icon"
                                                 size="16"
                                             />
                                         </template>
                                         <template #option="{ option: model }">
-                                            <Icon
+                                            <UIcon
                                                 :name="model.icon"
                                                 size="16"
                                             />
@@ -250,7 +250,7 @@ onMounted(() => {
                                         <!-- Default slot to customize options -->
                                         <template #default>
                                             <div class="w-32 flex items-center space-x-2">
-                                                <Icon
+                                                <UIcon
                                                     :name="selectedModel.icon"
                                                     size="24"
                                                 />
