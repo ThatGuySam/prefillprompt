@@ -2,8 +2,9 @@
 
 PrefillPrompt is a web application that generates prompt links to prefill the first message of an LLM conversation. This tool is useful for streamlining and standardizing the initial user interaction with your LLM. 
 
-<img src="https://github.com/user-attachments/assets/aa52c8e6-5ad7-4370-b40b-b89b95bff19b" width="24em">
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/aa52c8e6-5ad7-4370-b40b-b89b95bff19b" width="360">
+</p>
 
 
 ## Features
