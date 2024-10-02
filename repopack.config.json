@@ -1,0 +1,19 @@
+{
+    "output": {
+        "filePath": "prefillprompt.context.xml",
+        "style": "xml",
+        "removeComments": false,
+        "removeEmptyLines": true,
+        "topFilesLength": 5,
+        "showLineNumbers": false
+    },
+    "include": [],
+    "ignore": {
+        "useGitignore": true,
+        "useDefaultPatterns": true,
+        "customPatterns": []
+    },
+    "security": {
+        "enableSecurityCheck": true
+    }
+}
