@@ -9,6 +9,7 @@ export default antfu(
         stylistic: {
             indent: DEFAULT_SPACE_INDENT,
         },
+        ignores: ['**/*.y*ml'],
     },
     {
         // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
