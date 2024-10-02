@@ -3,6 +3,12 @@
         <nav class="absolute inset-x-0 top-0 w-full h-16 flex justify-end items-center px-4">
             <!-- End Nav -->
             <div class="flex items-center space-x-4">
+                <!-- Help -->
+                <a
+                    href="https://github.com/ThatGuySam/prefillprompt/issues"
+                    target="_blank"
+                    class="hover:text-gray-300 text-gray-400"
+                >Help</a>
                 <!-- GitHub Repo -->
                 <a
                     href="https://github.com/ThatGuySam/prefillprompt"
