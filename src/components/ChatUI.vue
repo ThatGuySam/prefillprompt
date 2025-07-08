@@ -3,6 +3,8 @@ import { computed, onMounted, ref } from 'vue'
 import { useClipboard, useStorage } from '@vueuse/core'
 import qs from 'qs'
 
+import { models as initialModels } from '~/lib/models'
+
 defineEmits(['update:body'])
 
 // Docs - https://vueuse.org/core/useClipboard/
@@ -15,14 +17,6 @@ const toast = useToast()
 const noKeyboard = true
 const defaultMockupWidth = 375
 const defaultMockupRatio = 1.6
-
-// Define the models with their icons
-// Icones - https://icones.js.org/
-const initialModels = [
-    { id: 'chatgpt', label: 'ChatGPT', icon: 'simple-icons:openai' },
-    { id: 'claude', label: 'Claude', icon: 'simple-icons:anthropic' },
-    { id: 'perplexity', label: 'Perplexity', icon: 'simple-icons:perplexity' },
-] as const
 
 type ModelOption = typeof initialModels[number]
 
