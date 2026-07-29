@@ -18,4 +18,10 @@ export default antfu(
             'vue/prefer-separate-static-class': 'off',
         },
     },
+    {
+        files: ['test/**/*.ts'],
+        rules: {
+            'test/no-import-node-test': 'off',
+        },
+    },
 )

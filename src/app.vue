@@ -1,23 +1,34 @@
+<script setup lang="ts">
+useHead({
+    htmlAttrs: {
+        lang: 'en',
+    },
+    link: [
+        { rel: 'canonical', href: 'https://prefillprompt.com/' },
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+    ],
+    meta: [
+        { name: 'theme-color', content: '#0b2f6b' },
+    ],
+})
+
+useSeoMeta({
+    title: 'PrefillPrompt — One prompt, any AI',
+    description: 'Create one-click prompt links for ChatGPT, Claude, Gemini, and Perplexity. Share them as a URL, Markdown button, or QR code.',
+    ogTitle: 'PrefillPrompt — One prompt, any AI',
+    ogDescription: 'Create one-click prompt links for ChatGPT, Claude, Gemini, and Perplexity.',
+    ogImage: 'https://prefillprompt.com/og-prefillprompt.png',
+    ogImageAlt: 'One prompt branching into four AI chat destinations',
+    ogType: 'website',
+    ogUrl: 'https://prefillprompt.com/',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'PrefillPrompt — One prompt, any AI',
+    twitterDescription: 'Create one-click prompt links for ChatGPT, Claude, Gemini, and Perplexity.',
+    twitterImage: 'https://prefillprompt.com/og-prefillprompt.png',
+})
+</script>
+
 <template>
-    <div class="dark:bg-gray-900 min-h-screen flex flex-col justify-center items-center">
-        <nav class="absolute inset-x-0 top-0 w-full h-16 flex justify-end items-center px-4">
-            <!-- End Nav -->
-            <div class="flex items-center space-x-4">
-                <!-- Help -->
-                <a
-                    href="https://github.com/ThatGuySam/prefillprompt/issues"
-                    target="_blank"
-                    class="hover:text-gray-300 text-gray-400"
-                >Help</a>
-                <!-- GitHub Repo -->
-                <a
-                    href="https://github.com/ThatGuySam/prefillprompt"
-                    target="_blank"
-                    class="hover:text-gray-300 text-gray-400"
-                >GitHub</a>
-            </div>
-        </nav>
-        <ChatUI />
-    </div>
-    <UNotifications />
+    <NuxtPage />
 </template>

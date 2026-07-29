@@ -1,0 +1,16 @@
+{
+  "name": "PrefillPrompt",
+  "short_name": "PrefillPrompt",
+  "description": "Create one-click prompt links for ChatGPT, Claude, Gemini, and Perplexity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffdf8",
+  "theme_color": "#0b2f6b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

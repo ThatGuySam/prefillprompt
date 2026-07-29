@@ -1,49 +1,61 @@
-import assert from 'node:assert'
-import { isModel } from '~/lib/utils'
+import {
+    buildProviderUrl,
+    isProviderId,
+    MAX_PROMPT_LENGTH,
+    parseBooleanParam,
+    resolveProvider,
+} from '~/lib/prompt-links'
 
 const UNCACHED_REDIRECT_CODE = 307
 
+function firstString(value: unknown) {
+    return typeof value === 'string' ? value : undefined
+}
+
 export default defineEventHandler(async (event) => {
-    const {
-        q: promptText,
-        m: modelName = 'chatgpt',
-    } = getQuery(event)
+    const query = getQuery(event)
+    const prompt = firstString(query.q)
+    const requestedProvider = firstString(query.s) ?? firstString(query.m)
+    const model = firstString(query.model)
 
-    assert(typeof promptText === 'string', 'Expected prompt text to be a string')
-    assert(promptText.length > 0, 'Expected prompt text to be non-empty')
+    setResponseHeaders(event, {
+        'Cache-Control': 'private, no-store',
+        'Referrer-Policy': 'no-referrer',
+        'X-Robots-Tag': 'noindex, nofollow',
+    })
 
-    // Assert the model name is valid
-    assert(isModel(modelName), `Invalid model name: ${modelName}`)
-
-    console.log(`Received query: `, promptText)
-
-    if (modelName === 'chatgpt') {
-        await sendRedirect(
-            event,
-            `https://chat.openai.com?q=${encodeURIComponent(promptText)}`,
-            UNCACHED_REDIRECT_CODE,
-        )
-        return
+    if (!prompt?.trim()) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Prompt is required',
+            data: { code: 'PROMPT_REQUIRED' },
+        })
     }
 
-    // Claude URL API
-    if (modelName === 'claude') {
-        await sendRedirect(
-            event,
-            `https://claude.ai/new?q=${encodeURIComponent(promptText)}`,
-            UNCACHED_REDIRECT_CODE,
-        )
-        return
+    if (prompt.length > MAX_PROMPT_LENGTH) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: `Prompt must be ${MAX_PROMPT_LENGTH.toLocaleString()} characters or fewer`,
+            data: { code: 'PROMPT_TOO_LONG' },
+        })
     }
 
-    if (modelName === 'perplexity') {
-        await sendRedirect(
-            event,
-            `https://www.perplexity.ai/search?q=${encodeURIComponent(promptText)}`,
-            UNCACHED_REDIRECT_CODE,
-        )
-        return
+    if (requestedProvider && !isProviderId(requestedProvider)) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: `Unsupported service: ${requestedProvider}`,
+            data: { code: 'UNSUPPORTED_SERVICE' },
+        })
     }
 
-    throw new Error(`Model ${modelName} is not yet supported`)
+    const provider = resolveProvider(requestedProvider, model)
+    const destination = buildProviderUrl({
+        prompt,
+        provider,
+        model,
+        webSearch: parseBooleanParam(query.web),
+        temporary: parseBooleanParam(query.temporary),
+    })
+
+    return sendRedirect(event, destination, UNCACHED_REDIRECT_CODE)
 })
