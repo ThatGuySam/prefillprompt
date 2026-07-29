@@ -1,15 +1,30 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-09-30',
+    compatibilityDate: '2026-07-29',
     devtools: { enabled: false },
     srcDir: 'src/',
-    modules: [
-        '@nuxt/ui',
-        '@vueuse/nuxt',
-    ],
-    // Render modes - https://nuxt.com/docs/guide/concepts/rendering#hybrid-rendering
+    css: ['~/assets/css/main.css'],
     routeRules: {
-        // Homepage pre-rendered at build time
-        '/': { ssr: false },
+        '/': { prerender: true },
+    },
+    nitro: {
+        preset: 'cloudflare-module',
+        prerender: {
+            routes: ['/'],
+            crawlLinks: false,
+        },
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true,
+            wrangler: {
+                name: 'prefillprompt-preview',
+                compatibility_date: '2026-07-29',
+                compatibility_flags: ['nodejs_compat'],
+                workers_dev: true,
+                preview_urls: true,
+                observability: {
+                    enabled: false,
+                },
+            },
+        },
     },
 })

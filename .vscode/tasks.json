@@ -2,41 +2,77 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Start terminals",
-            "dependsOn": [
-                "Dev Tools"
-                // "Tests"
-            ],
+            "label": "PrefillPrompt: Dev",
+            "type": "shell",
+            "command": "pnpm dev",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "group": "prefillprompt",
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "PrefillPrompt: Build",
+            "type": "shell",
+            "command": "pnpm build",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "PrefillPrompt: Build Cloudflare",
+            "type": "shell",
+            "command": "pnpm build:cloudflare",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "PrefillPrompt: Preview Cloudflare",
+            "type": "shell",
+            "command": "pnpm preview",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "group": "prefillprompt",
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "PrefillPrompt: Lint",
+            "type": "shell",
+            "command": "pnpm lint",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "PrefillPrompt: Typecheck",
+            "type": "shell",
+            "command": "pnpm typecheck",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "PrefillPrompt: Test",
+            "type": "shell",
+            "command": "pnpm test",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "PrefillPrompt: Check",
+            "type": "shell",
+            "command": "pnpm check",
             "group": {
-                "kind": "build",
+                "kind": "test",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
         {
-            // The name that shows up in terminal tab
-            "label": "Tests",
-            // The task will launch a shell
+            "label": "PrefillPrompt: Deploy Preview",
             "type": "shell",
-            "command": "pnpm test:watch", // use same name as in package.json
-            // Mark as a background task to avoid the spinner animation on the terminal tab
-            // "isBackground": true,
-            // Create the tasks in a terminal group
-            "presentation": {
-                "group": "dev-default"
-            }
-        },
-        {
-            // The name that shows up in terminal tab
-            "label": "Dev Tools",
-            // The task will launch a shell
-            "type": "shell",
-            "command": "pnpm run dev",
-            // Mark as a background task to avoid the spinner animation on the terminal tab
-            // "isBackground": true,
-            // Create the tasks in a terminal group
-            "presentation": {
-                "group": "dev-default"
-            }
+            "command": "pnpm deploy:preview",
+            "problemMatcher": []
         }
     ]
 }

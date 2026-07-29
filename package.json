@@ -8,30 +8,31 @@
     },
     "scripts": {
         "build": "nuxt build",
+        "build:cloudflare": "nuxt build --preset=cloudflare-module",
+        "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build:cloudflare",
+        "deploy:blue": "pnpm build:cloudflare && wrangler versions upload --preview-alias blue",
+        "deploy:preview": "pnpm build:cloudflare && wrangler versions upload --preview-alias rest-features",
         "dev": "nuxt dev",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
+        "models:update": "node scripts/update-model-catalog.mjs",
+        "postinstall": "nuxt prepare",
+        "preview": "wrangler dev",
+        "test": "node --experimental-strip-types --test test/*.test.ts",
+        "typecheck": "nuxt typecheck"
     },
     "dependencies": {
-        "@nuxt/ui": "^2.16.0",
-        "@vueuse/core": "^10.10.0",
-        "@vueuse/nuxt": "^10.10.0",
         "nuxt": "^3.17.6",
-        "qs": "^6.13.0",
-        "std-env": "^3.7.0",
-        "type-fest": "^4.26.1",
-        "vue": "^3.4.27",
-        "vue-router": "^4.3.2"
+        "qrcode": "^1.5.4",
+        "vue": "^3.4.27"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^2.20.0",
+        "@antfu/eslint-config": "^9.2.0",
         "@types/eslint": "~9.6.1",
-        "@types/qs": "~6.9.16",
-        "eslint": "9.4.0",
-        "typescript": "^5.4.5",
-        "vue-tsc": "^1"
+        "@types/qrcode": "^1.5.6",
+        "eslint": "^10.8.0",
+        "typescript": "~5.8.3",
+        "vue-tsc": "~2.2.10",
+        "wrangler": "^4.115.0"
     }
 }
