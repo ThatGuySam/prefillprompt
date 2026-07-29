@@ -1,23 +1,26 @@
 # PrefillPrompt
 
-PrefillPrompt turns a prompt into a shareable link that opens a new conversation in ChatGPT, Claude, Gemini, or Perplexity. Choose a service, model or mode, then copy the URL, export a Markdown button or QR code, use the native share sheet, or open the result yourself.
+PrefillPrompt turns a prompt into a shareable link for ChatGPT, Claude, Gemini, or Perplexity. Choose an AI and model in one searchable field, write the prompt, then tap the arrow to copy the link.
 
 > [!IMPORTANT]
 > The prompt is part of the URL. Anyone who receives the link—and systems that record URLs—can read it. Do not put secrets or sensitive personal information in a shared prompt.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/aa52c8e6-5ad7-4370-b40b-b89b95bff19b" width="360" alt="PrefillPrompt prompt-link builder">
+  <img src="./docs/screenshots/prefillprompt-rest-features-motion/01-desktop-overview.jpg" width="360" alt="PrefillPrompt iPhone-style prompt-link builder">
 </p>
 
 ## Features
 
 - ChatGPT, Claude, Gemini, and Perplexity destinations
-- Service and model selection, including the stable aliases `latest`, `latest-fast`, and `latest-reasoning`
+- One provider-and-model combobox, searchable by names such as ChatGPT, OpenAI, Claude, Anthropic, Gemini, or an exact model
+- Flexible aliases `latest`, `latest-fast`, and `latest-reasoning`
+- A checked-in model catalog refreshed from OpenRouter through tested weekly pull requests
 - ChatGPT web-search links
 - Experimental temporary or incognito conversation links where the destination supports them
 - Copyable URLs and Markdown buttons
 - QR-code export and native Web Share where the browser supports it
-- Prompt examples and browser-local history
+- Progressively disclosed share formats, conversation options, examples, and browser-local history
+- A reliable copy-and-open Gemini handoff when a public deep link cannot preserve the prompt
 - A stateless Nuxt application deployed with Cloudflare Workers and Static Assets
 
 History and preferences stay in the current browser. PrefillPrompt does not sync them between devices.
@@ -62,6 +65,7 @@ PrefillPrompt launches third-party web applications; those applications do not p
 - The `latest*` aliases intentionally move to the latest known-good mapping. Use an explicit model ID when reproducibility matters.
 - `web` currently targets ChatGPT web search. Other services choose their own search behavior.
 - `temporary` currently maps to ChatGPT Temporary Chat and Claude Incognito. Gemini and Perplexity have no verified URL switch for this mode.
+- Gemini does not publish a dependable third-party prompt-link contract. Gemini links use a one-tap copy-and-open handoff so the prompt is not silently dropped.
 - Gemini and Perplexity do not publish stable URL controls for selecting consumer models or modes, so those destinations may use their account defaults.
 - Temporary or incognito mode is not a privacy guarantee. Confirm the destination UI shows the requested mode before sending sensitive content.
 - The OpenRouter catalog is useful for discovering model names, but it is not authoritative for consumer web-app URL controls. PrefillPrompt does not treat OpenRouter availability as proof that a model can be selected by URL.
@@ -86,10 +90,12 @@ The development server is available at `http://localhost:3000`.
 | `pnpm build:cloudflare` | Build Nuxt for Cloudflare Workers and Static Assets. |
 | `pnpm preview` | Preview the Cloudflare-targeted build locally. |
 | `pnpm lint` | Run ESLint. |
+| `pnpm models:update` | Validate OpenRouter's public endpoint and update the checked-in model catalog when its model set changes. |
 | `pnpm typecheck` | Run Nuxt and Vue TypeScript checks. |
 | `pnpm test` | Run the automated test suite once. |
 | `pnpm check` | Run lint, typecheck, tests, and the Cloudflare build. |
 | `pnpm deploy:preview` | Upload a Cloudflare Worker version and print its preview URL without promoting it to production. |
+| `pnpm deploy:blue` | Build and upload the named blue Cloudflare preview. |
 
 Before sharing a Cloudflare preview:
 
@@ -104,7 +110,9 @@ Review the emitted preview URL, including the homepage and each redirect path, b
 
 - Nuxt renders the responsive prompt builder and browser-local state.
 - A shared provider registry resolves services, models, aliases, and supported modes.
+- The browser bundle reads a generated model catalog; the application does not depend on OpenRouter at runtime.
 - The Nitro `/api/prompt` route validates a link and returns an uncached redirect without storing the prompt.
+- Gemini requests redirect to a first-party clipboard handoff because the consumer app has no documented public prompt-link contract.
 - Cloudflare serves prerendered frontend assets first and invokes the Worker for API routes.
 
 ## Contributing

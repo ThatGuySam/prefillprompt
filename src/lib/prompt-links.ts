@@ -133,13 +133,6 @@ export function buildProviderUrl(options: PromptLinkOptions) {
         }
         case 'gemini': {
             url = new URL('https://gemini.google.com/app')
-            url.searchParams.set('q', options.prompt)
-            if (isModelAlias(options.model) && model) {
-                url.searchParams.set('mode', model)
-            }
-            else if (model) {
-                url.searchParams.set('model', model)
-            }
             break
         }
         case 'perplexity': {
@@ -151,6 +144,18 @@ export function buildProviderUrl(options: PromptLinkOptions) {
     }
 
     return url.toString()
+}
+
+export function buildGeminiHandoffPath(options: PromptLinkOptions) {
+    const params = new URLSearchParams({
+        q: options.prompt,
+    })
+
+    if (options.model) {
+        params.set('model', options.model)
+    }
+
+    return `/handoff?${params.toString()}`
 }
 
 function escapeMarkdownLabel(value: string) {

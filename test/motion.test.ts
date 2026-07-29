@@ -34,20 +34,17 @@ describe('motion contracts', () => {
             css.indexOf('@media (prefers-reduced-motion: reduce)'),
         )
 
-        assert.match(reducedMotion, /\.status-toast[\s\S]*transform: none/)
+        assert.match(reducedMotion, /\.phone-toast,[\s\S]*transform: translateX\(-50%\)/)
         assert.match(reducedMotion, /\.qr-dialog-enter-from \.qr-dialog,[\s\S]*transform: none/)
         assert.match(reducedMotion, /transition: opacity var\(--motion-reduced\)/)
         assert.doesNotMatch(reducedMotion, /0\.01ms/)
         assert.doesNotMatch(reducedMotion, /\*\s*,\s*\*::before/)
     })
 
-    it('gates smooth scrolling behind the no-preference query', () => {
-        const preferenceQuery = css.indexOf('@media (prefers-reduced-motion: no-preference)')
-        const smoothScroll = css.indexOf('scroll-behavior: smooth')
-
-        assert.ok(preferenceQuery >= 0)
-        assert.ok(smoothScroll > preferenceQuery)
-        assert.match(promptBuilder, /window\.scrollTo\(\{ top: 0 \}\)/)
+    it('keeps typing, filtering, and keyboard navigation immediate', () => {
+        assert.doesNotMatch(css, /scroll-behavior:\s*smooth/)
+        assert.doesNotMatch(css, /\.model-listbox li\s*\{[^}]*transition/)
+        assert.doesNotMatch(promptBuilder, /window\.scrollTo/)
     })
 
     it('keeps toast content mounted through its visual exit', () => {
@@ -60,6 +57,13 @@ describe('motion contracts', () => {
         assert.match(promptBuilder, /@transitionend="clearStatusAfterExit"/)
         assert.match(promptBuilder, /event\.propertyName === 'opacity' && !statusVisible\.value/)
         assert.doesNotMatch(announceBody, /statusMessage\.value = ''/)
+    })
+
+    it('uses origin-aware popovers and an iOS-style disclosure sheet', () => {
+        assert.match(css, /\.model-listbox[\s\S]*transform-origin: bottom center/)
+        assert.match(css, /--ease-sheet: cubic-bezier\(0\.32, 0\.72, 0, 1\)/)
+        assert.match(css, /\.phone-sheet-enter-from \.phone-sheet,[\s\S]*translateY\(100%\)/)
+        assert.doesNotMatch(css, /transition:\s*all\b/)
     })
 
     it('keeps the QR surface modal until its exit completes', () => {

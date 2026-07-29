@@ -1,16 +1,22 @@
-# Animation plans
+# Animation audit
 
-Audit baseline: commit `72d1692`, using the Emil/animations.dev motion bar.
-All four plans are applied and verified locally; deployment remains a separate
-release action.
+The original desktop-card motion plans were retired with the rejected
+interface. The current iPhone-style implementation applies the Emil /
+animations.dev craft bar directly:
 
-| Order | Plan | Status | Dependency |
+| Surface | Pattern | Timing | Reduced motion |
 | --- | --- | --- | --- |
-| 1 | [001 — Refine feedback toast motion](001-refine-toast-motion.md) | DONE | None |
-| 2 | [002 — Give the QR dialog spatial continuity](002-animate-qr-dialog.md) | DONE | Reuse tokens from 001 |
-| 3 | [003 — Add restrained pointer press feedback](003-add-press-feedback.md) | DONE | Reuse tokens from 001 |
-| 4 | [004 — Ship real reduced-motion and target-size variants](004-fix-motion-accessibility.md) | DONE | Execute with 001–003 |
+| Phone | One container entrance | 420 ms, ease-out expo | 160 ms fade |
+| First-run tip | Short contextual reveal | 220 ms in, 130 ms out | Fade only |
+| AI/model results | Origin-aware popover | 180 ms in, 130 ms out | Fade only |
+| More and Library | iOS bottom sheet | 320 ms in, 180 ms out | Fade only |
+| Copy status | Reversible toast | 180 ms in, 140 ms out | Fade only |
+| Pointer press | `scale(0.97)` | 120 ms | Static |
+| QR | Centered modal | 220 ms in, 150 ms out | Fade only |
 
-Deliberately static: hero entrance, provider/model changes, prompt typing,
-generated-URL updates, feature toggles, history reflow, and advanced-details
-content. Those surfaces fail the frequency or functional-purpose gate.
+Typing, search filtering, keyboard navigation, model selection, option toggles,
+and history changes stay immediate.
+
+The full information-architecture, Gemini, catalog, accessibility, and motion
+rationale is in
+[`docs/progressive-disclosure-audit.md`](../docs/progressive-disclosure-audit.md).

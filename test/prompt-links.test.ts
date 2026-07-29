@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
+    buildGeminiHandoffPath,
     buildMarkdownLink,
     buildProviderUrl,
     buildSharePath,
@@ -51,7 +52,6 @@ describe('prompt link builder', () => {
         const destinations = {
             chatgpt: 'chatgpt.com',
             claude: 'claude.ai',
-            gemini: 'gemini.google.com',
             perplexity: 'www.perplexity.ai',
         } as const
 
@@ -63,6 +63,25 @@ describe('prompt link builder', () => {
             assert.equal(url.hostname, hostname)
             assert.equal(url.searchParams.get('q'), 'Hello')
         }
+    })
+
+    it('uses a first-party handoff instead of Gemini’s unreliable query URL', () => {
+        const destination = new URL(buildProviderUrl({
+            prompt: 'Hello',
+            provider: 'gemini',
+            model: 'google/gemini-pro',
+        }))
+        const handoff = new URL(buildGeminiHandoffPath({
+            prompt: 'Hello',
+            provider: 'gemini',
+            model: 'google/gemini-pro',
+        }), 'https://prefillprompt.com')
+
+        assert.equal(destination.toString(), 'https://gemini.google.com/app')
+        assert.equal(destination.searchParams.get('q'), null)
+        assert.equal(handoff.pathname, '/handoff')
+        assert.equal(handoff.searchParams.get('q'), 'Hello')
+        assert.equal(handoff.searchParams.get('model'), 'google/gemini-pro')
     })
 
     it('creates a readable Markdown button', () => {

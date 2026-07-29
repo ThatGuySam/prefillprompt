@@ -1,4 +1,5 @@
 import {
+    buildGeminiHandoffPath,
     buildProviderUrl,
     isProviderId,
     MAX_PROMPT_LENGTH,
@@ -49,6 +50,14 @@ export default defineEventHandler(async (event) => {
     }
 
     const provider = resolveProvider(requestedProvider, model)
+    if (provider === 'gemini') {
+        return sendRedirect(event, buildGeminiHandoffPath({
+            prompt,
+            provider,
+            model,
+        }), UNCACHED_REDIRECT_CODE)
+    }
+
     const destination = buildProviderUrl({
         prompt,
         provider,
