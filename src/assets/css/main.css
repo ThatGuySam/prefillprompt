@@ -1087,6 +1087,160 @@ a {
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --ink: #f3f6fb;
+        --ink-soft: #aab4c5;
+        --navy: #2f67bd;
+        --blue: #8bb4ff;
+        --blue-soft: #1d355b;
+        --coral: #ff9a83;
+        --paper: #08111f;
+        --surface: #111a28;
+        --line: #2c394b;
+        --line-strong: #435067;
+        --danger: #d65f55;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 18% 12%, rgb(73 127 220 / 14%), transparent 26rem),
+            linear-gradient(rgb(134 169 224 / 8%) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(134 169 224 / 8%) 1px, transparent 1px),
+            var(--paper);
+    }
+
+    .phone-frame {
+        box-shadow:
+            0 42px 90px rgb(0 0 0 / 52%),
+            0 8px 22px rgb(0 0 0 / 38%),
+            inset 0 0 0 1px rgb(255 255 255 / 12%);
+    }
+
+    .phone-status {
+        color: var(--ink);
+    }
+
+    .phone-signals i {
+        background: var(--ink);
+    }
+
+    .phone-header {
+        border-bottom-color: rgb(243 246 251 / 9%);
+    }
+
+    .first-run-tip,
+    .model-listbox,
+    .prompt-composer,
+    .sheet-action-list,
+    .library-list,
+    .history-list,
+    .handoff-card {
+        background: #172334;
+    }
+
+    .first-run-tip {
+        box-shadow: 0 14px 34px rgb(0 0 0 / 28%);
+    }
+
+    .first-run-tip button,
+    .history-remove {
+        color: #aab4c5;
+    }
+
+    .empty-state {
+        color: #8793a5;
+    }
+
+    .empty-state svg {
+        stroke: #748196;
+    }
+
+    .phone-composer {
+        background: rgb(17 26 40 / 96%);
+        border-top-color: rgb(243 246 251 / 9%);
+    }
+
+    .model-combobox {
+        background: #192536;
+    }
+
+    .model-combobox:focus-within {
+        background: #1e2c40;
+        border-color: #5683c3;
+        box-shadow: 0 0 0 3px rgb(100 155 238 / 18%);
+    }
+
+    .model-combobox-icon,
+    .model-combobox-chevron {
+        stroke: #a8b3c5;
+    }
+
+    .model-listbox {
+        box-shadow: 0 18px 42px rgb(0 0 0 / 44%);
+    }
+
+    .model-option-copy strong,
+    .model-listbox small,
+    .model-choice-hint {
+        color: var(--ink-soft);
+    }
+
+    .prompt-composer {
+        box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+    }
+
+    .prompt-composer:focus-within {
+        border-color: #5d88c7;
+        box-shadow: 0 0 0 3px rgb(100 155 238 / 17%);
+    }
+
+    .prompt-composer textarea::placeholder {
+        color: #8995a7;
+    }
+
+    .send-button:disabled,
+    .handoff-card > button:disabled {
+        color: #78869a;
+        background: #263347;
+    }
+
+    .phone-sheet-layer,
+    .dialog-backdrop {
+        background: rgb(2 7 15 / 72%);
+    }
+
+    .sheet-section h3,
+    .sheet-links a,
+    .handoff-status {
+        color: var(--ink-soft);
+    }
+
+    .qr-dialog img {
+        padding: 8px;
+        background: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .icon-button:hover,
+    .first-run-tip button:hover,
+    .history-remove:hover {
+        background: rgb(243 246 251 / 8%);
+    }
+
+    .sheet-action-list button:not(:disabled):hover,
+    .library-list button:hover,
+    .history-use:hover {
+        background: #1d2b3f;
+    }
+
+    .sheet-links a:hover {
+        color: #a9c6ff;
+    }
+}
+
 .send-button:not(:disabled):active:not(:focus-visible),
 .download-button:active:not(:focus-visible),
 .handoff-card > button:not(:disabled):active:not(:focus-visible) {
