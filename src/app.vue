@@ -9,7 +9,16 @@ useHead({
         { rel: 'manifest', href: '/site.webmanifest' },
     ],
     meta: [
-        { name: 'theme-color', content: '#0b2f6b' },
+        {
+            name: 'theme-color',
+            content: '#fffdf8',
+            media: '(prefers-color-scheme: light)',
+        },
+        {
+            name: 'theme-color',
+            content: '#08111f',
+            media: '(prefers-color-scheme: dark)',
+        },
     ],
 })
 
