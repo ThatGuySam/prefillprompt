@@ -4,17 +4,27 @@ export interface BrowserStorage {
     setItem: (key: string, value: string) => void
 }
 
-export function readStorage(storage: BrowserStorage, key: string) {
+export type BrowserStorageSource = BrowserStorage | null | undefined | (() => BrowserStorage | null | undefined)
+
+function resolveStorage(source: BrowserStorageSource) {
+    return typeof source === 'function' ? source() : source
+}
+
+export function readStorage(source: BrowserStorageSource, key: string) {
     try {
-        return storage.getItem(key)
+        return resolveStorage(source)?.getItem(key) ?? null
     }
     catch {
         return null
     }
 }
 
-export function writeStorage(storage: BrowserStorage, key: string, value: string) {
+export function writeStorage(source: BrowserStorageSource, key: string, value: string) {
     try {
+        const storage = resolveStorage(source)
+        if (!storage) {
+            return false
+        }
         storage.setItem(key, value)
         return true
     }
@@ -23,8 +33,12 @@ export function writeStorage(storage: BrowserStorage, key: string, value: string
     }
 }
 
-export function removeStorage(storage: BrowserStorage, key: string) {
+export function removeStorage(source: BrowserStorageSource, key: string) {
     try {
+        const storage = resolveStorage(source)
+        if (!storage) {
+            return false
+        }
         storage.removeItem(key)
         return true
     }
