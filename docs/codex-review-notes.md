@@ -4,8 +4,10 @@ Captured from the merged [PR #1](https://github.com/ThatGuySam/prefillprompt/pul
 on 2026-07-29 after merge commit
 `be2d35a9a5f983b1d4d07ea12d9a4fde055d4deb`.
 
-This PR intentionally captures review text only. It does not implement, alter,
-resolve, or close any of the review notes.
+This document preserves the review text verbatim and is the source of truth for
+the launch fixes implemented by PR #2 on 2026-08-07. The original comments
+remain unchanged below; implementation status is tracked separately so the
+review record stays auditable.
 
 ## Review summary
 
@@ -53,6 +55,19 @@ All eight notes are unresolved, non-outdated P2 review threads from
 | 6 | Removed exact models | [`src/lib/model-catalog.ts:104-107`](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441338) | [Open exact comment](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441338) |
 | 7 | History persistence | [`src/composables/usePromptHistory.ts:25-27`](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441340) | [Open exact comment](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441340) |
 | 8 | Node engine/test runner | [`package.json:21`](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441343) | [Open exact comment](https://github.com/ThatGuySam/prefillprompt/pull/1#discussion_r3678441343) |
+
+## Implementation status in PR #2
+
+| # | Result | Regression evidence |
+| --- | --- | --- |
+| 1 | Assets moved to root `public/` with an explicit `dir.public` override. | `test/static-assets.test.ts` plus clean artifact hash checks |
+| 2 | Perplexity exposes one default choice and no ineffective model hints. | `test/model-catalog.test.ts` |
+| 3 | Open, Markdown, QR, and native share stay disabled until the prompt link is valid. | `test/review-regressions.test.ts` |
+| 4 | Serialized links are capped at 15,000 bytes. | `test/prompt-links.test.ts` |
+| 5 | Clipboard denial reveals a direct Gemini link. | `test/review-regressions.test.ts` |
+| 6 | Removed exact models remain visible as unavailable saved selections. | `test/model-catalog.test.ts` |
+| 7 | Optional browser storage failures are contained. | `test/safe-storage.test.ts` |
+| 8 | Tests use the `tsx` import hook and pass on Node 20.20.2. | full 24-test suite on Node 20.20.2 |
 
 ### 1. Serve static assets from the configured public directory
 
