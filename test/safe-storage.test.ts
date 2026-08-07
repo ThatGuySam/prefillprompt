@@ -24,4 +24,23 @@ describe('optional browser storage', () => {
         assert.equal(writeStorage(deniedStorage, 'history', '[]'), false)
         assert.equal(removeStorage(deniedStorage, 'history'), false)
     })
+
+    it('contains failures while acquiring the storage object itself', () => {
+        const deniedWindow = Object.defineProperty({}, 'localStorage', {
+            get() {
+                throw new DOMException('Denied', 'SecurityError')
+            },
+        }) as { localStorage: Storage }
+        const storage = () => deniedWindow.localStorage
+
+        assert.equal(readStorage(storage, 'history'), null)
+        assert.equal(writeStorage(storage, 'history', '[]'), false)
+        assert.equal(removeStorage(storage, 'history'), false)
+    })
+
+    it('treats unavailable storage as an optional capability', () => {
+        assert.equal(readStorage(null, 'history'), null)
+        assert.equal(writeStorage(null, 'history', '[]'), false)
+        assert.equal(removeStorage(null, 'history'), false)
+    })
 })

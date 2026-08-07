@@ -64,9 +64,9 @@ const choiceHint = computed(() => {
 onMounted(() => {
     origin.value = window.location.origin
     canNativeShare.value = typeof navigator.share === 'function'
-    showTip.value = readStorage(window.localStorage, 'prefillprompt-tip-dismissed') !== '1'
+    showTip.value = readStorage(() => window.localStorage, 'prefillprompt-tip-dismissed') !== '1'
 
-    const stored = readStorage(window.localStorage, 'prefillprompt-selection')
+    const stored = readStorage(() => window.localStorage, 'prefillprompt-selection')
     if (stored) {
         try {
             const selection = JSON.parse(stored) as { provider?: ProviderId, model?: string }
@@ -80,14 +80,14 @@ onMounted(() => {
             }
         }
         catch {
-            removeStorage(window.localStorage, 'prefillprompt-selection')
+            removeStorage(() => window.localStorage, 'prefillprompt-selection')
         }
     }
 })
 
 watch([provider, model], ([nextProvider, nextModel]) => {
     if (import.meta.client) {
-        writeStorage(window.localStorage, 'prefillprompt-selection', JSON.stringify({
+        writeStorage(() => window.localStorage, 'prefillprompt-selection', JSON.stringify({
             provider: nextProvider,
             model: nextModel,
         }))
@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
 function dismissTip() {
     showTip.value = false
     if (import.meta.client) {
-        writeStorage(window.localStorage, 'prefillprompt-tip-dismissed', '1')
+        writeStorage(() => window.localStorage, 'prefillprompt-tip-dismissed', '1')
     }
 }
 

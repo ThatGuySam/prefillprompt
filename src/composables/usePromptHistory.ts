@@ -14,7 +14,7 @@ export function usePromptHistory() {
 
     onMounted(() => {
         try {
-            const stored = readStorage(window.localStorage, STORAGE_KEY)
+            const stored = readStorage(() => window.localStorage, STORAGE_KEY)
             const parsed = stored ? JSON.parse(stored) : []
             entries.value = Array.isArray(parsed) ? parsed.slice(0, MAX_HISTORY_ITEMS) : []
         }
@@ -26,7 +26,7 @@ export function usePromptHistory() {
     function persist() {
         // History is optional. Storage denial or quota exhaustion must not turn
         // a successful copy, share, or open action into a failure.
-        writeStorage(window.localStorage, STORAGE_KEY, JSON.stringify(entries.value))
+        writeStorage(() => window.localStorage, STORAGE_KEY, JSON.stringify(entries.value))
     }
 
     function save(options: PromptLinkOptions) {
@@ -61,7 +61,7 @@ export function usePromptHistory() {
 
     function clear() {
         entries.value = []
-        removeStorage(window.localStorage, STORAGE_KEY)
+        removeStorage(() => window.localStorage, STORAGE_KEY)
     }
 
     return {
