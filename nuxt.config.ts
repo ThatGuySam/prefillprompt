@@ -2,6 +2,10 @@ export default defineNuxtConfig({
     compatibilityDate: '2026-07-29',
     devtools: { enabled: false },
     srcDir: 'src/',
+    dir: {
+        // Nuxt resolves this relative to srcDir when srcDir is customized.
+        public: '../public',
+    },
     css: ['~/assets/css/main.css'],
     routeRules: {
         '/': { prerender: true },

@@ -60,9 +60,18 @@ async function copyAndOpen() {
                 rows="5"
             />
             <button :disabled="!prompt" @click="copyAndOpen">
-                Copy prompt & open Gemini
+                {{ failed ? 'Try copying again' : 'Copy prompt & open Gemini' }}
                 <span aria-hidden="true">→</span>
             </button>
+            <a
+                v-if="failed"
+                class="handoff-open-link"
+                href="https://gemini.google.com/app"
+                rel="noreferrer"
+            >
+                Open Gemini without copying
+                <span aria-hidden="true">→</span>
+            </a>
             <small v-if="model !== 'latest'">
                 Selected model hint: {{ model }}. Confirm it in Gemini.
             </small>

@@ -162,7 +162,7 @@ function onKeydown(event: KeyboardEvent) {
                         <strong>{{ choice.providerLabel }}</strong>
                         <span>{{ choice.modelLabel }}</span>
                     </span>
-                    <small>{{ choice.kind === 'exact' ? 'Exact' : 'Flexible' }}</small>
+                    <small>{{ choice.kind === 'exact' ? 'Exact' : choice.kind === 'unavailable' ? 'Unavailable' : 'Flexible' }}</small>
                 </li>
                 <li v-if="!results.length" class="model-empty" role="presentation">
                     No matching AI or model

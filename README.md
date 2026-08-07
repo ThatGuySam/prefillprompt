@@ -6,7 +6,7 @@ PrefillPrompt turns a prompt into a shareable link for ChatGPT, Claude, Gemini, 
 > The prompt is part of the URL. Anyone who receives the link—and systems that record URLs—can read it. Do not put secrets or sensitive personal information in a shared prompt.
 
 <p align="center">
-  <img src="./docs/screenshots/prefillprompt-rest-features-motion/01-desktop-overview.jpg" width="360" alt="PrefillPrompt iPhone-style prompt-link builder">
+  <img src="./public/og-prefillprompt.png" width="720" alt="PrefillPrompt: one prompt branching into four AI destinations">
 </p>
 
 ## Features
@@ -24,6 +24,12 @@ PrefillPrompt turns a prompt into a shareable link for ChatGPT, Claude, Gemini, 
 - A stateless Nuxt application deployed with Cloudflare Workers and Static Assets
 
 History and preferences stay in the current browser. PrefillPrompt does not sync them between devices.
+
+## Privacy
+
+PrefillPrompt has no account system, application database, analytics SDK, or advertising tracker. Preferences and up to six recent prompts are optional browser-local history. The app continues to work when browser storage is denied or full.
+
+Prompt links are not private: the prompt is encoded in the URL and can appear in browser history, clipboards, QR scanners, link previews, network infrastructure, and destination-provider logs. Do not put secrets or sensitive information in a PrefillPrompt URL. See [Privacy and logging](./docs/privacy.md) for the exact storage, request, and logging behavior.
 
 ## Try an example
 
@@ -81,6 +87,8 @@ pnpm dev
 
 The development server is available at `http://localhost:3000`.
 
+The repository pins Node 22 for hosted and local builds while supporting Node 20 and newer. Corepack reads the pinned pnpm version from `package.json`.
+
 ## Commands
 
 | Command | Purpose |
@@ -122,3 +130,7 @@ Review the emitted preview URL, including the homepage and each redirect path, b
 3. Make the change and add or update tests.
 4. Run `pnpm check`.
 5. Open a pull request describing the behavior change and verification.
+
+## License
+
+PrefillPrompt is open-source software available under the [MIT License](./LICENSE).

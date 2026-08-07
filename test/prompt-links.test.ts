@@ -1,11 +1,15 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
+    buildAbsoluteShareUrl,
     buildGeminiHandoffPath,
     buildMarkdownLink,
     buildProviderUrl,
     buildSharePath,
+    encodedUrlLength,
     inferProviderFromModel,
+    isShareUrlWithinLimit,
+    MAX_SHARE_URL_LENGTH,
     resolveProvider,
 } from '../src/lib/prompt-links.ts'
 
@@ -22,6 +26,21 @@ describe('prompt link builder', () => {
         assert.equal(url.searchParams.get('q'), 'First line\nSecond line')
         assert.equal(url.searchParams.get('s'), 'claude')
         assert.equal(url.searchParams.get('model'), 'latest')
+    })
+
+    it('bounds the serialized URL rather than only decoded prompt characters', () => {
+        const shortUrl = buildAbsoluteShareUrl('https://prefillprompt.com', {
+            prompt: '界'.repeat(200),
+            provider: 'chatgpt',
+        })
+        const oversizedUrl = buildAbsoluteShareUrl('https://prefillprompt.com', {
+            prompt: '界'.repeat(2_000),
+            provider: 'chatgpt',
+        })
+
+        assert.equal(isShareUrlWithinLimit(shortUrl), true)
+        assert.equal(isShareUrlWithinLimit(oversizedUrl), false)
+        assert.ok(encodedUrlLength(oversizedUrl) > MAX_SHARE_URL_LENGTH)
     })
 
     it('infers a provider from exact model IDs', () => {

@@ -499,6 +499,13 @@ a {
     color: #8a94a3;
 }
 
+.prompt-limit-message {
+    margin: 8px 7px 0;
+    color: var(--danger);
+    font-size: 0.66rem;
+    line-height: 1.4;
+}
+
 .send-button {
     display: grid;
     width: 42px;
@@ -1034,6 +1041,23 @@ a {
 
 .handoff-card > button:disabled {
     background: #a8afba;
+}
+
+.handoff-open-link {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    padding: 0 16px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--navy);
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--blue-soft);
+    border: 1px solid #9ab8e9;
+    border-radius: 12px;
 }
 
 .handoff-card > small {

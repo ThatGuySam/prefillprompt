@@ -8,6 +8,9 @@ import {
 
 export const MAX_PROMPT_LENGTH = 12_000
 export const MAX_QR_URL_LENGTH = 1_800
+// Cloudflare accepts request URLs up to 16 KB. Keep headroom for the origin,
+// future parameters, and intermediaries with slightly smaller limits.
+export const MAX_SHARE_URL_LENGTH = 15_000
 
 export interface PromptLinkOptions {
     prompt: string
@@ -95,6 +98,14 @@ export function buildSharePath(options: PromptLinkOptions) {
 
 export function buildAbsoluteShareUrl(origin: string, options: PromptLinkOptions) {
     return new URL(buildSharePath(options), origin).toString()
+}
+
+export function encodedUrlLength(url: string) {
+    return new TextEncoder().encode(url).byteLength
+}
+
+export function isShareUrlWithinLimit(url: string) {
+    return encodedUrlLength(url) <= MAX_SHARE_URL_LENGTH
 }
 
 export function buildProviderUrl(options: PromptLinkOptions) {

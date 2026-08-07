@@ -3,22 +3,31 @@
     "type": "module",
     "private": true,
     "packageManager": "pnpm@10.12.4",
+    "license": "MIT",
+    "homepage": "https://prefillprompt.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ThatGuySam/prefillprompt.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ThatGuySam/prefillprompt/issues"
+    },
     "engines": {
         "node": ">=20.0.0"
     },
     "scripts": {
         "build": "nuxt build",
-        "build:cloudflare": "nuxt build --preset=cloudflare-module",
+        "build:cloudflare": "nuxi cleanup && nuxt build --preset=cloudflare-module",
         "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build:cloudflare",
-        "deploy:blue": "pnpm build:cloudflare && wrangler versions upload --preview-alias blue",
-        "deploy:preview": "pnpm build:cloudflare && wrangler versions upload --preview-alias rest-features",
+        "deploy:blue": "pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias blue",
+        "deploy:preview": "pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias launch",
         "dev": "nuxt dev",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "models:update": "node scripts/update-model-catalog.mjs",
         "postinstall": "nuxt prepare",
-        "preview": "wrangler dev",
-        "test": "node --experimental-strip-types --test test/*.test.ts",
+        "preview": "wrangler --cwd=.output dev",
+        "test": "node --import tsx --test test/*.test.ts",
         "typecheck": "nuxt typecheck"
     },
     "dependencies": {
@@ -31,6 +40,7 @@
         "@types/eslint": "~9.6.1",
         "@types/qrcode": "^1.5.6",
         "eslint": "^10.8.0",
+        "tsx": "^4.23.11",
         "typescript": "~5.8.3",
         "vue-tsc": "~2.2.10",
         "wrangler": "^4.115.0"

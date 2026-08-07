@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
+import {
+    exactModelChoices,
+    findModelChoice,
+    flexibleModelChoices,
+} from '../src/lib/model-catalog.ts'
 
 interface CatalogModel {
     id: string
@@ -52,5 +57,26 @@ describe('generated model catalog', () => {
         )
 
         assert.deepEqual(catalog.models, sorted)
+    })
+
+    it('does not offer ineffective Perplexity model hints', () => {
+        const flexiblePerplexity = flexibleModelChoices.filter(choice =>
+            choice.provider === 'perplexity',
+        )
+        const exactPerplexity = exactModelChoices.filter(choice =>
+            choice.provider === 'perplexity',
+        )
+
+        assert.deepEqual(flexiblePerplexity.map(choice => choice.model), ['latest'])
+        assert.equal(flexiblePerplexity[0]?.modelLabel, 'Default')
+        assert.equal(exactPerplexity.length, 0)
+    })
+
+    it('shows a removed saved model explicitly instead of pretending it is Latest', () => {
+        const choice = findModelChoice('chatgpt', 'openai/removed-model')
+
+        assert.equal(choice.kind, 'unavailable')
+        assert.equal(choice.model, 'openai/removed-model')
+        assert.match(choice.label, /not in current catalog/)
     })
 })
