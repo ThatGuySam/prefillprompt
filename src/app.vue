@@ -10,6 +10,10 @@ useHead({
     ],
     meta: [
         {
+            name: 'referrer',
+            content: 'no-referrer',
+        },
+        {
             name: 'theme-color',
             content: '#fffdf8',
             media: '(prefers-color-scheme: light)',

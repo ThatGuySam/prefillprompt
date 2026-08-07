@@ -2,7 +2,7 @@ import type { ModelAlias, ProviderId } from './providers'
 import generatedCatalog from '~/data/models.generated.json'
 import { getProvider, modelAliases, providers } from './providers'
 
-export type ModelChoiceKind = 'flexible' | 'exact'
+export type ModelChoiceKind = 'flexible' | 'exact' | 'unavailable'
 
 export interface ModelChoice {
     key: string
@@ -48,7 +48,9 @@ function aliasChoice(provider: ProviderId, alias: {
     description: string
 }): ModelChoice {
     const definition = getProvider(provider)
-    const modelLabel = alias.label
+    const modelLabel = definition.capabilities.models === 'unavailable'
+        ? 'Default'
+        : alias.label
 
     return {
         key: `${provider}:${alias.id}`,
@@ -58,7 +60,9 @@ function aliasChoice(provider: ProviderId, alias: {
         providerLabel: definition.label,
         modelLabel,
         kind: 'flexible',
-        description: alias.description,
+        description: definition.capabilities.models === 'unavailable'
+            ? `${definition.label} uses its account default; model hints are unavailable.`
+            : alias.description,
         searchText: `${providerKeywords[provider]} ${alias.id} ${modelLabel}`.toLowerCase(),
     }
 }
@@ -70,6 +74,10 @@ function exactChoice(model: GeneratedModel): ModelChoice | null {
 
     const provider = model.provider
     const definition = getProvider(provider)
+
+    if (definition.capabilities.models === 'unavailable') {
+        return null
+    }
 
     return {
         key: `${provider}:${model.id}`,
@@ -85,7 +93,9 @@ function exactChoice(model: GeneratedModel): ModelChoice | null {
 }
 
 export const flexibleModelChoices = providers.flatMap(provider =>
-    modelAliases.map(alias => aliasChoice(provider.id, alias)),
+    modelAliases
+        .filter(alias => provider.capabilities.models !== 'unavailable' || alias.id === 'latest')
+        .map(alias => aliasChoice(provider.id, alias)),
 )
 
 export const exactModelChoices = catalog.models
@@ -104,7 +114,27 @@ export const modelCatalogMetadata = {
 export function findModelChoice(provider: ProviderId, model: string) {
     return modelChoices.find(choice =>
         choice.provider === provider && choice.model === model,
-    ) ?? aliasChoice(provider, modelAliases[0]!)
+    ) ?? unavailableModelChoice(provider, model)
+}
+
+function unavailableModelChoice(provider: ProviderId, model: string): ModelChoice {
+    const definition = getProvider(provider)
+    const isUnsupportedHint = definition.capabilities.models === 'unavailable'
+    const suffix = isUnsupportedHint ? 'not supported' : 'not in current catalog'
+
+    return {
+        key: `${provider}:${model}:unavailable`,
+        provider,
+        model,
+        label: `${definition.label} · ${model} (${suffix})`,
+        providerLabel: definition.label,
+        modelLabel: `${model} (${suffix})`,
+        kind: 'unavailable',
+        description: isUnsupportedHint
+            ? `${definition.label} does not accept model hints.`
+            : 'This saved exact model is no longer in the current catalog.',
+        searchText: `${providerKeywords[provider]} ${model}`.toLowerCase(),
+    }
 }
 
 export function filterModelChoices(query: string, limit = 12) {

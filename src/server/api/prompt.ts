@@ -1,8 +1,10 @@
 import {
     buildGeminiHandoffPath,
     buildProviderUrl,
+    encodedUrlLength,
     isProviderId,
     MAX_PROMPT_LENGTH,
+    MAX_SHARE_URL_LENGTH,
     parseBooleanParam,
     resolveProvider,
 } from '~/lib/prompt-links'
@@ -18,12 +20,21 @@ export default defineEventHandler(async (event) => {
     const prompt = firstString(query.q)
     const requestedProvider = firstString(query.s) ?? firstString(query.m)
     const model = firstString(query.model)
+    const requestUrl = getRequestURL(event).toString()
 
     setResponseHeaders(event, {
         'Cache-Control': 'private, no-store',
         'Referrer-Policy': 'no-referrer',
         'X-Robots-Tag': 'noindex, nofollow',
     })
+
+    if (encodedUrlLength(requestUrl) > MAX_SHARE_URL_LENGTH) {
+        throw createError({
+            statusCode: 414,
+            statusMessage: 'Prompt link is too long',
+            data: { code: 'PROMPT_URL_TOO_LONG' },
+        })
+    }
 
     if (!prompt?.trim()) {
         throw createError({

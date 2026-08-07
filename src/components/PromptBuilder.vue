@@ -6,10 +6,12 @@ import QRCode from 'qrcode'
 import {
     buildAbsoluteShareUrl,
     buildMarkdownLink,
+    isShareUrlWithinLimit,
     MAX_PROMPT_LENGTH,
     MAX_QR_URL_LENGTH,
 } from '~/lib/prompt-links'
 import { getProvider, isModelAlias } from '~/lib/providers'
+import { readStorage, removeStorage, writeStorage } from '~/lib/safe-storage'
 
 const prompt = ref('')
 const provider = ref<ProviderId>('chatgpt')
@@ -41,7 +43,9 @@ const options = computed<PromptLinkOptions>(() => ({
     temporary: temporary.value,
 }))
 const promptUrl = computed(() => buildAbsoluteShareUrl(origin.value, options.value))
-const qrAvailable = computed(() => promptUrl.value.length <= MAX_QR_URL_LENGTH)
+const promptUrlWithinLimit = computed(() => isShareUrlWithinLimit(promptUrl.value))
+const promptReady = computed(() => hasPrompt.value && promptUrlWithinLimit.value)
+const qrAvailable = computed(() => promptReady.value && promptUrl.value.length <= MAX_QR_URL_LENGTH)
 const choiceHint = computed(() => {
     if (provider.value === 'gemini') {
         return model.value === 'latest'
@@ -60,9 +64,9 @@ const choiceHint = computed(() => {
 onMounted(() => {
     origin.value = window.location.origin
     canNativeShare.value = typeof navigator.share === 'function'
-    showTip.value = window.localStorage.getItem('prefillprompt-tip-dismissed') !== '1'
+    showTip.value = readStorage(window.localStorage, 'prefillprompt-tip-dismissed') !== '1'
 
-    const stored = window.localStorage.getItem('prefillprompt-selection')
+    const stored = readStorage(window.localStorage, 'prefillprompt-selection')
     if (stored) {
         try {
             const selection = JSON.parse(stored) as { provider?: ProviderId, model?: string }
@@ -76,14 +80,14 @@ onMounted(() => {
             }
         }
         catch {
-            window.localStorage.removeItem('prefillprompt-selection')
+            removeStorage(window.localStorage, 'prefillprompt-selection')
         }
     }
 })
 
 watch([provider, model], ([nextProvider, nextModel]) => {
     if (import.meta.client) {
-        window.localStorage.setItem('prefillprompt-selection', JSON.stringify({
+        writeStorage(window.localStorage, 'prefillprompt-selection', JSON.stringify({
             provider: nextProvider,
             model: nextModel,
         }))
@@ -118,7 +122,7 @@ onBeforeUnmount(() => {
 function dismissTip() {
     showTip.value = false
     if (import.meta.client) {
-        window.localStorage.setItem('prefillprompt-tip-dismissed', '1')
+        writeStorage(window.localStorage, 'prefillprompt-tip-dismissed', '1')
     }
 }
 
@@ -163,6 +167,10 @@ async function copyLink() {
     if (!hasPrompt.value) {
         return
     }
+    if (!promptUrlWithinLimit.value) {
+        announce('Shorten this prompt before sharing it.', true)
+        return
+    }
 
     if (await copyText(promptUrl.value, 'Prompt link copied.')) {
         copied.value = true
@@ -178,6 +186,9 @@ async function copyLink() {
 
 function copyMarkdown() {
     activeSheet.value = null
+    if (!promptReady.value) {
+        return
+    }
     return copyText(
         buildMarkdownLink(promptUrl.value, provider.value, prompt.value),
         'Markdown link copied.',
@@ -186,12 +197,18 @@ function copyMarkdown() {
 
 function openPrompt() {
     activeSheet.value = null
+    if (!promptReady.value) {
+        return
+    }
     save(options.value)
     window.open(promptUrl.value, '_blank', 'noopener,noreferrer')
 }
 
 async function nativeShare() {
     activeSheet.value = null
+    if (!promptReady.value) {
+        return
+    }
     try {
         await navigator.share({
             title: `Ask ${currentProvider.value.label}`,
@@ -209,7 +226,7 @@ async function nativeShare() {
 
 async function showQr() {
     activeSheet.value = null
-    if (!qrAvailable.value) {
+    if (!promptReady.value || !qrAvailable.value) {
         return
     }
 
@@ -333,6 +350,7 @@ function selectFromLibrary(next: PromptLinkOptions) {
                         id="prompt-input"
                         v-model="prompt"
                         data-testid="prompt-input"
+                        :aria-describedby="!promptUrlWithinLimit ? 'prompt-limit-message' : undefined"
                         :maxlength="MAX_PROMPT_LENGTH"
                         rows="1"
                         placeholder="Message to share"
@@ -340,7 +358,7 @@ function selectFromLibrary(next: PromptLinkOptions) {
                     <button
                         class="send-button"
                         :class="{ copied }"
-                        :disabled="!hasPrompt"
+                        :disabled="!promptReady"
                         :aria-label="copied ? 'Prompt link copied' : 'Copy prompt link'"
                         data-testid="copy-link-button"
                         @click="copyLink"
@@ -353,6 +371,14 @@ function selectFromLibrary(next: PromptLinkOptions) {
                         </svg>
                     </button>
                 </div>
+                <p
+                    v-if="hasPrompt && !promptUrlWithinLimit"
+                    id="prompt-limit-message"
+                    class="prompt-limit-message"
+                    role="alert"
+                >
+                    This prompt becomes too large when URL-encoded. Shorten it before sharing.
+                </p>
             </div>
         </div>
 
@@ -369,6 +395,7 @@ function selectFromLibrary(next: PromptLinkOptions) {
             v-model:web-search="webSearch"
             :can-share="canNativeShare"
             :open="activeSheet === 'more'"
+            :prompt-ready="promptReady"
             :provider="provider"
             :qr-available="qrAvailable"
             @close="activeSheet = null"

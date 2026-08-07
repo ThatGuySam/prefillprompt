@@ -1,4 +1,5 @@
 import type { PromptLinkOptions } from '~/lib/prompt-links'
+import { readStorage, removeStorage, writeStorage } from '~/lib/safe-storage'
 
 export interface PromptHistoryEntry extends PromptLinkOptions {
     id: string
@@ -13,7 +14,7 @@ export function usePromptHistory() {
 
     onMounted(() => {
         try {
-            const stored = window.localStorage.getItem(STORAGE_KEY)
+            const stored = readStorage(window.localStorage, STORAGE_KEY)
             const parsed = stored ? JSON.parse(stored) : []
             entries.value = Array.isArray(parsed) ? parsed.slice(0, MAX_HISTORY_ITEMS) : []
         }
@@ -23,7 +24,9 @@ export function usePromptHistory() {
     })
 
     function persist() {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(entries.value))
+        // History is optional. Storage denial or quota exhaustion must not turn
+        // a successful copy, share, or open action into a failure.
+        writeStorage(window.localStorage, STORAGE_KEY, JSON.stringify(entries.value))
     }
 
     function save(options: PromptLinkOptions) {
@@ -58,7 +61,7 @@ export function usePromptHistory() {
 
     function clear() {
         entries.value = []
-        window.localStorage.removeItem(STORAGE_KEY)
+        removeStorage(window.localStorage, STORAGE_KEY)
     }
 
     return {

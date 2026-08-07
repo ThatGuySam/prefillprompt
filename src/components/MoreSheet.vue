@@ -5,6 +5,7 @@ import { getProvider } from '~/lib/providers'
 const props = defineProps<{
     canShare: boolean
     open: boolean
+    promptReady: boolean
     provider: ProviderId
     qrAvailable: boolean
     temporary: boolean
@@ -35,21 +36,21 @@ const temporaryLabel = computed(() => props.provider === 'claude' ? 'Incognito c
                 Share & open
             </h3>
             <div class="sheet-action-list">
-                <button @click="emit('openPrompt')">
+                <button :disabled="!promptReady" @click="emit('openPrompt')">
                     <span>Open prompt</span>
-                    <small>{{ definition.label }}</small>
+                    <small>{{ promptReady ? definition.label : 'Add a prompt first' }}</small>
                 </button>
-                <button @click="emit('copyMarkdown')">
+                <button :disabled="!promptReady" @click="emit('copyMarkdown')">
                     <span>Copy Markdown</span>
-                    <small>Button link</small>
+                    <small>{{ promptReady ? 'Button link' : 'Add a prompt first' }}</small>
                 </button>
-                <button :disabled="!qrAvailable" @click="emit('qr')">
+                <button :disabled="!promptReady || !qrAvailable" @click="emit('qr')">
                     <span>Show QR code</span>
-                    <small>{{ qrAvailable ? 'Scan to open' : 'Prompt is too long' }}</small>
+                    <small>{{ !promptReady ? 'Add a valid prompt first' : qrAvailable ? 'Scan to open' : 'Prompt is too long' }}</small>
                 </button>
-                <button v-if="canShare" @click="emit('nativeShare')">
+                <button v-if="canShare" :disabled="!promptReady" @click="emit('nativeShare')">
                     <span>Share…</span>
-                    <small>System share sheet</small>
+                    <small>{{ promptReady ? 'System share sheet' : 'Add a prompt first' }}</small>
                 </button>
             </div>
         </section>
