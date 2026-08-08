@@ -13,7 +13,7 @@
         "url": "https://github.com/ThatGuySam/prefillprompt/issues"
     },
     "engines": {
-        "node": ">=20.0.0"
+        "node": ">=22.0.0"
     },
     "scripts": {
         "build": "nuxt build",
