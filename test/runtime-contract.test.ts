@@ -7,17 +7,20 @@ function readRepositoryFile(path: string) {
 }
 
 describe('runtime and workflow contracts', () => {
-    it('declares the Node floor required by the frozen Cloudflare toolchain', () => {
+    it('declares the Node range required by the frozen toolchain', () => {
         const packageJson = JSON.parse(readRepositoryFile('package.json')) as {
             engines?: { node?: string }
         }
         const pinnedNode = readRepositoryFile('.node-version').trim()
         const readme = readRepositoryFile('README.md')
 
-        assert.equal(packageJson.engines?.node, '>=22.0.0')
+        assert.equal(packageJson.engines?.node, '^22.13.0 || >=24.0.0')
         assert.equal(pinnedNode, '22.16.0')
-        assert.match(readme, /requires Node 22 or newer/)
-        assert.doesNotMatch(readme, /supporting Node 20/)
+        assert.match(
+            readme,
+            /requires Node 22\.13 or newer within the Node 22 release line, or Node 24 and newer/,
+        )
+        assert.doesNotMatch(readme, /requires Node 22 or newer/)
     })
 
     it('enables pnpm before setup-node attempts to restore its cache', () => {
