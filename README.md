@@ -87,7 +87,7 @@ pnpm dev
 
 The development server is available at `http://localhost:3000`.
 
-The repository pins Node 22 for hosted and local builds while supporting Node 20 and newer. Corepack reads the pinned pnpm version from `package.json`.
+The repository requires Node 22 or newer for development and Cloudflare commands. `.node-version` pins Node 22.16.0, and Corepack reads the pinned pnpm version from `package.json`.
 
 ## Commands
 
