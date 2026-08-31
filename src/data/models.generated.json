@@ -1,11 +1,17 @@
 {
     "source": "OpenRouter",
     "sourceUrl": "https://openrouter.ai/api/v1/models",
-    "generatedAt": "2026-07-29T21:59:47.788Z",
+    "generatedAt": "2026-08-31T19:30:35.217Z",
     "models": [
         {
             "id": "openai/gpt-5.6-luna-pro",
             "name": "GPT-5.6 Luna Pro",
+            "provider": "chatgpt",
+            "created": 1783590867
+        },
+        {
+            "id": "openai/gpt-5.6-luna-pro:batch",
+            "name": "GPT-5.6 Luna Pro (batch)",
             "provider": "chatgpt",
             "created": 1783590867
         },
@@ -16,8 +22,20 @@
             "created": 1783590864
         },
         {
+            "id": "openai/gpt-5.6-luna:batch",
+            "name": "GPT-5.6 Luna (batch)",
+            "provider": "chatgpt",
+            "created": 1783590864
+        },
+        {
             "id": "openai/gpt-5.6-terra-pro",
             "name": "GPT-5.6 Terra Pro",
+            "provider": "chatgpt",
+            "created": 1783590861
+        },
+        {
+            "id": "openai/gpt-5.6-terra-pro:batch",
+            "name": "GPT-5.6 Terra Pro (batch)",
             "provider": "chatgpt",
             "created": 1783590861
         },
@@ -28,14 +46,32 @@
             "created": 1783590857
         },
         {
+            "id": "openai/gpt-5.6-terra:batch",
+            "name": "GPT-5.6 Terra (batch)",
+            "provider": "chatgpt",
+            "created": 1783590857
+        },
+        {
             "id": "openai/gpt-5.6-sol-pro",
             "name": "GPT-5.6 Sol Pro",
             "provider": "chatgpt",
             "created": 1783590854
         },
         {
+            "id": "openai/gpt-5.6-sol-pro:batch",
+            "name": "GPT-5.6 Sol Pro (batch)",
+            "provider": "chatgpt",
+            "created": 1783590854
+        },
+        {
             "id": "openai/gpt-5.6-sol",
             "name": "GPT-5.6 Sol",
+            "provider": "chatgpt",
+            "created": 1783590850
+        },
+        {
+            "id": "openai/gpt-5.6-sol:batch",
+            "name": "GPT-5.6 Sol (batch)",
             "provider": "chatgpt",
             "created": 1783590850
         },
@@ -48,6 +84,12 @@
         {
             "id": "openai/gpt-5.5-pro",
             "name": "GPT-5.5 Pro",
+            "provider": "chatgpt",
+            "created": 1777051896
+        },
+        {
+            "id": "openai/gpt-5.5-pro:batch",
+            "name": "GPT-5.5 Pro (batch)",
             "provider": "chatgpt",
             "created": 1777051896
         },
@@ -100,6 +142,12 @@
             "created": 1772734366
         },
         {
+            "id": "openai/gpt-5.4-pro:batch",
+            "name": "GPT-5.4 Pro (batch)",
+            "provider": "chatgpt",
+            "created": 1772734366
+        },
+        {
             "id": "openai/gpt-5.4",
             "name": "GPT-5.4",
             "provider": "chatgpt",
@@ -110,12 +158,6 @@
             "name": "GPT-5.4 (batch)",
             "provider": "chatgpt",
             "created": 1772734352
-        },
-        {
-            "id": "openai/gpt-5.3-chat",
-            "name": "GPT-5.3 Chat",
-            "provider": "chatgpt",
-            "created": 1772564061
         },
         {
             "id": "openai/gpt-5.3-codex",
@@ -154,6 +196,12 @@
             "created": 1765389780
         },
         {
+            "id": "openai/gpt-5.2-pro:batch",
+            "name": "GPT-5.2 Pro (batch)",
+            "provider": "chatgpt",
+            "created": 1765389780
+        },
+        {
             "id": "openai/gpt-5.2",
             "name": "GPT-5.2",
             "provider": "chatgpt",
@@ -182,12 +230,6 @@
             "name": "GPT-5.1 (batch)",
             "provider": "chatgpt",
             "created": 1763060305
-        },
-        {
-            "id": "openai/gpt-5.1-chat",
-            "name": "GPT-5.1 Chat",
-            "provider": "chatgpt",
-            "created": 1763060302
         },
         {
             "id": "openai/gpt-5.1-codex",
@@ -220,28 +262,16 @@
             "created": 1760447986
         },
         {
-            "id": "openai/o3-deep-research",
-            "name": "o3 Deep Research",
-            "provider": "chatgpt",
-            "created": 1760129661
-        },
-        {
-            "id": "openai/o4-mini-deep-research",
-            "name": "o4 Mini Deep Research",
-            "provider": "chatgpt",
-            "created": 1760129642
-        },
-        {
             "id": "openai/gpt-5-pro",
             "name": "GPT-5 Pro",
             "provider": "chatgpt",
             "created": 1759776663
         },
         {
-            "id": "openai/gpt-5-codex",
-            "name": "GPT-5 Codex",
+            "id": "openai/gpt-5-pro:batch",
+            "name": "GPT-5 Pro (batch)",
             "provider": "chatgpt",
-            "created": 1758643403
+            "created": 1759776663
         },
         {
             "id": "openai/gpt-5",
@@ -286,14 +316,20 @@
             "created": 1754414231
         },
         {
+            "id": "openai/gpt-oss-120b:batch",
+            "name": "gpt-oss-120b (batch)",
+            "provider": "chatgpt",
+            "created": 1754414231
+        },
+        {
             "id": "openai/gpt-oss-20b",
             "name": "gpt-oss-20b",
             "provider": "chatgpt",
             "created": 1754414229
         },
         {
-            "id": "openai/gpt-oss-20b:free",
-            "name": "gpt-oss-20b (free)",
+            "id": "openai/gpt-oss-20b:batch",
+            "name": "gpt-oss-20b (batch)",
             "provider": "chatgpt",
             "created": 1754414229
         },
@@ -316,8 +352,20 @@
             "created": 1744823457
         },
         {
+            "id": "openai/o3:batch",
+            "name": "o3 (batch)",
+            "provider": "chatgpt",
+            "created": 1744823457
+        },
+        {
             "id": "openai/o4-mini",
             "name": "o4 Mini",
+            "provider": "chatgpt",
+            "created": 1744820942
+        },
+        {
+            "id": "openai/o4-mini:batch",
+            "name": "o4 Mini (batch)",
             "provider": "chatgpt",
             "created": 1744820942
         },
@@ -328,14 +376,32 @@
             "created": 1744651385
         },
         {
+            "id": "openai/gpt-4.1:batch",
+            "name": "GPT-4.1 (batch)",
+            "provider": "chatgpt",
+            "created": 1744651385
+        },
+        {
             "id": "openai/gpt-4.1-mini",
             "name": "GPT-4.1 Mini",
             "provider": "chatgpt",
             "created": 1744651381
         },
         {
+            "id": "openai/gpt-4.1-mini:batch",
+            "name": "GPT-4.1 Mini (batch)",
+            "provider": "chatgpt",
+            "created": 1744651381
+        },
+        {
             "id": "openai/gpt-4.1-nano",
             "name": "GPT-4.1 Nano",
+            "provider": "chatgpt",
+            "created": 1744651369
+        },
+        {
+            "id": "openai/gpt-4.1-nano:batch",
+            "name": "GPT-4.1 Nano (batch)",
             "provider": "chatgpt",
             "created": 1744651369
         },
@@ -354,6 +420,12 @@
         {
             "id": "openai/o3-mini",
             "name": "o3 Mini",
+            "provider": "chatgpt",
+            "created": 1738351721
+        },
+        {
+            "id": "openai/o3-mini:batch",
+            "name": "o3 Mini (batch)",
             "provider": "chatgpt",
             "created": 1738351721
         },
@@ -388,6 +460,12 @@
             "created": 1721260800
         },
         {
+            "id": "openai/gpt-4o-mini:batch",
+            "name": "GPT-4o-mini (batch)",
+            "provider": "chatgpt",
+            "created": 1721260800
+        },
+        {
             "id": "openai/gpt-4o",
             "name": "GPT-4o",
             "provider": "chatgpt",
@@ -400,8 +478,20 @@
             "created": 1715558400
         },
         {
+            "id": "openai/gpt-4o:batch",
+            "name": "GPT-4o (batch)",
+            "provider": "chatgpt",
+            "created": 1715558400
+        },
+        {
             "id": "openai/gpt-4-turbo",
             "name": "GPT-4 Turbo",
+            "provider": "chatgpt",
+            "created": 1712620800
+        },
+        {
+            "id": "openai/gpt-4-turbo:batch",
+            "name": "GPT-4 Turbo (batch)",
             "provider": "chatgpt",
             "created": 1712620800
         },
@@ -436,6 +526,12 @@
             "created": 1685232000
         },
         {
+            "id": "openai/gpt-3.5-turbo:batch",
+            "name": "GPT-3.5 Turbo (batch)",
+            "provider": "chatgpt",
+            "created": 1685232000
+        },
+        {
             "id": "openai/gpt-4",
             "name": "GPT-4",
             "provider": "chatgpt",
@@ -450,6 +546,12 @@
         {
             "id": "anthropic/claude-opus-5",
             "name": "Opus 5",
+            "provider": "claude",
+            "created": 1784912544
+        },
+        {
+            "id": "anthropic/claude-opus-5:batch",
+            "name": "Opus 5 (batch)",
             "provider": "claude",
             "created": 1784912544
         },
@@ -516,6 +618,12 @@
         {
             "id": "anthropic/claude-sonnet-4.6",
             "name": "Sonnet 4.6",
+            "provider": "claude",
+            "created": 1771342990
+        },
+        {
+            "id": "anthropic/claude-sonnet-4.6:batch",
+            "name": "Sonnet 4.6 (batch)",
             "provider": "claude",
             "created": 1771342990
         },
@@ -598,6 +706,18 @@
             "created": 1710288000
         },
         {
+            "id": "google/gemini-3.7-flash",
+            "name": "3.7 Flash",
+            "provider": "gemini",
+            "created": 1786640581
+        },
+        {
+            "id": "google/gemini-3.7-flash:batch",
+            "name": "3.7 Flash (batch)",
+            "provider": "gemini",
+            "created": 1786640581
+        },
+        {
             "id": "google/gemini-3.6-flash",
             "name": "3.6 Flash",
             "provider": "gemini",
@@ -678,6 +798,12 @@
         {
             "id": "google/gemma-4-31b-it",
             "name": "Gemma 4 31B",
+            "provider": "gemini",
+            "created": 1775148486
+        },
+        {
+            "id": "google/gemma-4-31b-it:batch",
+            "name": "Gemma 4 31B (batch)",
             "provider": "gemini",
             "created": 1775148486
         },
@@ -794,12 +920,6 @@
             "name": "2.5 Pro Preview 06-05",
             "provider": "gemini",
             "created": 1749137257
-        },
-        {
-            "id": "google/gemma-3n-e4b-it",
-            "name": "Gemma 3n 4B",
-            "provider": "gemini",
-            "created": 1747776824
         },
         {
             "id": "google/gemini-2.5-pro-preview-05-06",
