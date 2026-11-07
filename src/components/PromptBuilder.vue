@@ -151,9 +151,10 @@ function clearStatusAfterExit(event: TransitionEvent) {
 }
 
 async function copyText(value: string, message: string) {
+    const sharedOptions = { ...options.value }
     try {
         await navigator.clipboard.writeText(value)
-        save(options.value)
+        save(sharedOptions)
         announce(message)
         return true
     }
@@ -209,13 +210,14 @@ async function nativeShare() {
     if (!promptReady.value) {
         return
     }
+    const sharedOptions = { ...options.value }
     try {
         await navigator.share({
             title: `Ask ${currentProvider.value.label}`,
             text: 'Open this prompt in your AI service.',
             url: promptUrl.value,
         })
-        save(options.value)
+        save(sharedOptions)
     }
     catch (error) {
         if (!(error instanceof DOMException && error.name === 'AbortError')) {
@@ -230,6 +232,7 @@ async function showQr() {
         return
     }
 
+    const sharedOptions = { ...options.value }
     try {
         qrDataUrl.value = await QRCode.toDataURL(promptUrl.value, {
             color: {
@@ -241,7 +244,7 @@ async function showQr() {
             width: 360,
         })
         qrOpen.value = true
-        save(options.value)
+        save(sharedOptions)
     }
     catch {
         announce('This prompt is too long for a QR code.', true)
