@@ -1,4 +1,5 @@
 import type { PromptLinkOptions } from '~/lib/prompt-links'
+import { buildSharePath } from '~/lib/prompt-links'
 import { readStorage, removeStorage, writeStorage } from '~/lib/safe-storage'
 
 export interface PromptHistoryEntry extends PromptLinkOptions {
@@ -34,14 +35,8 @@ export function usePromptHistory() {
             return
         }
 
-        const duplicateKey = JSON.stringify(options)
-        const withoutDuplicate = entries.value.filter(entry => JSON.stringify({
-            prompt: entry.prompt,
-            provider: entry.provider,
-            model: entry.model,
-            webSearch: entry.webSearch,
-            temporary: entry.temporary,
-        }) !== duplicateKey)
+        const duplicateKey = buildSharePath(options)
+        const withoutDuplicate = entries.value.filter(entry => buildSharePath(entry) !== duplicateKey)
 
         entries.value = [
             {
