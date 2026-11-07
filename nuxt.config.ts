@@ -24,6 +24,10 @@ export default defineNuxtConfig({
                 compatibility_date: '2026-07-29',
                 compatibility_flags: ['nodejs_compat'],
                 workers_dev: true,
+                routes: [
+                    { pattern: 'prefillprompt.com', custom_domain: true },
+                    { pattern: 'www.prefillprompt.com', custom_domain: true },
+                ],
                 preview_urls: true,
                 observability: {
                     enabled: false,
