@@ -101,6 +101,8 @@ The repository requires Node 22.13 or newer within the Node 22 release line, or 
 | `pnpm models:update` | Validate OpenRouter's public endpoint and update the checked-in model catalog when its model set changes. |
 | `pnpm typecheck` | Run Nuxt and Vue TypeScript checks. |
 | `pnpm test` | Run the automated test suite once. |
+| `pnpm probe` | Check the live `/api/prompt` contract, error codes, and key pages. Pass `--base <origin>` to target a preview. |
+| `pnpm probe:providers` | Same, plus a reachability check of each AI destination. |
 | `pnpm check` | Run lint, typecheck, tests, and the Cloudflare build. |
 | `pnpm deploy:preview` | Upload a Cloudflare Worker version and print its preview URL without promoting it to production. |
 | `pnpm deploy:blue` | Build and upload the named blue Cloudflare preview. |
@@ -113,6 +115,17 @@ pnpm deploy:preview
 ```
 
 Review the emitted preview URL, including the homepage and each redirect path, before any production rollout.
+
+## Checking the live links
+
+`pnpm probe` sends real requests to `https://prefillprompt.com/api/prompt` and compares each redirect with an expected destination written out in `scripts/probe/cases.mjs`. `test/probe-cases.test.ts` keeps those expectations in sync with `src/lib/prompt-links.ts`, so changing a link format on purpose means updating both. A scheduled workflow (`.github/workflows/probe.yml`) runs it daily and fails when the contract drifts.
+
+Plain HTTP proves that PrefillPrompt builds the right URL. It cannot prove that ChatGPT, Claude, Gemini, or Perplexity still honor `model`, `thinking`, `hints`, `temporary-chat`, or `incognito`, because those sites apply them in the browser after login. To check that, open each link in a signed-in browser and confirm:
+
+- The prompt is prefilled in the composer.
+- The model picker shows the requested model, or the destination default for `latest`.
+- Temporary or incognito chat is active when requested.
+- ChatGPT shows web search on for `web=1`.
 
 ## Architecture
 

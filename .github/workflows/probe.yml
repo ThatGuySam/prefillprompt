@@ -1,0 +1,30 @@
+name: Probe production URLs
+
+on:
+    schedule:
+        - cron: "43 14 * * *"
+    workflow_dispatch:
+        inputs:
+            base:
+                description: Origin to probe
+                default: https://prefillprompt.com
+
+permissions:
+    contents: read
+
+jobs:
+    probe:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .node-version
+
+            - name: Probe the share-link contract
+              env:
+                  PROBE_BASE: ${{ inputs.base || 'https://prefillprompt.com' }}
+              run: node scripts/probe/run.mjs --providers --base "$PROBE_BASE"

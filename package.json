@@ -27,6 +27,8 @@
         "models:update": "node scripts/update-model-catalog.mjs",
         "postinstall": "nuxt prepare",
         "preview": "wrangler --cwd=.output dev",
+        "probe": "node scripts/probe/run.mjs",
+        "probe:providers": "node scripts/probe/run.mjs --providers",
         "test": "node --import tsx --test test/*.test.ts",
         "typecheck": "nuxt typecheck"
     },
