@@ -120,12 +120,7 @@ Review the emitted preview URL, including the homepage and each redirect path, b
 
 `pnpm probe` sends real requests to `https://prefillprompt.com/api/prompt` and compares each redirect with an expected destination written out in `scripts/probe/cases.mjs`. `test/probe-cases.test.ts` keeps those expectations in sync with `src/lib/prompt-links.ts`, so changing a link format on purpose means updating both. A scheduled workflow (`.github/workflows/probe.yml`) runs it daily and fails when the contract drifts.
 
-Plain HTTP proves that PrefillPrompt builds the right URL. It cannot prove that ChatGPT, Claude, Gemini, or Perplexity still honor `model`, `thinking`, `hints`, `temporary-chat`, or `incognito`, because those sites apply them in the browser after login. To check that, open each link in a signed-in browser and confirm:
-
-- The prompt is prefilled in the composer.
-- The model picker shows the requested model, or the destination default for `latest`.
-- Temporary or incognito chat is active when requested.
-- ChatGPT shows web search on for `web=1`.
+Plain HTTP proves that PrefillPrompt builds the right URL. It cannot prove that ChatGPT, Claude, Gemini, or Perplexity still honor `model`, `thinking`, `hints`, `temporary-chat`, or `incognito`, because those sites apply them in the browser after login, and their bot checks block automated browsers. [docs/manual-link-check.md](docs/manual-link-check.md) lists a clickable link for each feature with the expected result, so you can check them in your own browser.
 
 ## Architecture
 
