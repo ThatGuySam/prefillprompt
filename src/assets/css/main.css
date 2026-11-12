@@ -1700,23 +1700,6 @@ a {
     margin-bottom: 18px;
 }
 
-.open-card > button {
-    margin-bottom: 12px;
-}
-
-.open-change {
-    margin-bottom: 12px;
-}
-
-.open-change > summary {
-    min-height: 44px;
-    padding: 10px 0;
-    color: var(--ink-soft);
-    font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-}
-
 .open-prompt {
     max-height: 14rem;
     padding: 12px;
@@ -1758,46 +1741,169 @@ a {
     font-weight: 700;
 }
 
-.open-destinations {
-    display: grid;
-    gap: 6px;
-    padding: 0;
-    margin: 0 0 16px;
-    border: 0;
-}
-
-.open-destinations legend {
-    padding: 0;
-    margin-bottom: 8px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.open-destinations label {
-    display: flex;
-    min-height: 48px;
-    padding: 8px 12px;
-    gap: 10px;
-    align-items: center;
-    cursor: pointer;
+/* The places a prompt can open: one rounded frame holding a primary button with a toggle,
+   and a list of rows that each have their own Open link. */
+.open-places {
+    margin-bottom: 4px;
+    overflow: hidden;
     border: 1px solid var(--line-strong);
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
-.open-destinations label:has(input:checked) {
-    background: var(--blue-soft);
-    border-color: #9ab8e9;
+.open-places-pending {
+    visibility: hidden;
 }
 
-.open-destinations span {
+.open-primary {
+    display: flex;
+    color: white;
+    background: var(--navy);
+}
+
+.open-primary > a {
+    display: flex;
+    min-height: 52px;
+    padding: 0 16px;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.open-primary > button {
+    display: grid;
+    width: 52px;
+    color: inherit;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-left: 1px solid rgb(255 255 255 / 22%);
+    place-items: center;
+}
+
+.open-primary svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    transition: rotate 200ms var(--ease-out-quad);
+}
+
+.open-primary > button[aria-expanded="true"] svg {
+    rotate: 180deg;
+}
+
+.open-primary > :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: -4px;
+}
+
+/* Opens to its own height where the browser can animate to it, and snaps open elsewhere. */
+.open-rows {
+    overflow: hidden;
+    transition:
+        block-size 220ms var(--ease-out-quad),
+        visibility 220ms;
+    interpolate-size: allow-keywords;
+}
+
+.open-rows-collapsed {
+    visibility: hidden;
+    block-size: 0;
+}
+
+.open-rows ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.open-rows li {
+    position: relative;
+    display: flex;
+    min-height: 56px;
+    padding: 9px 12px 9px 16px;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.open-rows li + li,
+.open-primary + .open-rows li:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.open-rows li > span {
     display: grid;
     gap: 2px;
+    font-size: 0.86rem;
 }
 
-.open-destinations small {
+.open-rows small {
     color: var(--ink-soft);
     font-size: 0.72rem;
     line-height: 1.35;
+}
+
+.open-rows a {
+    display: grid;
+    min-width: 64px;
+    min-height: 36px;
+    padding: 0 14px;
+    flex: none;
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    transition: transform var(--motion-press) var(--ease-out-quad);
+    place-items: center;
+}
+
+/* The whole row opens the place, not only the small button. */
+.open-rows a::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+}
+
+.open-rows a:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+.open-rows a:active {
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .open-rows li:hover {
+        background: var(--blue-soft);
+    }
+
+    .open-rows li:hover a {
+        color: white;
+        background: var(--navy);
+        border-color: var(--navy);
+    }
+
+    .open-primary > button:hover {
+        background: rgb(255 255 255 / 12%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .open-rows,
+    .open-rows a,
+    .open-primary svg {
+        transition: none;
+    }
 }
 
 .safety-page {
@@ -1868,7 +1974,6 @@ a {
         border-color: #a8443e;
     }
 
-    .open-destinations label:has(input:checked),
     .safety-item:target {
         background: #1d3355;
         border-color: #3d5f96;

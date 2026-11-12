@@ -67,10 +67,10 @@ https://prefillprompt.com/api/prompt?s=chatgpt&temporary=true&q=Help%20me%20brai
 
 ### The preview screen
 
-`https://prefillprompt.com/open` takes the same query keys as the API and never redirects on its own. It shows the prompt, any safety warning, and a button for one destination; the other destinations sit behind **Open somewhere else**.
+`https://prefillprompt.com/open` takes the same query keys as the API and never redirects on its own. It shows the prompt, any safety warning, and one frame of places to open it. Every place has its own Open link, so opening takes one click. Once a place is known, from the link or from a saved choice, the frame starts as a single button for it, and a toggle beside the button opens the rest of the list inside the same frame.
 
 - **Destinations.** ChatGPT website, Claude website, Gemini, and Perplexity, plus two apps on computers: Codex in the ChatGPT desktop app (`codex://new?prompt=`) and Claude Code in a terminal (`claude-cli://open?q=`). Both app links are the vendors' documented forms; they fill the prompt in and wait for the reader to send it. If the app does not take over within a second and a half, the page offers the website. Touch devices are offered websites only, since a phone hands those links to an installed app itself.
-- **Remembered choice.** For a link with no `s`, the destination the reader opens is saved in that browser and preselected next time.
+- **Remembered choice.** For a link with no `s`, the destination the reader opens is saved in that browser and becomes the single button next time.
 - **A named service wins for one visit.** With `s=claude`, the preview opens on Claude and leaves the saved choice alone. The saved choice still decides between app and website.
 
 Link to `/open?s=claude&q=…` directly when you want the preview and the app option even for a clean prompt.
