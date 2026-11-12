@@ -1,3 +1,10 @@
+import process from 'node:process'
+
+// Build-time feature flags, read by src/lib/flags.ts. Off unless the build sets the variable.
+const flagDefines = {
+    __PROVIDER_COMPATIBILITY__: JSON.stringify(process.env.NUXT_PUBLIC_PROVIDER_COMPATIBILITY === 'true'),
+}
+
 export default defineNuxtConfig({
     compatibilityDate: '2026-07-29',
     devtools: { enabled: false },
@@ -7,6 +14,7 @@ export default defineNuxtConfig({
         public: '../public',
     },
     css: ['~/assets/css/main.css'],
+    vite: { define: flagDefines },
     routeRules: {
         '/': { prerender: true },
         // The prompt is in the address, so the preview is never cached, indexed, or sent as a referrer.
@@ -14,6 +22,7 @@ export default defineNuxtConfig({
     },
     nitro: {
         preset: 'cloudflare-module',
+        replace: flagDefines,
         prerender: {
             routes: ['/'],
             crawlLinks: false,

@@ -1,6 +1,9 @@
+import { flags } from './flags.ts'
+
 export type ProviderId = 'chatgpt' | 'claude' | 'gemini' | 'perplexity'
 export type ModelAlias = 'latest' | 'latest-fast' | 'latest-reasoning'
-export type CapabilityLevel = 'supported' | 'experimental' | 'unavailable' | 'always'
+export type RecipientChoice = 'provider' | 'model'
+export type CapabilityLevel = 'supported' | 'experimental' | 'ui-only' | 'unavailable' | 'always'
 
 export interface ProviderDefinition {
     id: ProviderId
@@ -34,7 +37,7 @@ export const modelAliases: Array<{ id: ModelAlias, label: string, description: s
     },
 ]
 
-export const providers: ProviderDefinition[] = [
+const baseProviders: ProviderDefinition[] = [
     {
         id: 'chatgpt',
         label: 'ChatGPT',
@@ -88,6 +91,18 @@ export const providers: ProviderDefinition[] = [
         },
     },
 ]
+
+/** What a link can do once `flags.providerCompatibility` is on. `ui-only` means the person sets it by hand after opening. */
+const compatibilityCapabilities: Record<ProviderId, ProviderDefinition['capabilities']> = {
+    chatgpt: { models: 'experimental', temporary: 'experimental', webSearch: 'experimental' },
+    claude: { models: 'experimental', temporary: 'experimental', webSearch: 'ui-only' },
+    gemini: { models: 'ui-only', temporary: 'ui-only', webSearch: 'ui-only' },
+    perplexity: { models: 'ui-only', temporary: 'ui-only', webSearch: 'always' },
+}
+
+export const providers: ProviderDefinition[] = flags.providerCompatibility
+    ? baseProviders.map(provider => ({ ...provider, capabilities: compatibilityCapabilities[provider.id] }))
+    : baseProviders
 
 export function getProvider(id: ProviderId) {
     return providers.find(provider => provider.id === id) ?? providers[0]!

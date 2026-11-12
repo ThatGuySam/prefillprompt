@@ -1,4 +1,5 @@
-import type { ModelAlias, ProviderId } from './providers.ts'
+import type { ModelAlias, ProviderId, RecipientChoice } from './providers.ts'
+import { flags } from './flags.ts'
 import {
     getProvider,
     isModelAlias,
@@ -18,6 +19,7 @@ export interface PromptLinkOptions {
     model?: string
     webSearch?: boolean
     temporary?: boolean
+    recipientChoice?: RecipientChoice
 }
 
 const MODEL_PROVIDER_PATTERNS: Array<[RegExp, ProviderId]> = [
@@ -64,7 +66,7 @@ export function parseBooleanParam(value: unknown) {
     return value === true || value === '1' || value === 'true'
 }
 
-function providerModelValue(provider: ProviderId, model: string | undefined) {
+export function getProviderModelHint(provider: ProviderId, model: string | undefined) {
     if (!model || model === 'latest') {
         return undefined
     }
@@ -77,7 +79,43 @@ function providerModelValue(provider: ProviderId, model: string | undefined) {
     return withoutCatalogPrefix?.trim() || undefined
 }
 
+export function buildProviderPrompt(options: PromptLinkOptions) {
+    if (
+        options.webSearch
+        && options.provider
+        && options.provider !== 'perplexity'
+    ) {
+        return `Search the web before answering and cite your sources.\n\n${options.prompt}`
+    }
+
+    return options.prompt
+}
+
+export function buildChoicePath(options: PromptLinkOptions) {
+    const params = new URLSearchParams({
+        q: options.prompt,
+        s: options.provider ?? resolveProvider(undefined, options.model),
+        choose: options.recipientChoice ?? 'provider',
+    })
+
+    if (options.model) {
+        params.set('model', options.model)
+    }
+    if (options.webSearch) {
+        params.set('web', '1')
+    }
+    if (options.temporary) {
+        params.set('temporary', '1')
+    }
+
+    return `/choose?${params.toString()}`
+}
+
 export function buildSharePath(options: PromptLinkOptions) {
+    if (options.recipientChoice) {
+        return buildChoicePath(options)
+    }
+
     const params = new URLSearchParams({
         q: options.prompt,
         s: options.provider ?? resolveProvider(undefined, options.model),
@@ -130,17 +168,21 @@ export function isShareUrlWithinLimit(url: string) {
 
 export function buildProviderUrl(options: PromptLinkOptions) {
     const provider = options.provider ?? resolveProvider(undefined, options.model)
-    const model = providerModelValue(provider, options.model)
+    const model = getProviderModelHint(provider, options.model)
+    // Under the flag, web search is asked for in the prompt text. Without it, ChatGPT gets the `hints` parameter as before.
+    const prompt = flags.providerCompatibility
+        ? buildProviderPrompt({ ...options, provider })
+        : options.prompt
     let url: URL
 
     switch (provider) {
         case 'chatgpt': {
             url = new URL('https://chatgpt.com/')
-            url.searchParams.set('q', options.prompt)
+            url.searchParams.set('q', prompt)
             if (model) {
                 url.searchParams.set('model', model)
             }
-            if (options.webSearch) {
+            if (options.webSearch && !flags.providerCompatibility) {
                 url.searchParams.set('hints', 'search')
             }
             if (options.temporary) {
@@ -150,7 +192,7 @@ export function buildProviderUrl(options: PromptLinkOptions) {
         }
         case 'claude': {
             url = new URL('https://claude.ai/new')
-            url.searchParams.set('q', options.prompt)
+            url.searchParams.set('q', prompt)
             if (model) {
                 url.searchParams.set('model', model)
             }
@@ -169,7 +211,7 @@ export function buildProviderUrl(options: PromptLinkOptions) {
         case 'perplexity': {
             url = new URL('https://www.perplexity.ai/search')
             url.searchParams.set('s', 'o')
-            url.searchParams.set('q', options.prompt)
+            url.searchParams.set('q', prompt)
             break
         }
     }
@@ -185,6 +227,12 @@ export function buildGeminiHandoffPath(options: PromptLinkOptions) {
     if (options.model) {
         params.set('model', options.model)
     }
+    if (flags.providerCompatibility && options.webSearch) {
+        params.set('web', '1')
+    }
+    if (flags.providerCompatibility && options.temporary) {
+        params.set('temporary', '1')
+    }
 
     return `/handoff?${params.toString()}`
 }
@@ -193,9 +241,17 @@ function escapeMarkdownLabel(value: string) {
     return value.replaceAll('\\', '\\\\').replaceAll('[', '\\[').replaceAll(']', '\\]')
 }
 
-export function buildMarkdownLink(url: string, provider: ProviderId, prompt: string) {
+export function buildMarkdownLink(
+    url: string,
+    provider: ProviderId,
+    prompt: string,
+    recipientChoice?: RecipientChoice,
+) {
     const providerLabel = getProvider(provider).label
     const compactPrompt = prompt.replaceAll(/\s+/g, ' ').trim()
     const summary = compactPrompt.length > 48 ? `${compactPrompt.slice(0, 47)}…` : compactPrompt
-    return `[${escapeMarkdownLabel(`Ask ${providerLabel}: ${summary}`)}](${url})`
+    const action = recipientChoice
+        ? `Choose an AI: ${summary}`
+        : `Ask ${providerLabel}: ${summary}`
+    return `[${escapeMarkdownLabel(action)}](${url})`
 }

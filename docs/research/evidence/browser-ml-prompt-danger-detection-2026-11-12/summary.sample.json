@@ -1,0 +1,1118 @@
+{
+    "content-safety-small": {
+        "thresholds": {
+            "0.5": {
+                "tp": 427,
+                "fp": 167,
+                "recall": "41.7%",
+                "fpr": "7.0%",
+                "precisionCorpusMix": "71.9%",
+                "precisionAt1pct": "5.7%",
+                "precisionAt0_1pct": "0.6%"
+            },
+            "0.9": {
+                "tp": 245,
+                "fp": 110,
+                "recall": "23.9%",
+                "fpr": "4.6%",
+                "precisionCorpusMix": "69.0%",
+                "precisionAt1pct": "5.0%",
+                "precisionAt0_1pct": "0.5%"
+            },
+            "0.99": {
+                "tp": 106,
+                "fp": 49,
+                "recall": "10.3%",
+                "fpr": "2.0%",
+                "precisionCorpusMix": "68.4%",
+                "precisionAt1pct": "4.9%",
+                "precisionAt0_1pct": "0.5%"
+            },
+            "0.999": {
+                "tp": 14,
+                "fp": 21,
+                "recall": "1.4%",
+                "fpr": "0.9%",
+                "precisionCorpusMix": "40.0%",
+                "precisionAt1pct": "1.6%",
+                "precisionAt0_1pct": "0.2%"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "77.3%",
+                "flag@0.9": "59.0%",
+                "flag@0.99": "26.3%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "13.2%",
+                "flag@0.9": "9.1%",
+                "flag@0.99": "4.1%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "0.3%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "18.6%",
+                "flag@0.9": "1.9%",
+                "flag@0.99": "0.4%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "1.8%",
+                "flag@0.9": "0.3%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "16.3%",
+                "flag@0.9": "0.3%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "46.9%",
+                "flag@0.9": "6.3%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "16.7%",
+                "flag@0.9": "3.3%",
+                "flag@0.99": "0.0%"
+            }
+        },
+        "notinject": {
+            "0.5": "3/339",
+            "0.9": "0/339",
+            "0.99": "0/339",
+            "0.999": "0/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "1/24",
+                "falseAlarms": "0/24"
+            },
+            "0.9": {
+                "caught": "0/24",
+                "falseAlarms": "0/24"
+            },
+            "0.99": {
+                "caught": "0/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "0/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "22.5%",
+            "zero-width": "0.0%",
+            "zero-width+normalized": "22.5%",
+            "homoglyph": "1.7%",
+            "homoglyph+normalized": "22.5%",
+            "leetspeak": "18.3%",
+            "leetspeak+normalized": "18.3%",
+            "letter-spacing": "0.0%",
+            "letter-spacing+normalized": "11.7%",
+            "fullwidth": "0.0%",
+            "fullwidth+normalized": "22.5%",
+            "unicode-tags": "0.0%",
+            "unicode-tags+normalized": "5.0%",
+            "base64": "0.0%",
+            "base64+normalized": "1.7%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 8.6,
+            "p50 ≥400 tok": 209.4,
+            "p95 ≥400 tok": 259.2
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 16,
+                "fp": 0,
+                "recall": "1.6%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 411,
+                "unionRecall": "43.4%"
+            },
+            "regex AND model@0.9": {
+                "tp": 3,
+                "fp": 0,
+                "recall": "0.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 242,
+                "unionRecall": "26.9%"
+            },
+            "regex AND model@0.99": {
+                "tp": 0,
+                "fp": 0,
+                "recall": "0.0%",
+                "precisionCorpusMix": "n/a"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 106,
+                "unionRecall": "13.7%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    },
+    "horizon-pi-small": {
+        "thresholds": {
+            "0.5": {
+                "tp": 802,
+                "fp": 62,
+                "recall": "78.2%",
+                "fpr": "2.6%",
+                "precisionCorpusMix": "92.8%",
+                "precisionAt1pct": "23.4%",
+                "precisionAt0_1pct": "2.9%"
+            },
+            "0.9": {
+                "tp": 598,
+                "fp": 13,
+                "recall": "58.3%",
+                "fpr": "0.5%",
+                "precisionCorpusMix": "97.9%",
+                "precisionAt1pct": "52.1%",
+                "precisionAt0_1pct": "9.7%"
+            },
+            "0.99": {
+                "tp": 296,
+                "fp": 1,
+                "recall": "28.9%",
+                "fpr": "0.0%",
+                "precisionCorpusMix": "99.7%",
+                "precisionAt1pct": "87.5%",
+                "precisionAt0_1pct": "40.9%"
+            },
+            "0.999": {
+                "tp": 88,
+                "fp": 0,
+                "recall": "8.6%",
+                "fpr": "0.0%",
+                "precisionCorpusMix": "100.0%",
+                "precisionAt1pct": "100.0%",
+                "precisionAt0_1pct": "100.0%"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "74.3%",
+                "flag@0.9": "43.3%",
+                "flag@0.99": "6.5%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "5.0%",
+                "flag@0.9": "1.1%",
+                "flag@0.99": "0.1%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "0.3%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "74.9%",
+                "flag@0.9": "49.4%",
+                "flag@0.99": "20.9%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "0.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "99.3%",
+                "flag@0.9": "96.0%",
+                "flag@0.99": "71.3%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "28.1%",
+                "flag@0.9": "18.8%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "3.3%",
+                "flag@0.9": "3.3%",
+                "flag@0.99": "3.3%"
+            }
+        },
+        "notinject": {
+            "0.5": "13/339",
+            "0.9": "2/339",
+            "0.99": "0/339",
+            "0.999": "0/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "17/24",
+                "falseAlarms": "1/24"
+            },
+            "0.9": {
+                "caught": "10/24",
+                "falseAlarms": "0/24"
+            },
+            "0.99": {
+                "caught": "6/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "5/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "89.2%",
+            "zero-width": "89.2%",
+            "zero-width+normalized": "89.2%",
+            "homoglyph": "78.3%",
+            "homoglyph+normalized": "89.2%",
+            "leetspeak": "77.5%",
+            "leetspeak+normalized": "77.5%",
+            "letter-spacing": "58.3%",
+            "letter-spacing+normalized": "91.7%",
+            "fullwidth": "89.2%",
+            "fullwidth+normalized": "89.2%",
+            "unicode-tags": "94.2%",
+            "unicode-tags+normalized": "94.2%",
+            "base64": "100.0%",
+            "base64+normalized": "100.0%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 13.6,
+            "p50 ≥400 tok": 346.8,
+            "p95 ≥400 tok": 465.6
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 10,
+                "fp": 0,
+                "recall": "1.0%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 792,
+                "unionRecall": "80.6%"
+            },
+            "regex AND model@0.9": {
+                "tp": 7,
+                "fp": 0,
+                "recall": "0.7%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 591,
+                "unionRecall": "61.0%"
+            },
+            "regex AND model@0.99": {
+                "tp": 0,
+                "fp": 0,
+                "recall": "0.0%",
+                "precisionCorpusMix": "n/a"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 296,
+                "unionRecall": "32.2%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    },
+    "pg2-22m": {
+        "thresholds": {
+            "0.5": {
+                "tp": 687,
+                "fp": 561,
+                "recall": "67.0%",
+                "fpr": "23.4%",
+                "precisionCorpusMix": "55.0%",
+                "precisionAt1pct": "2.8%",
+                "precisionAt0_1pct": "0.3%"
+            },
+            "0.9": {
+                "tp": 663,
+                "fp": 467,
+                "recall": "64.7%",
+                "fpr": "19.5%",
+                "precisionCorpusMix": "58.7%",
+                "precisionAt1pct": "3.2%",
+                "precisionAt0_1pct": "0.3%"
+            },
+            "0.99": {
+                "tp": 616,
+                "fp": 357,
+                "recall": "60.1%",
+                "fpr": "14.9%",
+                "precisionCorpusMix": "63.3%",
+                "precisionAt1pct": "3.9%",
+                "precisionAt0_1pct": "0.4%"
+            },
+            "0.999": {
+                "tp": 101,
+                "fp": 27,
+                "recall": "9.9%",
+                "fpr": "1.1%",
+                "precisionCorpusMix": "78.9%",
+                "precisionAt1pct": "8.1%",
+                "precisionAt0_1pct": "0.9%"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "88.5%",
+                "flag@0.9": "86.0%",
+                "flag@0.99": "79.3%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "40.5%",
+                "flag@0.9": "34.6%",
+                "flag@0.99": "27.4%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "9.3%",
+                "flag@0.9": "6.4%",
+                "flag@0.99": "3.5%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "16.0%",
+                "flag@0.9": "11.4%",
+                "flag@0.99": "8.7%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "0.3%",
+                "flag@0.9": "0.3%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "96.7%",
+                "flag@0.9": "96.3%",
+                "flag@0.99": "92.0%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "3.1%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "0.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            }
+        },
+        "notinject": {
+            "0.5": "15/339",
+            "0.9": "5/339",
+            "0.99": "3/339",
+            "0.999": "0/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "1/24",
+                "falseAlarms": "1/24"
+            },
+            "0.9": {
+                "caught": "1/24",
+                "falseAlarms": "1/24"
+            },
+            "0.99": {
+                "caught": "1/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "0/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "65.0%",
+            "zero-width": "65.0%",
+            "zero-width+normalized": "65.0%",
+            "homoglyph": "0.0%",
+            "homoglyph+normalized": "65.0%",
+            "leetspeak": "0.0%",
+            "leetspeak+normalized": "0.0%",
+            "letter-spacing": "65.0%",
+            "letter-spacing+normalized": "65.0%",
+            "fullwidth": "65.0%",
+            "fullwidth+normalized": "65.0%",
+            "unicode-tags": "0.0%",
+            "unicode-tags+normalized": "57.5%",
+            "base64": "0.0%",
+            "base64+normalized": "59.2%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 9.6,
+            "p50 ≥400 tok": 187.7,
+            "p95 ≥400 tok": 229.3
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 2,
+                "fp": 0,
+                "recall": "0.2%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 685,
+                "unionRecall": "70.1%"
+            },
+            "regex AND model@0.9": {
+                "tp": 1,
+                "fp": 0,
+                "recall": "0.1%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 662,
+                "unionRecall": "67.9%"
+            },
+            "regex AND model@0.99": {
+                "tp": 1,
+                "fp": 0,
+                "recall": "0.1%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 615,
+                "unionRecall": "63.3%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    },
+    "testsavant-tiny": {
+        "thresholds": {
+            "0.5": {
+                "tp": 670,
+                "fp": 814,
+                "recall": "65.4%",
+                "fpr": "33.9%",
+                "precisionCorpusMix": "45.1%",
+                "precisionAt1pct": "1.9%",
+                "precisionAt0_1pct": "0.2%"
+            },
+            "0.9": {
+                "tp": 486,
+                "fp": 494,
+                "recall": "47.4%",
+                "fpr": "20.6%",
+                "precisionCorpusMix": "49.6%",
+                "precisionAt1pct": "2.3%",
+                "precisionAt0_1pct": "0.2%"
+            },
+            "0.99": {
+                "tp": 227,
+                "fp": 111,
+                "recall": "22.1%",
+                "fpr": "4.6%",
+                "precisionCorpusMix": "67.2%",
+                "precisionAt1pct": "4.6%",
+                "precisionAt0_1pct": "0.5%"
+            },
+            "0.999": {
+                "tp": 0,
+                "fp": 0,
+                "recall": "0.0%",
+                "fpr": "0.0%",
+                "precisionCorpusMix": "n/a",
+                "precisionAt1pct": "n/a",
+                "precisionAt0_1pct": "n/a"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "66.8%",
+                "flag@0.9": "53.3%",
+                "flag@0.99": "20.3%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "54.3%",
+                "flag@0.9": "35.7%",
+                "flag@0.99": "8.7%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "14.0%",
+                "flag@0.9": "6.6%",
+                "flag@0.99": "0.9%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "44.9%",
+                "flag@0.9": "14.4%",
+                "flag@0.99": "1.5%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "12.5%",
+                "flag@0.9": "3.3%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "89.7%",
+                "flag@0.9": "76.3%",
+                "flag@0.99": "47.3%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "40.6%",
+                "flag@0.9": "18.8%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "10.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            }
+        },
+        "notinject": {
+            "0.5": "173/339",
+            "0.9": "54/339",
+            "0.99": "9/339",
+            "0.999": "0/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "7/24",
+                "falseAlarms": "4/24"
+            },
+            "0.9": {
+                "caught": "2/24",
+                "falseAlarms": "2/24"
+            },
+            "0.99": {
+                "caught": "2/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "0/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "73.3%",
+            "zero-width": "73.3%",
+            "zero-width+normalized": "73.3%",
+            "homoglyph": "7.5%",
+            "homoglyph+normalized": "73.3%",
+            "leetspeak": "5.0%",
+            "leetspeak+normalized": "5.0%",
+            "letter-spacing": "0.0%",
+            "letter-spacing+normalized": "50.8%",
+            "fullwidth": "100.0%",
+            "fullwidth+normalized": "73.3%",
+            "unicode-tags": "100.0%",
+            "unicode-tags+normalized": "71.7%",
+            "base64": "0.8%",
+            "base64+normalized": "69.2%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 0.8,
+            "p50 ≥400 tok": 9.8,
+            "p95 ≥400 tok": 17.3
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 14,
+                "fp": 0,
+                "recall": "1.4%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 656,
+                "unionRecall": "67.3%"
+            },
+            "regex AND model@0.9": {
+                "tp": 6,
+                "fp": 0,
+                "recall": "0.6%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 480,
+                "unionRecall": "50.1%"
+            },
+            "regex AND model@0.99": {
+                "tp": 0,
+                "fp": 0,
+                "recall": "0.0%",
+                "precisionCorpusMix": "n/a"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 227,
+                "unionRecall": "25.5%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    },
+    "wolf-edge": {
+        "thresholds": {
+            "0.5": {
+                "tp": 661,
+                "fp": 227,
+                "recall": "64.5%",
+                "fpr": "9.5%",
+                "precisionCorpusMix": "74.4%",
+                "precisionAt1pct": "6.4%",
+                "precisionAt0_1pct": "0.7%"
+            },
+            "0.9": {
+                "tp": 604,
+                "fp": 172,
+                "recall": "58.9%",
+                "fpr": "7.2%",
+                "precisionCorpusMix": "77.8%",
+                "precisionAt1pct": "7.7%",
+                "precisionAt0_1pct": "0.8%"
+            },
+            "0.99": {
+                "tp": 547,
+                "fp": 115,
+                "recall": "53.4%",
+                "fpr": "4.8%",
+                "precisionCorpusMix": "82.6%",
+                "precisionAt1pct": "10.1%",
+                "precisionAt0_1pct": "1.1%"
+            },
+            "0.999": {
+                "tp": 483,
+                "fp": 70,
+                "recall": "47.1%",
+                "fpr": "2.9%",
+                "precisionCorpusMix": "87.3%",
+                "precisionAt1pct": "14.0%",
+                "precisionAt0_1pct": "1.6%"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "68.5%",
+                "flag@0.9": "59.3%",
+                "flag@0.99": "52.5%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "18.3%",
+                "flag@0.9": "14.0%",
+                "flag@0.99": "9.5%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "0.9%",
+                "flag@0.9": "0.5%",
+                "flag@0.99": "0.1%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "43.0%",
+                "flag@0.9": "38.8%",
+                "flag@0.99": "32.7%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "0.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "90.7%",
+                "flag@0.9": "88.0%",
+                "flag@0.99": "83.7%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "6.3%",
+                "flag@0.9": "3.1%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "0.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            }
+        },
+        "notinject": {
+            "0.5": "4/339",
+            "0.9": "3/339",
+            "0.99": "2/339",
+            "0.999": "0/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "5/24",
+                "falseAlarms": "0/24"
+            },
+            "0.9": {
+                "caught": "3/24",
+                "falseAlarms": "0/24"
+            },
+            "0.99": {
+                "caught": "3/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "3/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "74.2%",
+            "zero-width": "93.3%",
+            "zero-width+normalized": "74.2%",
+            "homoglyph": "90.8%",
+            "homoglyph+normalized": "74.2%",
+            "leetspeak": "92.5%",
+            "leetspeak+normalized": "92.5%",
+            "letter-spacing": "69.2%",
+            "letter-spacing+normalized": "76.7%",
+            "fullwidth": "75.8%",
+            "fullwidth+normalized": "74.2%",
+            "unicode-tags": "60.8%",
+            "unicode-tags+normalized": "71.7%",
+            "base64": "100.0%",
+            "base64+normalized": "100.0%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 8.3,
+            "p50 ≥400 tok": 153.5,
+            "p95 ≥400 tok": 191
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 3,
+                "fp": 0,
+                "recall": "0.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 658,
+                "unionRecall": "67.5%"
+            },
+            "regex AND model@0.9": {
+                "tp": 2,
+                "fp": 0,
+                "recall": "0.2%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 602,
+                "unionRecall": "62.0%"
+            },
+            "regex AND model@0.99": {
+                "tp": 1,
+                "fp": 0,
+                "recall": "0.1%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 546,
+                "unionRecall": "56.6%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    },
+    "wolf-small": {
+        "thresholds": {
+            "0.5": {
+                "tp": 720,
+                "fp": 234,
+                "recall": "70.2%",
+                "fpr": "9.8%",
+                "precisionCorpusMix": "75.5%",
+                "precisionAt1pct": "6.8%",
+                "precisionAt0_1pct": "0.7%"
+            },
+            "0.9": {
+                "tp": 692,
+                "fp": 190,
+                "recall": "67.5%",
+                "fpr": "7.9%",
+                "precisionCorpusMix": "78.5%",
+                "precisionAt1pct": "7.9%",
+                "precisionAt0_1pct": "0.8%"
+            },
+            "0.99": {
+                "tp": 644,
+                "fp": 131,
+                "recall": "62.8%",
+                "fpr": "5.5%",
+                "precisionCorpusMix": "83.1%",
+                "precisionAt1pct": "10.4%",
+                "precisionAt0_1pct": "1.1%"
+            },
+            "0.999": {
+                "tp": 568,
+                "fp": 88,
+                "recall": "55.4%",
+                "fpr": "3.7%",
+                "precisionCorpusMix": "86.6%",
+                "precisionAt1pct": "13.2%",
+                "precisionAt0_1pct": "1.5%"
+            }
+        },
+        "bySource": {
+            "jailbreak-llms-jailbreak": {
+                "label": "malicious",
+                "n": 400,
+                "flag@0.5": "72.0%",
+                "flag@0.9": "67.5%",
+                "flag@0.99": "62.0%"
+            },
+            "jailbreak-llms-regular": {
+                "label": "benign",
+                "n": 1200,
+                "flag@0.5": "18.7%",
+                "flag@0.9": "15.1%",
+                "flag@0.99": "10.7%"
+            },
+            "prompts-chat": {
+                "label": "benign",
+                "n": 800,
+                "flag@0.5": "1.3%",
+                "flag@0.9": "1.1%",
+                "flag@0.99": "0.4%"
+            },
+            "deepset-injection": {
+                "label": "malicious",
+                "n": 263,
+                "flag@0.5": "55.1%",
+                "flag@0.9": "52.9%",
+                "flag@0.99": "47.9%"
+            },
+            "deepset-benign": {
+                "label": "benign",
+                "n": 399,
+                "flag@0.5": "0.0%",
+                "flag@0.9": "0.0%",
+                "flag@0.99": "0.0%"
+            },
+            "gandalf": {
+                "label": "malicious",
+                "n": 300,
+                "flag@0.5": "95.0%",
+                "flag@0.9": "93.7%",
+                "flag@0.99": "90.0%"
+            },
+            "injecagent-data-stealing": {
+                "label": "malicious",
+                "n": 32,
+                "flag@0.5": "3.1%",
+                "flag@0.9": "3.1%",
+                "flag@0.99": "0.0%"
+            },
+            "injecagent-direct-harm": {
+                "label": "malicious",
+                "n": 30,
+                "flag@0.5": "3.3%",
+                "flag@0.9": "3.3%",
+                "flag@0.99": "0.0%"
+            }
+        },
+        "notinject": {
+            "0.5": "10/339",
+            "0.9": "6/339",
+            "0.99": "5/339",
+            "0.999": "2/339"
+        },
+        "link": {
+            "0.5": {
+                "caught": "6/24",
+                "falseAlarms": "0/24"
+            },
+            "0.9": {
+                "caught": "6/24",
+                "falseAlarms": "0/24"
+            },
+            "0.99": {
+                "caught": "4/24",
+                "falseAlarms": "0/24"
+            },
+            "0.999": {
+                "caught": "4/24",
+                "falseAlarms": "0/24"
+            }
+        },
+        "evasion": {
+            "original": "81.7%",
+            "zero-width": "90.0%",
+            "zero-width+normalized": "81.7%",
+            "homoglyph": "97.5%",
+            "homoglyph+normalized": "81.7%",
+            "leetspeak": "92.5%",
+            "leetspeak+normalized": "92.5%",
+            "letter-spacing": "65.8%",
+            "letter-spacing+normalized": "80.0%",
+            "fullwidth": "85.0%",
+            "fullwidth+normalized": "81.7%",
+            "unicode-tags": "100.0%",
+            "unicode-tags+normalized": "81.7%",
+            "base64": "100.0%",
+            "base64+normalized": "100.0%"
+        },
+        "latency": {
+            "p50 ≤64 tok": 8.4,
+            "p50 ≥400 tok": 208.1,
+            "p95 ≥400 tok": 255.6
+        },
+        "withRegex": {
+            "regexAttackAlone": {
+                "tp": 34,
+                "fp": 0,
+                "recall": "3.3%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "regex AND model@0.5": {
+                "tp": 2,
+                "fp": 0,
+                "recall": "0.2%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.5 adds beyond regex": {
+                "extraCaught": 718,
+                "unionRecall": "73.4%"
+            },
+            "regex AND model@0.9": {
+                "tp": 2,
+                "fp": 0,
+                "recall": "0.2%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.9 adds beyond regex": {
+                "extraCaught": 690,
+                "unionRecall": "70.6%"
+            },
+            "regex AND model@0.99": {
+                "tp": 1,
+                "fp": 0,
+                "recall": "0.1%",
+                "precisionCorpusMix": "100.0%"
+            },
+            "model@0.99 adds beyond regex": {
+                "extraCaught": 643,
+                "unionRecall": "66.0%"
+            }
+        },
+        "counts": {
+            "malicious": 1025,
+            "benign": 2399
+        }
+    }
+}
