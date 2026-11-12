@@ -38,6 +38,7 @@ export function usePromptHistory() {
             model: entry.model,
             webSearch: entry.webSearch,
             temporary: entry.temporary,
+            recipientChoice: entry.recipientChoice,
         }) !== duplicateKey)
 
         entries.value = [

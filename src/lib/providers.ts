@@ -1,6 +1,7 @@
 export type ProviderId = 'chatgpt' | 'claude' | 'gemini' | 'perplexity'
 export type ModelAlias = 'latest' | 'latest-fast' | 'latest-reasoning'
-export type CapabilityLevel = 'supported' | 'experimental' | 'unavailable' | 'always'
+export type RecipientChoice = 'provider' | 'model'
+export type CapabilityLevel = 'supported' | 'experimental' | 'ui-only' | 'unavailable' | 'always'
 
 export interface ProviderDefinition {
     id: ProviderId
@@ -45,7 +46,7 @@ export const providers: ProviderDefinition[] = [
         capabilities: {
             models: 'experimental',
             temporary: 'experimental',
-            webSearch: 'supported',
+            webSearch: 'experimental',
         },
     },
     {
@@ -58,7 +59,7 @@ export const providers: ProviderDefinition[] = [
         capabilities: {
             models: 'experimental',
             temporary: 'experimental',
-            webSearch: 'unavailable',
+            webSearch: 'ui-only',
         },
     },
     {
@@ -69,9 +70,9 @@ export const providers: ProviderDefinition[] = [
         behavior: 'Starts the prompt in Gemini.',
         accent: '#2c5cc5',
         capabilities: {
-            models: 'experimental',
-            temporary: 'unavailable',
-            webSearch: 'unavailable',
+            models: 'ui-only',
+            temporary: 'ui-only',
+            webSearch: 'ui-only',
         },
     },
     {
@@ -82,8 +83,8 @@ export const providers: ProviderDefinition[] = [
         behavior: 'Runs a new Perplexity search.',
         accent: '#13737a',
         capabilities: {
-            models: 'unavailable',
-            temporary: 'unavailable',
+            models: 'ui-only',
+            temporary: 'ui-only',
             webSearch: 'always',
         },
     },

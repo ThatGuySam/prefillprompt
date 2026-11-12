@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import type { ModelChoice } from '~/lib/model-catalog'
 import type { PromptLinkOptions } from '~/lib/prompt-links'
-import type { ProviderId } from '~/lib/providers'
+import type { ProviderId, RecipientChoice } from '~/lib/providers'
 import QRCode from 'qrcode'
+import { getCompatibilityNotices } from '~/lib/compatibility'
+import { normalizeModelSelection } from '~/lib/model-catalog'
 import {
     buildAbsoluteShareUrl,
     buildMarkdownLink,
     MAX_PROMPT_LENGTH,
     MAX_QR_URL_LENGTH,
 } from '~/lib/prompt-links'
-import { getProvider, isModelAlias } from '~/lib/providers'
+import { getProvider } from '~/lib/providers'
+import { findSensitiveData } from '~/lib/sensitive-data'
 
 const prompt = ref('')
 const provider = ref<ProviderId>('chatgpt')
 const model = ref('latest')
+const recipientChoice = ref<RecipientChoice>()
 const webSearch = ref(false)
 const temporary = ref(false)
 const origin = ref('https://prefillprompt.com')
@@ -39,22 +43,24 @@ const options = computed<PromptLinkOptions>(() => ({
     model: model.value,
     webSearch: webSearch.value,
     temporary: temporary.value,
+    recipientChoice: recipientChoice.value,
 }))
 const promptUrl = computed(() => buildAbsoluteShareUrl(origin.value, options.value))
 const qrAvailable = computed(() => promptUrl.value.length <= MAX_QR_URL_LENGTH)
+const compatibilityNotices = computed(() => getCompatibilityNotices(options.value))
+const sensitiveFinding = computed(() => findSensitiveData(prompt.value))
+const headerLabel = computed(() =>
+    recipientChoice.value
+        ? 'Recipient decides'
+        : currentProvider.value.label,
+)
 const choiceHint = computed(() => {
-    if (provider.value === 'gemini') {
-        return model.value === 'latest'
-            ? 'Gemini uses a reliable copy + open handoff.'
-            : 'Gemini uses copy + open — confirm this model there.'
+    if (recipientChoice.value) {
+        return compatibilityNotices.value.find(notice => notice.feature === 'handoff')?.message ?? ''
     }
-    if (!isModelAlias(model.value)) {
-        return 'Exact model hint — confirm it after opening.'
-    }
-    if (model.value !== 'latest') {
-        return 'Model preference — confirm it after opening.'
-    }
-    return ''
+    return compatibilityNotices.value.find(notice =>
+        notice.feature === 'model' || notice.feature === 'handoff',
+    )?.message ?? ''
 })
 
 onMounted(() => {
@@ -65,14 +71,22 @@ onMounted(() => {
     const stored = window.localStorage.getItem('prefillprompt-selection')
     if (stored) {
         try {
-            const selection = JSON.parse(stored) as { provider?: ProviderId, model?: string }
+            const selection = JSON.parse(stored) as {
+                provider?: ProviderId
+                model?: string
+                recipientChoice?: RecipientChoice
+            }
             if (
                 selection.provider
                 && ['chatgpt', 'claude', 'gemini', 'perplexity'].includes(selection.provider)
                 && selection.model
             ) {
                 provider.value = selection.provider
-                model.value = selection.model
+                model.value = normalizeModelSelection(selection.provider, selection.model)
+                recipientChoice.value = selection.recipientChoice === 'provider'
+                    || selection.recipientChoice === 'model'
+                    ? selection.recipientChoice
+                    : undefined
             }
         }
         catch {
@@ -81,18 +95,19 @@ onMounted(() => {
     }
 })
 
-watch([provider, model], ([nextProvider, nextModel]) => {
+watch([provider, model, recipientChoice], ([nextProvider, nextModel, nextRecipientChoice]) => {
     if (import.meta.client) {
         window.localStorage.setItem('prefillprompt-selection', JSON.stringify({
             provider: nextProvider,
             model: nextModel,
+            recipientChoice: nextRecipientChoice,
         }))
     }
 })
 
 watch(provider, (value) => {
     const definition = getProvider(value)
-    if (definition.capabilities.webSearch !== 'supported') {
+    if (definition.capabilities.webSearch === 'unavailable') {
         webSearch.value = false
     }
     if (definition.capabilities.temporary === 'unavailable') {
@@ -123,8 +138,15 @@ function dismissTip() {
 }
 
 function selectModel(choice: ModelChoice) {
+    if (choice.recipientChoice === 'provider') {
+        recipientChoice.value = 'provider'
+        model.value = 'latest'
+        return
+    }
+
     provider.value = choice.provider
     model.value = choice.model
+    recipientChoice.value = choice.recipientChoice
 }
 
 function announce(message: string, error = false) {
@@ -149,7 +171,7 @@ function clearStatusAfterExit(event: TransitionEvent) {
 async function copyText(value: string, message: string) {
     try {
         await navigator.clipboard.writeText(value)
-        save(options.value)
+        saveIfSafe()
         announce(message)
         return true
     }
@@ -179,14 +201,19 @@ async function copyLink() {
 function copyMarkdown() {
     activeSheet.value = null
     return copyText(
-        buildMarkdownLink(promptUrl.value, provider.value, prompt.value),
+        buildMarkdownLink(
+            promptUrl.value,
+            provider.value,
+            prompt.value,
+            recipientChoice.value,
+        ),
         'Markdown link copied.',
     )
 }
 
 function openPrompt() {
     activeSheet.value = null
-    save(options.value)
+    saveIfSafe()
     window.open(promptUrl.value, '_blank', 'noopener,noreferrer')
 }
 
@@ -194,11 +221,13 @@ async function nativeShare() {
     activeSheet.value = null
     try {
         await navigator.share({
-            title: `Ask ${currentProvider.value.label}`,
+            title: recipientChoice.value
+                ? 'Choose an AI for this prompt'
+                : `Ask ${currentProvider.value.label}`,
             text: 'Open this prompt in your AI service.',
             url: promptUrl.value,
         })
-        save(options.value)
+        saveIfSafe()
     }
     catch (error) {
         if (!(error instanceof DOMException && error.name === 'AbortError')) {
@@ -224,7 +253,7 @@ async function showQr() {
             width: 360,
         })
         qrOpen.value = true
-        save(options.value)
+        saveIfSafe()
     }
     catch {
         announce('This prompt is too long for a QR code.', true)
@@ -232,16 +261,24 @@ async function showQr() {
 }
 
 function useOptions(next: PromptLinkOptions) {
+    const nextProvider = next.provider ?? 'chatgpt'
     prompt.value = next.prompt
-    provider.value = next.provider ?? 'chatgpt'
-    model.value = next.model ?? 'latest'
+    provider.value = nextProvider
+    model.value = normalizeModelSelection(nextProvider, next.model)
     webSearch.value = Boolean(next.webSearch)
     temporary.value = Boolean(next.temporary)
+    recipientChoice.value = next.recipientChoice
 }
 
 function selectFromLibrary(next: PromptLinkOptions) {
     useOptions(next)
     announce('Prompt loaded.')
+}
+
+function saveIfSafe() {
+    if (!sensitiveFinding.value) {
+        save(options.value)
+    }
 }
 </script>
 
@@ -273,7 +310,13 @@ function selectFromLibrary(next: PromptLinkOptions) {
                     <p class="phone-title">
                         PrefillPrompt
                     </p>
-                    <span>{{ currentProvider.label }}</span>
+                    <span class="phone-provider-label">
+                        <ProviderIcon
+                            v-if="recipientChoice !== 'provider'"
+                            :provider="provider"
+                        />
+                        {{ headerLabel }}
+                    </span>
                 </div>
                 <button
                     class="icon-button"
@@ -322,6 +365,7 @@ function selectFromLibrary(next: PromptLinkOptions) {
                 <ModelCombobox
                     :model="model"
                     :provider="provider"
+                    :recipient-choice="recipientChoice"
                     @select="selectModel"
                 />
                 <p v-if="choiceHint" class="model-choice-hint">
@@ -334,6 +378,7 @@ function selectFromLibrary(next: PromptLinkOptions) {
                         v-model="prompt"
                         data-testid="prompt-input"
                         :maxlength="MAX_PROMPT_LENGTH"
+                        :aria-describedby="sensitiveFinding ? 'sensitive-data-warning' : undefined"
                         rows="1"
                         placeholder="Message to share"
                     />
@@ -353,6 +398,18 @@ function selectFromLibrary(next: PromptLinkOptions) {
                         </svg>
                     </button>
                 </div>
+                <div role="status" aria-live="polite">
+                    <p
+                        v-if="sensitiveFinding"
+                        id="sensitive-data-warning"
+                        class="sensitive-warning"
+                    >
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="M12 3 2.8 20h18.4L12 3Zm0 6v5m0 3.2v.1" />
+                        </svg>
+                        This looks like it contains {{ sensitiveFinding.label }}. Remove it before sharing; it will not be saved to history.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -369,8 +426,10 @@ function selectFromLibrary(next: PromptLinkOptions) {
             v-model:web-search="webSearch"
             :can-share="canNativeShare"
             :open="activeSheet === 'more'"
+            :model="model"
             :provider="provider"
             :qr-available="qrAvailable"
+            :recipient-choice="recipientChoice"
             @close="activeSheet = null"
             @copy-markdown="copyMarkdown"
             @native-share="nativeShare"

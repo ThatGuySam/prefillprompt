@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
+    buildChoicePath,
     buildGeminiHandoffPath,
     buildMarkdownLink,
     buildProviderUrl,
     buildSharePath,
     inferProviderFromModel,
+    MAX_PROMPT_LENGTH,
     resolveProvider,
 } from '../src/lib/prompt-links.ts'
 
@@ -32,7 +34,7 @@ describe('prompt link builder', () => {
         assert.equal(resolveProvider(undefined, 'o3'), 'chatgpt')
     })
 
-    it('adds supported ChatGPT feature hints', () => {
+    it('keeps ChatGPT web-search requests inside the prompt', () => {
         const url = new URL(buildProviderUrl({
             prompt: 'Find current sources',
             provider: 'chatgpt',
@@ -42,10 +44,32 @@ describe('prompt link builder', () => {
         }))
 
         assert.equal(url.hostname, 'chatgpt.com')
-        assert.equal(url.searchParams.get('q'), 'Find current sources')
+        assert.equal(
+            url.searchParams.get('q'),
+            'Search the web before answering and cite your sources.\n\nFind current sources',
+        )
         assert.equal(url.searchParams.get('model'), 'thinking')
-        assert.equal(url.searchParams.get('hints'), 'search')
+        assert.equal(url.searchParams.get('hints'), null)
         assert.equal(url.searchParams.get('temporary-chat'), 'true')
+    })
+
+    it('builds an internal recipient-choice handoff', () => {
+        const options = {
+            prompt: 'Compare these options',
+            provider: 'claude' as const,
+            model: 'latest-reasoning',
+            webSearch: true,
+            recipientChoice: 'model' as const,
+        }
+        const choice = new URL(buildChoicePath(options), 'https://prefillprompt.com')
+        const shared = new URL(buildSharePath(options), 'https://prefillprompt.com')
+
+        assert.equal(choice.pathname, '/choose')
+        assert.equal(choice.searchParams.get('choose'), 'model')
+        assert.equal(choice.searchParams.get('s'), 'claude')
+        assert.equal(choice.searchParams.get('model'), 'latest-reasoning')
+        assert.equal(choice.searchParams.get('web'), '1')
+        assert.equal(shared.toString(), choice.toString())
     })
 
     it('builds provider-specific destinations', () => {
@@ -84,6 +108,35 @@ describe('prompt link builder', () => {
         assert.equal(handoff.searchParams.get('model'), 'google/gemini-pro')
     })
 
+    it('carries Gemini handoff instructions without relying on hidden URL flags', () => {
+        const handoff = new URL(buildGeminiHandoffPath({
+            prompt: 'Compare current options',
+            provider: 'gemini',
+            model: 'latest',
+            webSearch: true,
+            temporary: true,
+        }), 'https://prefillprompt.com')
+
+        assert.equal(
+            handoff.searchParams.get('q'),
+            'Compare current options',
+        )
+        assert.equal(handoff.searchParams.get('web'), '1')
+        assert.equal(handoff.searchParams.get('temporary'), '1')
+    })
+
+    it('preserves the end of a maximum-length Gemini prompt', () => {
+        const prompt = `${'x'.repeat(MAX_PROMPT_LENGTH - 4)}TAIL`
+        const handoff = new URL(buildGeminiHandoffPath({
+            prompt,
+            provider: 'gemini',
+            webSearch: true,
+        }), 'https://prefillprompt.com')
+
+        assert.equal(handoff.searchParams.get('q'), prompt)
+        assert.match(handoff.searchParams.get('q') ?? '', /TAIL$/)
+    })
+
     it('creates a readable Markdown button', () => {
         const markdown = buildMarkdownLink(
             'https://prefillprompt.com/api/prompt?q=hello',
@@ -94,6 +147,20 @@ describe('prompt link builder', () => {
         assert.equal(
             markdown,
             '[Ask Gemini: Plan a four-week study sprint](https://prefillprompt.com/api/prompt?q=hello)',
+        )
+    })
+
+    it('labels recipient-choice Markdown links honestly', () => {
+        const markdown = buildMarkdownLink(
+            'https://prefillprompt.com/choose?q=hello',
+            'chatgpt',
+            'Compare the options',
+            'provider',
+        )
+
+        assert.equal(
+            markdown,
+            '[Choose an AI: Compare the options](https://prefillprompt.com/choose?q=hello)',
         )
     })
 })

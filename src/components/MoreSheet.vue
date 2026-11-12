@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import type { ProviderId } from '~/lib/providers'
+import type { ProviderId, RecipientChoice } from '~/lib/providers'
+import { getCompatibilityNotices } from '~/lib/compatibility'
 import { getProvider } from '~/lib/providers'
 
 const props = defineProps<{
     canShare: boolean
+    model: string
     open: boolean
     provider: ProviderId
     qrAvailable: boolean
+    recipientChoice?: RecipientChoice
     temporary: boolean
     webSearch: boolean
 }>()
@@ -22,10 +25,40 @@ const emit = defineEmits<{
 }>()
 
 const definition = computed(() => getProvider(props.provider))
-const canToggleWeb = computed(() => definition.value.capabilities.webSearch === 'supported')
-const webIsAlwaysOn = computed(() => definition.value.capabilities.webSearch === 'always')
-const canToggleTemporary = computed(() => definition.value.capabilities.temporary !== 'unavailable')
-const temporaryLabel = computed(() => props.provider === 'claude' ? 'Incognito chat' : 'Temporary chat')
+const notices = computed(() => getCompatibilityNotices({
+    prompt: '',
+    provider: props.provider,
+    model: props.model,
+    recipientChoice: props.recipientChoice,
+    temporary: props.temporary,
+    webSearch: props.webSearch,
+}))
+const canToggleWeb = computed(() =>
+    Boolean(props.recipientChoice)
+    || (
+        definition.value.capabilities.webSearch !== 'unavailable'
+        && definition.value.capabilities.webSearch !== 'always'
+    ),
+)
+const webIsAlwaysOn = computed(() =>
+    !props.recipientChoice && definition.value.capabilities.webSearch === 'always',
+)
+const canToggleTemporary = computed(() =>
+    Boolean(props.recipientChoice)
+    || definition.value.capabilities.temporary !== 'unavailable',
+)
+const temporaryLabel = computed(() => {
+    if (props.recipientChoice) {
+        return 'Private / temporary chat'
+    }
+    return props.provider === 'claude' ? 'Incognito chat' : 'Temporary chat'
+})
+const webNotice = computed(() =>
+    notices.value.find(notice => notice.feature === 'webSearch')?.message,
+)
+const temporaryNotice = computed(() =>
+    notices.value.find(notice => notice.feature === 'temporary')?.message,
+)
 </script>
 
 <template>
@@ -37,7 +70,7 @@ const temporaryLabel = computed(() => props.provider === 'claude' ? 'Incognito c
             <div class="sheet-action-list">
                 <button @click="emit('openPrompt')">
                     <span>Open prompt</span>
-                    <small>{{ definition.label }}</small>
+                    <small>{{ recipientChoice ? 'Recipient decides' : definition.label }}</small>
                 </button>
                 <button @click="emit('copyMarkdown')">
                     <span>Copy Markdown</span>
@@ -65,14 +98,29 @@ const temporaryLabel = computed(() => props.provider === 'claude' ? 'Incognito c
             <label v-if="canToggleWeb" class="sheet-toggle">
                 <span>
                     <strong>Web search</strong>
-                    <small>Ask {{ definition.label }} to start in search mode.</small>
+                    <small>
+                        {{ recipientChoice
+                            ? 'Ask the selected AI to search before answering.'
+                            : `Ask ${definition.label} to search before answering.` }}
+                    </small>
                 </span>
                 <input
                     type="checkbox"
                     :checked="webSearch"
+                    :aria-describedby="webSearch && webNotice ? 'web-search-warning' : undefined"
                     @change="emit('update:webSearch', ($event.target as HTMLInputElement).checked)"
                 >
             </label>
+            <span class="sr-only" role="status" aria-live="polite">
+                {{ webSearch ? webNotice : '' }}
+            </span>
+            <p
+                v-if="webSearch && webNotice"
+                id="web-search-warning"
+                class="sheet-warning"
+            >
+                {{ webNotice }}
+            </p>
             <p v-else-if="webIsAlwaysOn" class="sheet-note">
                 Perplexity searches the web by default.
             </p>
@@ -84,11 +132,22 @@ const temporaryLabel = computed(() => props.provider === 'claude' ? 'Incognito c
                 <input
                     type="checkbox"
                     :checked="temporary"
+                    :aria-describedby="temporary && temporaryNotice ? 'temporary-chat-warning' : undefined"
                     @change="emit('update:temporary', ($event.target as HTMLInputElement).checked)"
                 >
             </label>
-            <p v-if="provider === 'gemini'" class="sheet-note">
-                Gemini uses a copy-and-open handoff because Google does not publish a dependable prompt-link contract.
+            <span class="sr-only" role="status" aria-live="polite">
+                {{ temporary ? temporaryNotice : '' }}
+            </span>
+            <p
+                v-if="temporary && temporaryNotice"
+                id="temporary-chat-warning"
+                class="sheet-warning"
+            >
+                {{ temporaryNotice }}
+            </p>
+            <p v-if="provider === 'gemini' && !recipientChoice" class="sheet-note">
+                Gemini uses a reviewable copy-and-open handoff because direct prompt links can auto-submit or vary by session.
             </p>
         </section>
 

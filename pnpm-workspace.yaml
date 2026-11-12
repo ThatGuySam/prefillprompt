@@ -4,3 +4,7 @@ onlyBuiltDependencies:
   - unrs-resolver
   - vue-demi
   - workerd
+
+overrides:
+  'miniflare@4.20260722.1>undici': 7.30.1
+  'miniflare@4.20260722.1>sharp': 0.35.5

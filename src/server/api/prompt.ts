@@ -55,6 +55,8 @@ export default defineEventHandler(async (event) => {
             prompt,
             provider,
             model,
+            webSearch: parseBooleanParam(query.web),
+            temporary: parseBooleanParam(query.temporary),
         }), UNCACHED_REDIRECT_CODE)
     }
 
