@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { getCompatibilityNotices } from '../src/lib/compatibility.ts'
-import './helpers/enable-provider-compatibility.ts'
+import { enableProviderCompatibility } from './helpers/enable-provider-compatibility.ts'
+
+// The flag is read when app modules load, so they are imported after it is set.
+enableProviderCompatibility()
+const { getCompatibilityNotices } = await import('../src/lib/compatibility.ts')
 
 describe('provider compatibility notices', () => {
     it('warns that ChatGPT web search is a prompt-level request', () => {

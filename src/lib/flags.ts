@@ -4,8 +4,8 @@
  *
  * `nuxt.config.ts` replaces the `__NAME__` constants below at build time.
  * Outside a Nuxt build (the Node test runner) they are undefined and read as
- * off; a test turns one on by setting the global before importing app code,
- * as `test/helpers/enable-provider-compatibility.ts` does.
+ * off; a test turns one on with `test/helpers/enable-provider-compatibility.ts`
+ * before it loads app code.
  */
 declare const __PROVIDER_COMPATIBILITY__: boolean | undefined
 

@@ -44,12 +44,12 @@ Prompt links are not private: the prompt is encoded in the URL and can appear in
 
 `GET https://prefillprompt.com/api/prompt` redirects the browser to the selected service with the prompt and supported options.
 
-A link stops at a preview screen, `/open`, in two cases: when it names no service, so the reader can choose one, and when the prompt trips a [safety signal](#safety-warnings), so the reader sees the warning first. Every other link redirects straight to the service it names.
+A link redirects straight to its service: the one it names, else the one its model implies, else ChatGPT. The one exception is a prompt that trips a [safety signal](#safety-warnings). That link stops at a preview screen, `/open`, so the reader sees the warning before anything opens.
 
 | Query key | Required | Meaning |
 | --- | --- | --- |
 | `q` | Yes | The URL-encoded prompt text. Newlines and Unicode are supported. |
-| `s` | No | Service ID or recognized service alias. Supported IDs are `chatgpt`, `claude`, `gemini`, and `perplexity`. A provider-specific model may imply its service. With no service, the link opens the preview screen. |
+| `s` | No | Service ID or recognized service alias. Supported IDs are `chatgpt`, `claude`, `gemini`, and `perplexity`. A provider-specific model may imply its service. With no service, the link opens ChatGPT. |
 | `m` | No | Legacy name for the service. It is used only when `s` is absent. New links should use `s`. |
 | `model` | No | A provider model ID or the alias `latest`, `latest-fast`, or `latest-reasoning`. |
 | `web` | No | Set to `true` or `1` to request ChatGPT web search. |
@@ -112,6 +112,16 @@ pnpm dev
 The development server is available at `http://localhost:3000`.
 
 The repository requires Node 22.13 or newer within the Node 22 release line, or Node 24 and newer, for development and Cloudflare commands. `.node-version` pins Node 22.16.0, and Corepack reads the pinned pnpm version from `package.json`.
+
+## Feature flags
+
+Unfinished work lives on `main` behind build-time flags in `src/lib/flags.ts`. A flag is off unless the build sets its environment variable, so a normal production build ships with every flag off.
+
+| Flag | Turn on with | What it adds |
+| --- | --- | --- |
+| `providerCompatibility` | `NUXT_PUBLIC_PROVIDER_COMPATIBILITY=true` | The July 2026 builder: a "recipient decides" option, the `/choose` page, compatibility notices, a warning when a prompt contains an API key or other secret, and web search sent as prompt text instead of the ChatGPT `hints` parameter. |
+
+Try a flag locally with `NUXT_PUBLIC_PROVIDER_COMPATIBILITY=true pnpm dev`. With the flag off, the live builder components (`PromptBuilder`, `MoreSheet`, `ModelCombobox`) are the ones that render; the flagged versions are the files ending in `Next.vue`. `test/flags-off.test.ts` holds the flag-off behavior in place.
 
 ## Commands
 

@@ -52,7 +52,8 @@ Click each link in your own browser, signed in, and compare what happens with th
 
 | Link | Expect |
 | --- | --- |
-| [No service](https://prefillprompt.com/api/prompt?q=hello+from+prefillprompt) | The preview opens. The first time, nothing is selected; after you open one, that destination is preselected next time |
+| [No service, API link](https://prefillprompt.com/api/prompt?q=hello+from+prefillprompt) | Opens ChatGPT, as it always has. No preview |
+| [No service, preview link](https://prefillprompt.com/open?q=hello+from+prefillprompt) | The preview opens. The first time, it lists every destination with its own Open button; after you open one, that destination is the one shown next time |
 | [Named service](https://prefillprompt.com/open?s=claude&q=hello+from+prefillprompt) | The preview opens on Claude and says your saved choice is left as it is |
 | [Claude Code](https://prefillprompt.com/open?s=claude&q=hello+from+prefillprompt) with **Claude Code** chosen | A terminal opens with the prompt filled in and not sent. No website tab opens as well |
 | [ChatGPT app](https://prefillprompt.com/open?s=chatgpt&q=hello+from+prefillprompt) with **ChatGPT app** chosen | The ChatGPT desktop app opens a Codex chat with the prompt filled in and not sent |

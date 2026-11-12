@@ -1,17 +1,20 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { flags } from '../src/lib/flags.ts'
-import { filterModelChoices } from '../src/lib/model-catalog.ts'
-import {
+import { enableProviderCompatibility } from './helpers/enable-provider-compatibility.ts'
+
+// The flag is read when app modules load, so they are imported after it is set.
+enableProviderCompatibility()
+const { flags } = await import('../src/lib/flags.ts')
+const { filterModelChoices } = await import('../src/lib/model-catalog.ts')
+const {
     buildChoicePath,
     buildGeminiHandoffPath,
     buildMarkdownLink,
     buildProviderUrl,
     buildSharePath,
     MAX_PROMPT_LENGTH,
-} from '../src/lib/prompt-links.ts'
-import { getProvider } from '../src/lib/providers.ts'
-import './helpers/enable-provider-compatibility.ts'
+} = await import('../src/lib/prompt-links.ts')
+const { getProvider } = await import('../src/lib/providers.ts')
 
 describe('prompt links with the providerCompatibility flag on', () => {
     it('runs with the flag on', () => {
