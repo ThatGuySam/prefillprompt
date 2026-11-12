@@ -1,0 +1,300 @@
+{
+    "measured": "2026-11-12",
+    "prompts": {
+        "malicious": 6581,
+        "benign": 17111
+    },
+    "bySource": {
+        "jailbreak-llms-jailbreak": {
+            "malicious": 1405,
+            "benign": 0
+        },
+        "jailbreak-llms-regular": {
+            "malicious": 0,
+            "benign": 13735
+        },
+        "prompts-chat": {
+            "malicious": 0,
+            "benign": 2977
+        },
+        "deepset-prompt-injections": {
+            "malicious": 263,
+            "benign": 399
+        },
+        "gandalf-ignore-instructions": {
+            "malicious": 1000,
+            "benign": 0
+        },
+        "injecagent-data-stealing": {
+            "malicious": 32,
+            "benign": 0
+        },
+        "cyberseceval-prompt-injection": {
+            "malicious": 251,
+            "benign": 0
+        },
+        "redcode-exec-bash": {
+            "malicious": 600,
+            "benign": 0
+        },
+        "llmail-inject": {
+            "malicious": 3000,
+            "benign": 0
+        },
+        "injecagent-direct-harm": {
+            "malicious": 30,
+            "benign": 0
+        }
+    },
+    "signals": [
+        {
+            "id": "send-to-address",
+            "tier": "attack",
+            "maliciousHits": 2686,
+            "benignHits": 8,
+            "precision": 0.997,
+            "benignHitsPer10k": 4.7,
+            "maliciousCoverage": 0.4081,
+            "bySource": {
+                "jailbreak-llms-regular": 5,
+                "prompts-chat": 3,
+                "injecagent-data-stealing": 31,
+                "cyberseceval-prompt-injection": 2,
+                "llmail-inject": 2651,
+                "injecagent-direct-harm": 2
+            }
+        },
+        {
+            "id": "fake-chat-tokens",
+            "tier": "attack",
+            "maliciousHits": 2691,
+            "benignHits": 12,
+            "precision": 0.9956,
+            "benignHitsPer10k": 7,
+            "maliciousCoverage": 0.4089,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 3,
+                "jailbreak-llms-regular": 11,
+                "prompts-chat": 1,
+                "llmail-inject": 2688
+            }
+        },
+        {
+            "id": "hidden-text",
+            "tier": "caution",
+            "maliciousHits": 2,
+            "benignHits": 1,
+            "precision": 0.6667,
+            "benignHitsPer10k": 0.6,
+            "maliciousCoverage": 0.0003,
+            "bySource": {
+                "jailbreak-llms-regular": 1,
+                "cyberseceval-prompt-injection": 1,
+                "llmail-inject": 1
+            }
+        },
+        {
+            "id": "image-exfiltration",
+            "tier": "caution",
+            "maliciousHits": 3,
+            "benignHits": 3,
+            "precision": 0.5,
+            "benignHitsPer10k": 1.8,
+            "maliciousCoverage": 0.0005,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 3,
+                "jailbreak-llms-regular": 3
+            }
+        },
+        {
+            "id": "credential-access",
+            "tier": "caution",
+            "maliciousHits": 60,
+            "benignHits": 2,
+            "precision": 0.9677,
+            "benignHitsPer10k": 1.2,
+            "maliciousCoverage": 0.0091,
+            "bySource": {
+                "prompts-chat": 2,
+                "redcode-exec-bash": 60
+            }
+        },
+        {
+            "id": "file-upload",
+            "tier": "caution",
+            "maliciousHits": 30,
+            "benignHits": 0,
+            "precision": 1,
+            "benignHitsPer10k": 0,
+            "maliciousCoverage": 0.0046,
+            "bySource": {
+                "redcode-exec-bash": 30
+            }
+        },
+        {
+            "id": "reverse-shell",
+            "tier": "caution",
+            "maliciousHits": 0,
+            "benignHits": 0,
+            "precision": null,
+            "benignHitsPer10k": 0,
+            "maliciousCoverage": 0,
+            "bySource": {}
+        },
+        {
+            "id": "remote-code",
+            "tier": "caution",
+            "maliciousHits": 0,
+            "benignHits": 4,
+            "precision": 0,
+            "benignHitsPer10k": 2.3,
+            "maliciousCoverage": 0,
+            "bySource": {
+                "prompts-chat": 4
+            }
+        },
+        {
+            "id": "destructive-command",
+            "tier": "caution",
+            "maliciousHits": 22,
+            "benignHits": 5,
+            "precision": 0.8148,
+            "benignHitsPer10k": 2.9,
+            "maliciousCoverage": 0.0033,
+            "bySource": {
+                "prompts-chat": 5,
+                "redcode-exec-bash": 22
+            }
+        },
+        {
+            "id": "approval-bypass",
+            "tier": "caution",
+            "maliciousHits": 0,
+            "benignHits": 1,
+            "precision": 0,
+            "benignHitsPer10k": 0.6,
+            "maliciousCoverage": 0,
+            "bySource": {
+                "prompts-chat": 1
+            }
+        },
+        {
+            "id": "encoded-payload",
+            "tier": "caution",
+            "maliciousHits": 2,
+            "benignHits": 1,
+            "precision": 0.6667,
+            "benignHitsPer10k": 0.6,
+            "maliciousCoverage": 0.0003,
+            "bySource": {
+                "jailbreak-llms-regular": 1,
+                "llmail-inject": 2
+            }
+        },
+        {
+            "id": "data-exfiltration",
+            "tier": "unreliable",
+            "maliciousHits": 4,
+            "benignHits": 0,
+            "precision": 1,
+            "benignHitsPer10k": 0,
+            "maliciousCoverage": 0.0006,
+            "bySource": {
+                "injecagent-data-stealing": 4
+            }
+        },
+        {
+            "id": "ignore-instructions",
+            "tier": "unreliable",
+            "maliciousHits": 481,
+            "benignHits": 872,
+            "precision": 0.3555,
+            "benignHitsPer10k": 509.6,
+            "maliciousCoverage": 0.0731,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 68,
+                "jailbreak-llms-regular": 864,
+                "prompts-chat": 8,
+                "deepset-prompt-injections": 4,
+                "gandalf-ignore-instructions": 377,
+                "cyberseceval-prompt-injection": 17,
+                "llmail-inject": 15
+            }
+        },
+        {
+            "id": "jailbreak-persona",
+            "tier": "unreliable",
+            "maliciousHits": 218,
+            "benignHits": 158,
+            "precision": 0.5798,
+            "benignHitsPer10k": 92.3,
+            "maliciousCoverage": 0.0331,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 213,
+                "jailbreak-llms-regular": 157,
+                "prompts-chat": 1,
+                "deepset-prompt-injections": 1,
+                "cyberseceval-prompt-injection": 4
+            }
+        },
+        {
+            "id": "system-prompt-leak",
+            "tier": "unreliable",
+            "maliciousHits": 19,
+            "benignHits": 12,
+            "precision": 0.6129,
+            "benignHitsPer10k": 7,
+            "maliciousCoverage": 0.0029,
+            "bySource": {
+                "jailbreak-llms-regular": 10,
+                "prompts-chat": 2,
+                "deepset-prompt-injections": 1,
+                "gandalf-ignore-instructions": 18
+            }
+        },
+        {
+            "id": "system-role-line",
+            "tier": "unreliable",
+            "maliciousHits": 28,
+            "benignHits": 72,
+            "precision": 0.28,
+            "benignHitsPer10k": 42.1,
+            "maliciousCoverage": 0.0043,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 26,
+                "jailbreak-llms-regular": 63,
+                "prompts-chat": 9,
+                "gandalf-ignore-instructions": 1,
+                "llmail-inject": 1
+            }
+        },
+        {
+            "id": "secrecy",
+            "tier": "unreliable",
+            "maliciousHits": 16,
+            "benignHits": 33,
+            "precision": 0.3265,
+            "benignHitsPer10k": 19.3,
+            "maliciousCoverage": 0.0024,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 16,
+                "jailbreak-llms-regular": 29,
+                "prompts-chat": 4
+            }
+        },
+        {
+            "id": "memory-write",
+            "tier": "unreliable",
+            "maliciousHits": 3,
+            "benignHits": 23,
+            "precision": 0.1154,
+            "benignHitsPer10k": 13.4,
+            "maliciousCoverage": 0.0005,
+            "bySource": {
+                "jailbreak-llms-jailbreak": 3,
+                "jailbreak-llms-regular": 19,
+                "prompts-chat": 4
+            }
+        }
+    ]
+}

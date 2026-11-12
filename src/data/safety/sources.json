@@ -1,0 +1,174 @@
+{
+    "fetched": "2026-11-12",
+    "sources": [
+        {
+            "id": "jailbreak-llms-jailbreak",
+            "file": "jailbreak-llms-jailbreak.csv",
+            "url": "https://raw.githubusercontent.com/verazuo/jailbreak_llms/da87f4bab9901a4fdfb8a9a63c0d2543f75b055a/data/prompts/jailbreak_prompts_2023_12_25.csv",
+            "revision": "da87f4bab9901a4fdfb8a9a63c0d2543f75b055a",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Jailbreak prompts collected in the wild from Reddit, Discord, websites, and open datasets (Shen et al., CCS 2024).",
+            "bytes": 3778717,
+            "sha256": "accf97463de96c33c48453dfee9600191ff6fd5a0c43f3f11d5ebf98d1a5de55"
+        },
+        {
+            "id": "jailbreak-llms-regular",
+            "file": "jailbreak-llms-regular.csv",
+            "url": "https://raw.githubusercontent.com/verazuo/jailbreak_llms/da87f4bab9901a4fdfb8a9a63c0d2543f75b055a/data/prompts/regular_prompts_2023_12_25.csv",
+            "revision": "da87f4bab9901a4fdfb8a9a63c0d2543f75b055a",
+            "license": "MIT",
+            "label": "benign",
+            "note": "Regular prompts from the same communities, labeled non-jailbreak by the same study.",
+            "bytes": 24307583,
+            "sha256": "fb82e3f88fbd5d9c6edf8927b138510f339b85012cab24d41d13e1665a9c5819"
+        },
+        {
+            "id": "injecagent-data-stealing",
+            "file": "injecagent-data-stealing.jsonl",
+            "url": "https://raw.githubusercontent.com/uiuc-kang-lab/InjecAgent/623f1bf3ad8ed35abe71f9f9d8fd9d99ad65aeea/data/attacker_cases_ds.jsonl",
+            "revision": "623f1bf3ad8ed35abe71f9f9d8fd9d99ad65aeea",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker instructions that make a tool-using agent steal data (Zhan et al., 2024).",
+            "bytes": 13209,
+            "sha256": "87952398c989d8ca841724e38ecdbb789676d3841e19dfc44aac7b710df9cb1f"
+        },
+        {
+            "id": "injecagent-direct-harm",
+            "file": "injecagent-direct-harm.jsonl",
+            "url": "https://raw.githubusercontent.com/uiuc-kang-lab/InjecAgent/623f1bf3ad8ed35abe71f9f9d8fd9d99ad65aeea/data/attacker_cases_dh.jsonl",
+            "revision": "623f1bf3ad8ed35abe71f9f9d8fd9d99ad65aeea",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker instructions that make a tool-using agent cause direct harm (Zhan et al., 2024).",
+            "bytes": 10937,
+            "sha256": "999d52e15af3c80a3303a09430af0f3878d1f91e4c573ca7b477a91cdfa6b991"
+        },
+        {
+            "id": "cyberseceval-prompt-injection",
+            "file": "cyberseceval-prompt-injection.json",
+            "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/ef5a7748472f17c39d37960de4fd3a63e368d362/CybersecurityBenchmarks/datasets/prompt_injection/prompt_injection.json",
+            "revision": "ef5a7748472f17c39d37960de4fd3a63e368d362",
+            "license": "unstated in repository metadata; measured only, not redistributed",
+            "label": "malicious",
+            "note": "Prompt-injection test cases from Meta's CyberSecEval, each tagged with its technique.",
+            "bytes": 199176,
+            "sha256": "069e4d5d36f6d19f972a3bbc65df840cc729354f89358a9031aeb44d95b18a9a"
+        },
+        {
+            "id": "bipia-text-attacks",
+            "file": "bipia-text-attacks.json",
+            "url": "https://raw.githubusercontent.com/microsoft/BIPIA/5a48626aece9739ce587ffdbcb2b7badcfd9d8ba/benchmark/text_attack_test.json",
+            "revision": "5a48626aece9739ce587ffdbcb2b7badcfd9d8ba",
+            "license": "unstated in repository metadata; measured only, not redistributed",
+            "label": "malicious",
+            "note": "Attack instructions from Microsoft's indirect prompt-injection benchmark (Yi et al., 2023).",
+            "bytes": 6322,
+            "sha256": "75750e7b4e8b34e8f9d88d89b357aeaaf02bd07f9e493ccd37eda74a0cd7c7f8"
+        },
+        {
+            "id": "agentdojo-workspace",
+            "file": "agentdojo-workspace.py",
+            "url": "https://raw.githubusercontent.com/ethz-spylab/agentdojo/c0cc91e6010f00b70092594e22d060a50239ade3/src/agentdojo/default_suites/v1/workspace/injection_tasks.py",
+            "revision": "c0cc91e6010f00b70092594e22d060a50239ade3",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker goals against an email and calendar agent (Debenedetti et al., 2024).",
+            "bytes": 10615,
+            "sha256": "03e0894ffb544a79fd0bfd2c62cc5f90b19a2b1d429068d800239bfd020b6dcc"
+        },
+        {
+            "id": "agentdojo-banking",
+            "file": "agentdojo-banking.py",
+            "url": "https://raw.githubusercontent.com/ethz-spylab/agentdojo/40085c04a2af60e6b07ac5509989fab295d530cc/src/agentdojo/default_suites/v1/banking/injection_tasks.py",
+            "revision": "40085c04a2af60e6b07ac5509989fab295d530cc",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker goals against a banking agent (Debenedetti et al., 2024).",
+            "bytes": 15309,
+            "sha256": "fa2dedf8e66c95ffadb54f5a26648728b08c56f302858de4ee9a5cc0b3891618"
+        },
+        {
+            "id": "agentdojo-slack",
+            "file": "agentdojo-slack.py",
+            "url": "https://raw.githubusercontent.com/ethz-spylab/agentdojo/afec80f291397a0814e8fe5b9ff24510c9551b1b/src/agentdojo/default_suites/v1/slack/injection_tasks.py",
+            "revision": "afec80f291397a0814e8fe5b9ff24510c9551b1b",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker goals against a Slack agent (Debenedetti et al., 2024).",
+            "bytes": 9144,
+            "sha256": "d5775da1689e13192b665837e72cee88ed76f622e9b998e9def18b700fdc5afc"
+        },
+        {
+            "id": "agentdojo-travel",
+            "file": "agentdojo-travel.py",
+            "url": "https://raw.githubusercontent.com/ethz-spylab/agentdojo/f37fa6ad1b33d100972dfc80e269ed63c794661e/src/agentdojo/default_suites/v1/travel/injection_tasks.py",
+            "revision": "f37fa6ad1b33d100972dfc80e269ed63c794661e",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Attacker goals against a travel-booking agent (Debenedetti et al., 2024).",
+            "bytes": 12604,
+            "sha256": "9252be834b0ae0e28fe06744e052987d71d8ad3666b8d0b1f65f2875f998fca8"
+        },
+        {
+            "id": "prompts-chat",
+            "file": "prompts-chat.csv",
+            "url": "https://raw.githubusercontent.com/f/prompts.chat/acfc3fb9d23a6f01d6612dc8730d298c2c2e520c/prompts.csv",
+            "revision": "acfc3fb9d23a6f01d6612dc8730d298c2c2e520c",
+            "license": "unstated in repository metadata; measured only, not redistributed",
+            "label": "benign",
+            "note": "Community prompts shared for everyday use. Unlabeled; treated as benign for false-positive counts.",
+            "bytes": 10911129,
+            "sha256": "ccf4a5be036319d209452107a016060bbe77352c7bcfa5bc4c5329c944b90951"
+        },
+        {
+            "id": "redcode-exec-bash",
+            "file": "redcode-exec-bash.jsonl",
+            "url": "https://github.com/AI-secure/RedCode/tree/664e4793dc7309f98b8271baed5bbc04d6ef4c39/dataset/RedCode-Exec/bash2text_dataset_json",
+            "revision": "664e4793dc7309f98b8271baed5bbc04d6ef4c39",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Risky shell tasks given to code agents, as code and as plain-language requests (Guo et al., 2024).",
+            "rows": 600,
+            "bytes": 1048680,
+            "sha256": "2cacfeeee2275535077e153fc6f7edf4f161e5578dcf75b2e6a07429bb385523"
+        },
+        {
+            "id": "deepset-prompt-injections",
+            "file": "deepset-prompt-injections.jsonl",
+            "url": "https://huggingface.co/datasets/deepset/prompt-injections",
+            "revision": "4f61ecb038e9c3fb77e21034b22511b523772cdd",
+            "license": "Apache-2.0",
+            "label": "mixed (label 1 = injection)",
+            "note": "Labeled injection and benign prompts in English and German.",
+            "rows": 662,
+            "bytes": 112728,
+            "sha256": "751d710c05092b37eb428dd0d31188c7c023e8a0eb39c48509bc819bb0e921c8"
+        },
+        {
+            "id": "llmail-inject",
+            "file": "llmail-inject.jsonl",
+            "url": "https://huggingface.co/datasets/microsoft/llmail-inject-challenge",
+            "revision": "1063bdf01ec8762b812d5e06ee768a06faa5a6f7",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Emails submitted to Microsoft's LLMail-Inject challenge to make an email agent send mail for the attacker. The first 3,000 rows of Phase 1.",
+            "rows": 3000,
+            "bytes": 13303509,
+            "sha256": "d63e06f78a669488044f2125a9187243bbac9854bf6337037bc68a54c56099ab"
+        },
+        {
+            "id": "gandalf-ignore-instructions",
+            "file": "gandalf-ignore-instructions.jsonl",
+            "url": "https://huggingface.co/datasets/Lakera/gandalf_ignore_instructions",
+            "revision": "04737b65e90a6794ec227012e4a255a7def6344b",
+            "license": "MIT",
+            "label": "malicious",
+            "note": "Player-submitted injection attempts from Lakera's Gandalf game, filtered to instruction-override attacks.",
+            "rows": 1000,
+            "bytes": 146080,
+            "sha256": "dcad4a600ba0e0f05ad62b1c741ebc7639183a892363d205579f1f1ebf68009b"
+        }
+    ]
+}
