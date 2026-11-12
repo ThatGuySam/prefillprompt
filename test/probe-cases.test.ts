@@ -1,12 +1,8 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { redirectCases } from '../scripts/probe/cases.mjs'
-import {
-    buildGeminiHandoffPath,
-    buildProviderUrl,
-    parseBooleanParam,
-    resolveProvider,
-} from '../src/lib/prompt-links.ts'
+import { parseBooleanParam } from '../src/lib/prompt-links.ts'
+import { promptRedirectLocation } from '../src/lib/prompt-redirect.ts'
 
 interface RedirectCase {
     name: string
@@ -14,17 +10,11 @@ interface RedirectCase {
     location: string
 }
 
-// Mirrors the redirect decision in src/server/api/prompt.ts.
+// The same decision the /api/prompt route makes.
 function redirectFor({ query }: RedirectCase) {
-    const provider = resolveProvider(query.s ?? query.m, query.model)
-
-    if (provider === 'gemini') {
-        return buildGeminiHandoffPath({ prompt: query.q!, provider, model: query.model })
-    }
-
-    return buildProviderUrl({
+    return promptRedirectLocation({
         prompt: query.q!,
-        provider,
+        requestedProvider: query.s ?? query.m,
         model: query.model,
         webSearch: parseBooleanParam(query.web),
         temporary: parseBooleanParam(query.temporary),

@@ -1,13 +1,11 @@
 import {
-    buildGeminiHandoffPath,
-    buildProviderUrl,
     encodedUrlLength,
     isProviderId,
     MAX_PROMPT_LENGTH,
     MAX_SHARE_URL_LENGTH,
     parseBooleanParam,
-    resolveProvider,
 } from '~/lib/prompt-links'
+import { promptRedirectLocation } from '~/lib/prompt-redirect'
 
 const UNCACHED_REDIRECT_CODE = 307
 
@@ -60,18 +58,9 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const provider = resolveProvider(requestedProvider, model)
-    if (provider === 'gemini') {
-        return sendRedirect(event, buildGeminiHandoffPath({
-            prompt,
-            provider,
-            model,
-        }), UNCACHED_REDIRECT_CODE)
-    }
-
-    const destination = buildProviderUrl({
+    const destination = promptRedirectLocation({
         prompt,
-        provider,
+        requestedProvider,
         model,
         webSearch: parseBooleanParam(query.web),
         temporary: parseBooleanParam(query.temporary),

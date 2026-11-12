@@ -44,10 +44,12 @@ Prompt links are not private: the prompt is encoded in the URL and can appear in
 
 `GET https://prefillprompt.com/api/prompt` redirects the browser to the selected service with the prompt and supported options.
 
+A link stops at a preview screen, `/open`, in two cases: when it names no service, so the reader can choose one, and when the prompt trips a [safety signal](#safety-warnings), so the reader sees the warning first. Every other link redirects straight to the service it names.
+
 | Query key | Required | Meaning |
 | --- | --- | --- |
 | `q` | Yes | The URL-encoded prompt text. Newlines and Unicode are supported. |
-| `s` | No | Service ID or recognized service alias. Supported IDs are `chatgpt`, `claude`, `gemini`, and `perplexity`. A provider-specific model may imply its service; otherwise the default is ChatGPT. |
+| `s` | No | Service ID or recognized service alias. Supported IDs are `chatgpt`, `claude`, `gemini`, and `perplexity`. A provider-specific model may imply its service. With no service, the link opens the preview screen. |
 | `m` | No | Legacy name for the service. It is used only when `s` is absent. New links should use `s`. |
 | `model` | No | A provider model ID or the alias `latest`, `latest-fast`, or `latest-reasoning`. |
 | `web` | No | Set to `true` or `1` to request ChatGPT web search. |
@@ -62,6 +64,28 @@ https://prefillprompt.com/api/prompt?s=chatgpt&model=latest-reasoning&web=true&q
 ```text
 https://prefillprompt.com/api/prompt?s=chatgpt&temporary=true&q=Help%20me%20brainstorm%20three%20names%20for%20a%20weekend%20prototype
 ```
+
+### The preview screen
+
+`https://prefillprompt.com/open` takes the same query keys as the API and never redirects on its own. It shows the prompt, any safety warning, and a button for one destination; the other destinations sit behind **Open somewhere else**.
+
+- **Destinations.** ChatGPT website, Claude website, Gemini, and Perplexity, plus two apps on computers: Codex in the ChatGPT desktop app (`codex://new?prompt=`) and Claude Code in a terminal (`claude-cli://open?q=`). Both app links are the vendors' documented forms; they fill the prompt in and wait for the reader to send it. If the app does not take over within a second and a half, the page offers the website. Touch devices are offered websites only, since a phone hands those links to an installed app itself.
+- **Remembered choice.** For a link with no `s`, the destination the reader opens is saved in that browser and preselected next time.
+- **A named service wins for one visit.** With `s=claude`, the preview opens on Claude and leaves the saved choice alone. The saved choice still decides between app and website.
+
+Link to `/open?s=claude&q=…` directly when you want the preview and the app option even for a clean prompt.
+
+### Safety warnings
+
+Before a shared prompt is opened, PrefillPrompt checks it for traits that mark an attack on the reader or their agent. Two traits show a red warning: telling an agent to send email to a named address, and fake chat-control markers such as `<|assistant|>`. On 6,581 malicious and 17,111 ordinary prompts from public datasets, 99.7% and 99.6% of their matches were malicious. Nine more, such as reading key files or piping a download to a shell, show an amber caution. Well-known phrases such as "ignore all previous instructions" are not flagged: 64% of their matches were ordinary shared templates.
+
+- Plain explanations with real examples: `https://prefillprompt.com/safety`
+- The patterns: [`src/lib/prompt-safety.ts`](src/lib/prompt-safety.ts)
+- 100 real example prompts with sources: [`src/data/safety/dangerous-prompts.json`](src/data/safety/dangerous-prompts.json)
+- Method, numbers, and limits: [`docs/research/prompt-danger-signals-2026-11-12.md`](docs/research/prompt-danger-signals-2026-11-12.md)
+- To re-measure: `node scripts/safety/fetch.mjs`, then `node --experimental-strip-types scripts/safety/measure.mjs` and `scripts/safety/build-examples.mjs`. A test fails if a warning's tier no longer matches its measurement.
+
+A prompt with no warning is not proven safe. The checks are plain patterns and are easy to evade.
 
 ### Provider caveats
 

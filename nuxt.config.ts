@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.css'],
     routeRules: {
         '/': { prerender: true },
+        // The prompt is in the address, so the preview is never cached, indexed, or sent as a referrer.
+        '/open': { headers: { 'Cache-Control': 'private, no-store', 'Referrer-Policy': 'no-referrer', 'X-Robots-Tag': 'noindex, nofollow' } },
     },
     nitro: {
         preset: 'cloudflare-module',

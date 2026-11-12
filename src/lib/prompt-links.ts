@@ -96,6 +96,26 @@ export function buildSharePath(options: PromptLinkOptions) {
     return `/api/prompt?${params.toString()}`
 }
 
+// The preview screen for a prompt. With a provider it opens on that provider; without one
+// it opens on the reader's remembered choice.
+export function buildOpenPath(options: PromptLinkOptions) {
+    const params = new URLSearchParams({ q: options.prompt })
+    if (options.provider) {
+        params.set('s', options.provider)
+    }
+    if (options.model) {
+        params.set('model', options.model)
+    }
+    if (options.webSearch) {
+        params.set('web', '1')
+    }
+    if (options.temporary) {
+        params.set('temporary', '1')
+    }
+
+    return `/open?${params.toString()}`
+}
+
 export function buildAbsoluteShareUrl(origin: string, options: PromptLinkOptions) {
     return new URL(buildSharePath(options), origin).toString()
 }

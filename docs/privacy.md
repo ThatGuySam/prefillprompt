@@ -11,8 +11,9 @@ advertising tracker. The checked-in Cloudflare configuration disables Worker
 observability. The browser stores only these optional values in `localStorage`:
 
 - the most recently selected provider and model;
-- whether the first-run tip was dismissed; and
-- up to six recent prompts and their share options.
+- whether the first-run tip was dismissed;
+- up to six recent prompts and their share options; and
+- where you last chose to open a shared prompt, such as the Claude website or the ChatGPT app.
 
 Those values stay in the current browser profile. They are not synced or sent
 to PrefillPrompt by application code. The app continues to share and open links
