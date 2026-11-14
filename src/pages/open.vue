@@ -22,6 +22,8 @@ const options = computed(() => ({
 }))
 const signals = computed(() => detectSafetySignals(prompt.value))
 const attack = computed(() => signals.value.some(signal => signal.tier === 'attack'))
+// A prompt the rules already call an attack needs no download to confirm it.
+const scan = usePromptScan(prompt, computed(() => !attack.value))
 
 // Apps and the saved choice are only known in the browser, so the server renders websites only.
 const apps = ref(false)
@@ -32,6 +34,9 @@ const arrangement = computed(() => arrangeDestinations({ linked: linked.value, p
 const primary = computed(() => arrangement.value.selected ? getDestination(arrangement.value.selected) : null)
 const others = computed(() => arrangement.value.list.filter(destination => destination.id !== primary.value?.id))
 const expanded = ref(false)
+// Apps that run commands see ordinary questions about shell commands, which reach the caution band,
+// so for them only a dangerous score is shown.
+const scanState = computed(() => scan.state.value.step === 'caution' && primary.value?.surface === 'app' ? { step: 'clear' as const } : scan.state.value)
 const urlFor = (destination: Destination) => buildDestinationUrl(destination.id, options.value) ?? undefined
 const status = ref('')
 const fallback = ref<{ label: string, url: string } | null>(null)
@@ -112,6 +117,12 @@ async function open(destination: Destination, event: MouseEvent) {
                     </li>
                 </ul>
             </div>
+
+            <PromptScan
+                v-if="prompt && !attack"
+                :state="scanState"
+                @start="scan.deepScan()"
+            />
 
             <pre class="open-prompt" tabindex="0" aria-label="The prompt">{{ prompt }}</pre>
 

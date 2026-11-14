@@ -1,0 +1,246 @@
+{
+    "version": "b7737a17069a",
+    "source": "https://huggingface.co/Horizon-Labs/prompt-injection-guard-small/tree/2efc2ed5abecd21eb45c2506d231a65d6e392b85",
+    "base": "/scanner/deep/b7737a17069a/",
+    "totalBytes": 123585541,
+    "files": {
+        "model": {
+            "size": 141934548,
+            "sha256": "6c3a9a2a3f795c2f3f426fe93022b3c7b07434ba02152da59ee201532c3d972b",
+            "chunks": [
+                {
+                    "path": "model.onnx.000.gz",
+                    "bytes": 2981303,
+                    "sha256": "a0fa02471223611ba417c80d13a19427638d8737fac28cddaf8ee210cd243788"
+                },
+                {
+                    "path": "model.onnx.001.gz",
+                    "bytes": 3380975,
+                    "sha256": "e5626882929e183f22bc5544750ddf077adc347fb90e1253640e4300d52a470d"
+                },
+                {
+                    "path": "model.onnx.002.gz",
+                    "bytes": 3381748,
+                    "sha256": "a6389e1b1f09d6036684ef4f0ebbec4be37c69dd3c4f073193be91e86c6dac4f"
+                },
+                {
+                    "path": "model.onnx.003.gz",
+                    "bytes": 3383955,
+                    "sha256": "23c3ae76eb7ef0aa33ac7eaec413f43392fbb6eb18dc0a63205336953aecb856"
+                },
+                {
+                    "path": "model.onnx.004.gz",
+                    "bytes": 3385726,
+                    "sha256": "7b19a9c3b642e44ed513af8b250c7b929e127519be636bdb2c9f547a4a7542ad"
+                },
+                {
+                    "path": "model.onnx.005.gz",
+                    "bytes": 3385941,
+                    "sha256": "7f88d4a8c8fc722649ccd4bbaa458c8cfa317f441a3882c2b837fac1d2ceb138"
+                },
+                {
+                    "path": "model.onnx.006.gz",
+                    "bytes": 3386196,
+                    "sha256": "a2a728d8b0c08df4becfdc9b0d6b39ea19e42c1ceaed741602baca8164f0f8da"
+                },
+                {
+                    "path": "model.onnx.007.gz",
+                    "bytes": 3387686,
+                    "sha256": "3633b2e522cc6c86c3daa016d82319d3c936ada0a5798809ec5616e09d611946"
+                },
+                {
+                    "path": "model.onnx.008.gz",
+                    "bytes": 3389396,
+                    "sha256": "89db54aa262cd024a0dab79cf01de1216645cf811f59d72dc6a45dec49c98173"
+                },
+                {
+                    "path": "model.onnx.009.gz",
+                    "bytes": 3387950,
+                    "sha256": "ad9b21e84be4e54526a1dbd3ecc83835beaef7bd50310a957f9ece1bf1d932d3"
+                },
+                {
+                    "path": "model.onnx.010.gz",
+                    "bytes": 3389415,
+                    "sha256": "1ed6a7d959e2492058f36d115da17c9dacae16960d33a33a58a528c4bbabcaae"
+                },
+                {
+                    "path": "model.onnx.011.gz",
+                    "bytes": 3389621,
+                    "sha256": "a9bf30b46f36a6e2054ec6293e7f2df93aee2835dd093ed3786652b891128c54"
+                },
+                {
+                    "path": "model.onnx.012.gz",
+                    "bytes": 3390968,
+                    "sha256": "28b6e6717fe6b0adbc3bcd189d2c4bea19f66b042cf778d0e1aa3e097b90c852"
+                },
+                {
+                    "path": "model.onnx.013.gz",
+                    "bytes": 3392736,
+                    "sha256": "0c5466f0e08add8b59e52c454995edc89f761ac7e266453d9bd95597a3c4e51d"
+                },
+                {
+                    "path": "model.onnx.014.gz",
+                    "bytes": 3393677,
+                    "sha256": "7365a95df580cffb725b670dab54db6ad1acd83ff1ea4ca17f1a4bce206354bd"
+                },
+                {
+                    "path": "model.onnx.015.gz",
+                    "bytes": 3393683,
+                    "sha256": "2ba834bf730cf5e167af4809d9361e47e65743629a673359bf3a67bba6a211b6"
+                },
+                {
+                    "path": "model.onnx.016.gz",
+                    "bytes": 3393557,
+                    "sha256": "e502a071cbcbdea335b58650f5af978dbcdfdd6d20ba12eb85b0ffee67ef7020"
+                },
+                {
+                    "path": "model.onnx.017.gz",
+                    "bytes": 3394476,
+                    "sha256": "88436f3fa0a91d20960bad3b5c3e534e1da5ae6f99d035fe54d5715c398906c8"
+                },
+                {
+                    "path": "model.onnx.018.gz",
+                    "bytes": 3395526,
+                    "sha256": "f42f5303bca8e9485021cd6d9eec65987b9e09210d6a3b87ede2763cb02f56d3"
+                },
+                {
+                    "path": "model.onnx.019.gz",
+                    "bytes": 3397339,
+                    "sha256": "514da4ef80b4c54a83a72a54846278caeef41041ed46efe834f456ae2209b4bf"
+                },
+                {
+                    "path": "model.onnx.020.gz",
+                    "bytes": 3397844,
+                    "sha256": "8656d3c156b42d8272b76460e50c7529f39c427cfc78965d1ae32d9f76b392f3"
+                },
+                {
+                    "path": "model.onnx.021.gz",
+                    "bytes": 3394916,
+                    "sha256": "5601758fd82143d187bac98560b08df5a0f479738b1cdc6d5877f3c2683b98ea"
+                },
+                {
+                    "path": "model.onnx.022.gz",
+                    "bytes": 3412893,
+                    "sha256": "5580cbba512f1c3b28ff7bd1213d586ba393ac862da2e38c799b611d8357b804"
+                },
+                {
+                    "path": "model.onnx.023.gz",
+                    "bytes": 3548782,
+                    "sha256": "135d966a5e9ad31e16dc60c4eea4cba352ac9b53e2f3a581e79a9a0d25e93ad8"
+                },
+                {
+                    "path": "model.onnx.024.gz",
+                    "bytes": 3822923,
+                    "sha256": "08cdf4f9eda14b35b2102e924e4771b902453dd686443d5f62229ac7bc7e4df3"
+                },
+                {
+                    "path": "model.onnx.025.gz",
+                    "bytes": 3817461,
+                    "sha256": "ba0dc396dcd4540c0c1038b25325169f9f50d1851c68f3924be6fa98ba30c5de"
+                },
+                {
+                    "path": "model.onnx.026.gz",
+                    "bytes": 3762664,
+                    "sha256": "72442479862a84c19421e6a58206145e32f90ecf0f8b3477f6333fad3fd6c15e"
+                },
+                {
+                    "path": "model.onnx.027.gz",
+                    "bytes": 3786998,
+                    "sha256": "06fbeb37b11df8fe8759e41ffc67366e639860936ba5cf4a979db20ceb741303"
+                },
+                {
+                    "path": "model.onnx.028.gz",
+                    "bytes": 3774418,
+                    "sha256": "7eb14dd36d09aa11d771402f9a273aa0cc4112b16629a31b8418b9511d627c15"
+                },
+                {
+                    "path": "model.onnx.029.gz",
+                    "bytes": 3748198,
+                    "sha256": "19d110e8a3e3c17eb61c0cb7e02a9e31edf1a29f218c3ed90e990e56d89fa4b2"
+                },
+                {
+                    "path": "model.onnx.030.gz",
+                    "bytes": 3767720,
+                    "sha256": "8717b32330058915fd286565c0593420033a23e1524702be73d3ebc5fcca6a76"
+                },
+                {
+                    "path": "model.onnx.031.gz",
+                    "bytes": 3792780,
+                    "sha256": "d8da27454a4b8caee54a22bbdb5b7da1a5b866e422cfdb18bdf98b95e92eff25"
+                },
+                {
+                    "path": "model.onnx.032.gz",
+                    "bytes": 3811131,
+                    "sha256": "34326d4e8a718b14874248e4e07b3dbb43b41590bc2f54e2657ef00b302b60c8"
+                },
+                {
+                    "path": "model.onnx.033.gz",
+                    "bytes": 3025487,
+                    "sha256": "1617fa132d98a547b604e14f9e0996de281cfc6cb5e3341accefc40311c63781"
+                }
+            ]
+        },
+        "tokenizer": {
+            "size": 34387555,
+            "sha256": "47834a7dbbb0c4324fe9569fe47955241594a9ee539c9e478755d6fbc51e5f46",
+            "chunks": [
+                {
+                    "path": "tokenizer.json.000.gz",
+                    "bytes": 1312516,
+                    "sha256": "2ae7c8eee133b924b1935f61526d5bee7e4a3c54e66221eeebc954227465c1cd"
+                },
+                {
+                    "path": "tokenizer.json.001.gz",
+                    "bytes": 904628,
+                    "sha256": "dd8b9b710e6edb7e5c8431f7777675b3849262bb4f39a11360b9b46de9e7309d"
+                },
+                {
+                    "path": "tokenizer.json.002.gz",
+                    "bytes": 457149,
+                    "sha256": "46fd26f56d9f62e4b91943ff49210479d8c7cc1a543cbfcfb9eca44ad122c475"
+                },
+                {
+                    "path": "tokenizer.json.003.gz",
+                    "bytes": 484165,
+                    "sha256": "26cf967c2e6251d65773c283d9df5a6883180e628c05215829c8af57a90e0f37"
+                },
+                {
+                    "path": "tokenizer.json.004.gz",
+                    "bytes": 500488,
+                    "sha256": "257135eb1131eba7cd2301cc71558acfee713933be02437019206f50c51793aa"
+                },
+                {
+                    "path": "tokenizer.json.005.gz",
+                    "bytes": 514717,
+                    "sha256": "f8fb42fed67b4a0bfd1c6791e71c6d8429eb380f5a51588e0b9e3055c99f63fd"
+                },
+                {
+                    "path": "tokenizer.json.006.gz",
+                    "bytes": 524911,
+                    "sha256": "73e3cf1bf6e3ea6ac9a5eff0fa48d68aea73526b78ecd22e43d8cf4b0703d043"
+                },
+                {
+                    "path": "tokenizer.json.007.gz",
+                    "bytes": 532722,
+                    "sha256": "f51ca42ed6574e677071a166ff9ac6131491cd0e88b1636cf7209e60a2b4f9a2"
+                },
+                {
+                    "path": "tokenizer.json.008.gz",
+                    "bytes": 106254,
+                    "sha256": "24850c541469bdeb6765358846ea01f5c6f7633c50fdf25fc1b134d67c5d4716"
+                }
+            ]
+        },
+        "tokenizerConfig": {
+            "size": 46440,
+            "sha256": "ea349495764b24570b4560fe2e4a557e5c0a47e6bce782c2409b1d6445cf8633",
+            "chunks": [
+                {
+                    "path": "tokenizer_config.json.000.gz",
+                    "bytes": 1902,
+                    "sha256": "316297d8be6a9645c6a580115faaa2d01f6e401e8baed4c7e538d5a72d02d9af"
+                }
+            ]
+        }
+    }
+}

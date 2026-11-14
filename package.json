@@ -19,8 +19,8 @@
         "build": "nuxt build",
         "build:cloudflare": "nuxi cleanup && nuxt build --preset=cloudflare-module",
         "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build:cloudflare",
-        "deploy:blue": "pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias blue",
-        "deploy:preview": "pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias launch",
+        "deploy:blue": "node scripts/scanner/build-deep.mjs --check && pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias blue",
+        "deploy:preview": "node scripts/scanner/build-deep.mjs --check && pnpm build:cloudflare && wrangler --cwd=.output versions upload --preview-alias launch",
         "dev": "nuxt dev",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
@@ -33,7 +33,9 @@
         "typecheck": "nuxt typecheck"
     },
     "dependencies": {
+        "@huggingface/tokenizers": "0.2.0",
         "nuxt": "^3.17.6",
+        "onnxruntime-web": "1.31.1",
         "qrcode": "^1.5.4",
         "vue": "^3.4.27"
     },

@@ -19,6 +19,16 @@ Those values stay in the current browser profile. They are not synced or sent
 to PrefillPrompt by application code. The app continues to share and open links
 if browser storage is blocked or full. Clearing site data removes them.
 
+## The on-device prompt scan
+
+The preview screen at `/open` scans the shared prompt in your browser. A small
+model (about 1 MB) runs first. When it is not sure, a larger model (about
+124 MB) can download from `prefillprompt.com` and run in a Web Worker. The
+prompt text is never sent anywhere for scanning. The larger model's files are
+kept in the browser's Cache API so later scans skip the download; clearing site
+data removes them. The download starts on its own only on a fast connection
+without data saver, and otherwise waits for you to choose it.
+
 ## Where a prompt URL can appear
 
 A shared prompt can be visible to anyone with the URL and may be retained by:

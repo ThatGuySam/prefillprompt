@@ -87,6 +87,18 @@ Before a shared prompt is opened, PrefillPrompt checks it for traits that mark a
 
 A prompt with no warning is not proven safe. The checks are plain patterns and are easy to evade.
 
+### On-device scan
+
+The preview also scans the prompt in the reader's browser. The prompt is never sent anywhere to be scanned.
+
+1. **Quick check.** A 1 MB linear model ([`src/lib/scanner/first-pass.ts`](src/lib/scanner/first-pass.ts)) runs first. It only ever warns, and only when it is very sure: at its 0.999 threshold it flagged none of 2,774 held-out safe prompts or of a second hand-written set of 95 safe look-alikes, and caught 789 of 1,116 held-out attacks. When it warns, nothing else downloads.
+2. **Deep scan.** Otherwise `Horizon-Labs/prompt-injection-guard-small` runs in a Web Worker with ONNX Runtime Web. Its weights are stored as int8 (142 MB, down from 268 MB, with the same calls on the link-threat and safe sets) and served from this site as 44 gzipped pieces of 4 MiB, 124 MB in all. Each piece is checked against the manifest in [`src/data/scanner/deep.json`](src/data/scanner/deep.json) and kept in the Cache API, so an interrupted download resumes and later scans skip it. A score of 0.99 or more shows a red warning and 0.9 to 0.99 an amber one, except when the chosen place is an app that runs commands, where only red shows.
+3. **When it downloads.** On its own only when the scanner is already saved, or the browser reports a fast connection without data saver. Otherwise the reader gets a "Run deeper scan" button.
+
+Links that name a small model (Luna, mini, nano, Haiku, Flash, Lite) stop at the preview, like links with a warning, so the scan runs before anything opens. The `latest-fast` alias still goes straight through.
+
+The model pieces are generated, not committed. Rebuild them with the steps at the top of [`scripts/scanner/build-deep.mjs`](scripts/scanner/build-deep.mjs); the deploy scripts refuse to run until they are present. Retrain the quick check with [`scripts/scanner/train-first-pass.ts`](scripts/scanner/train-first-pass.ts). Method and numbers: [`docs/research/browser-ml-prompt-danger-detection-2026-11-12.md`](docs/research/browser-ml-prompt-danger-detection-2026-11-12.md) and [`docs/research/browser-model-download-optimization-2026-11-14.md`](docs/research/browser-model-download-optimization-2026-11-14.md).
+
 ### Provider caveats
 
 PrefillPrompt launches third-party web applications; those applications do not provide a single stable, documented URL API for every model and mode.

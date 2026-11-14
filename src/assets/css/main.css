@@ -1741,6 +1741,96 @@ a {
     font-weight: 700;
 }
 
+/* On-device scan: one header that shimmers while work is happening, and a quiet detail line. */
+.prompt-scan {
+    padding: 10px 14px;
+    margin: 0 0 14px;
+    line-height: 1.4;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.prompt-scan-title {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.prompt-scan-title-busy {
+    color: transparent;
+    background: linear-gradient(100deg, var(--ink) 0%, var(--ink) 38%, var(--ink-soft) 50%, var(--ink) 62%, var(--ink) 100%) 0 0 / 250% 100%;
+    background-clip: text;
+    animation: prompt-scan-shimmer 1.8s linear infinite;
+}
+
+@keyframes prompt-scan-shimmer {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+}
+
+.prompt-scan-detail {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+}
+
+.prompt-scan-start {
+    margin-top: 8px;
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    background: var(--blue-soft);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+}
+
+.prompt-scan-danger {
+    color: #6b1010;
+    background: #ffe5e2;
+    border-color: #d9706a;
+}
+
+.prompt-scan-caution {
+    color: #5c3b00;
+    background: #fff4d6;
+    border-color: #e0b34a;
+}
+
+.prompt-scan-danger .prompt-scan-detail,
+.prompt-scan-caution .prompt-scan-detail {
+    color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .prompt-scan-title-busy {
+        color: var(--ink);
+        background: none;
+        animation: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .prompt-scan-danger {
+        color: #ffd0cb;
+        background: #431512;
+        border-color: #a8443e;
+    }
+
+    .prompt-scan-caution {
+        color: #ffe2a3;
+        background: #3a2c08;
+        border-color: #8a6a1c;
+    }
+
+    .prompt-scan-start {
+        color: var(--ink);
+    }
+}
+
 /* The places a prompt can open: one rounded frame holding a primary button with a toggle,
    and a list of rows that each have their own Open link. */
 .open-places {
