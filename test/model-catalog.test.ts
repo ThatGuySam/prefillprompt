@@ -73,10 +73,10 @@ describe('generated model catalog', () => {
     })
 
     it('shows a removed saved model explicitly instead of pretending it is Latest', () => {
-        const choice = findModelChoice('chatgpt', 'openai/removed-model')
+        const choice = findModelChoice('claude', 'anthropic/removed-model')
 
         assert.equal(choice.kind, 'unavailable')
-        assert.equal(choice.model, 'openai/removed-model')
+        assert.equal(choice.model, 'anthropic/removed-model')
         assert.match(choice.label, /not in current catalog/)
     })
 })

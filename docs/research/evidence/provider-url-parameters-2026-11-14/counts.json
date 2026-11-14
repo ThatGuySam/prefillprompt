@@ -1,0 +1,14 @@
+{
+    "distinct_urls": 197,
+    "normalized_links": 193,
+    "normalized_sources_excluding_helpers_and_probes": 169,
+    "screenable_bodies": 137,
+    "http_statuses": {
+        "200": 171,
+        "429": 1,
+        "403": 14,
+        "404": 11
+    },
+    "discovery_only": 291,
+    "skill_sha256": "4249735c7353b55c3352211ea76b7bfc5e1f5ed7ace813b29d7c45e70cb22dd6"
+}

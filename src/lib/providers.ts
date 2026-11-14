@@ -46,8 +46,8 @@ const baseProviders: ProviderDefinition[] = [
         behavior: 'Opens a new ChatGPT conversation.',
         accent: '#0b6b52',
         capabilities: {
-            models: 'experimental',
-            temporary: 'experimental',
+            models: 'unavailable',
+            temporary: 'supported',
             webSearch: 'supported',
         },
     },
@@ -60,7 +60,7 @@ const baseProviders: ProviderDefinition[] = [
         accent: '#b5482e',
         capabilities: {
             models: 'experimental',
-            temporary: 'experimental',
+            temporary: 'supported',
             webSearch: 'unavailable',
         },
     },
@@ -72,7 +72,7 @@ const baseProviders: ProviderDefinition[] = [
         behavior: 'Starts the prompt in Gemini.',
         accent: '#2c5cc5',
         capabilities: {
-            models: 'experimental',
+            models: 'unavailable',
             temporary: 'unavailable',
             webSearch: 'unavailable',
         },
@@ -94,12 +94,14 @@ const baseProviders: ProviderDefinition[] = [
 
 /** What a link can do once `flags.providerCompatibility` is on. `ui-only` means the person sets it by hand after opening. */
 const compatibilityCapabilities: Record<ProviderId, ProviderDefinition['capabilities']> = {
-    chatgpt: { models: 'experimental', temporary: 'experimental', webSearch: 'experimental' },
-    claude: { models: 'experimental', temporary: 'experimental', webSearch: 'ui-only' },
+    chatgpt: { models: 'ui-only', temporary: 'supported', webSearch: 'experimental' },
+    claude: { models: 'experimental', temporary: 'supported', webSearch: 'ui-only' },
     gemini: { models: 'ui-only', temporary: 'ui-only', webSearch: 'ui-only' },
     perplexity: { models: 'ui-only', temporary: 'ui-only', webSearch: 'always' },
 }
 
+// Capabilities follow the signed-in check in docs/manual-link-check.md. ChatGPT ignored every
+// model value and Gemini has no model parameter, so neither offers model choices.
 export const providers: ProviderDefinition[] = flags.providerCompatibility
     ? baseProviders.map(provider => ({ ...provider, capabilities: compatibilityCapabilities[provider.id] }))
     : baseProviders
