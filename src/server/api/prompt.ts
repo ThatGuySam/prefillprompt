@@ -34,15 +34,7 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    if (!prompt?.trim()) {
-        throw createError({
-            statusCode: 400,
-            statusMessage: 'Prompt is required',
-            data: { code: 'PROMPT_REQUIRED' },
-        })
-    }
-
-    if (prompt.length > MAX_PROMPT_LENGTH) {
+    if (prompt && prompt.length > MAX_PROMPT_LENGTH) {
         throw createError({
             statusCode: 400,
             statusMessage: `Prompt must be ${MAX_PROMPT_LENGTH.toLocaleString()} characters or fewer`,

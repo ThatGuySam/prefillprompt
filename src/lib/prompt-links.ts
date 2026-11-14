@@ -81,7 +81,8 @@ export function getProviderModelHint(provider: ProviderId, model: string | undef
 
 export function buildProviderPrompt(options: PromptLinkOptions) {
     if (
-        options.webSearch
+        options.prompt
+        && options.webSearch
         && options.provider
         && options.provider !== 'perplexity'
     ) {
@@ -178,7 +179,9 @@ export function buildProviderUrl(options: PromptLinkOptions) {
     switch (provider) {
         case 'chatgpt': {
             url = new URL('https://chatgpt.com/')
-            url.searchParams.set('q', prompt)
+            if (prompt) {
+                url.searchParams.set('q', prompt)
+            }
             if (model) {
                 url.searchParams.set('model', model)
             }
@@ -192,7 +195,9 @@ export function buildProviderUrl(options: PromptLinkOptions) {
         }
         case 'claude': {
             url = new URL('https://claude.ai/new')
-            url.searchParams.set('q', prompt)
+            if (prompt) {
+                url.searchParams.set('q', prompt)
+            }
             if (model) {
                 url.searchParams.set('model', model)
             }
@@ -209,6 +214,10 @@ export function buildProviderUrl(options: PromptLinkOptions) {
             break
         }
         case 'perplexity': {
+            if (!prompt) {
+                url = new URL('https://www.perplexity.ai/')
+                break
+            }
             url = new URL('https://www.perplexity.ai/search')
             url.searchParams.set('s', 'o')
             url.searchParams.set('q', prompt)
