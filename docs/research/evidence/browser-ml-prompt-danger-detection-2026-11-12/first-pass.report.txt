@@ -1,0 +1,48 @@
+first pass: 2^20 buckets (1.05 MB of int8 weights), 25787 training rows, threshold 0.9990
+calibration safe prompts: 2591, highest score 0.8882
+safe-labeled rows dropped as DAN-style jailbreaks: 159
+
+split        source                                  label      n   flagged
+calibration  cyberseceval-prompt-injection           attack    43      6  14.0%
+calibration  deepset-prompt-injections               attack    36      1  2.8%
+calibration  deepset-prompt-injections               safe      53      0  0.0%
+calibration  gandalf-ignore-instructions             attack   138     74  53.6%
+calibration  injecagent-data-stealing                attack     5      1  20.0%
+calibration  injecagent-direct-harm                  attack     5      0  0.0%
+calibration  jailbreak-llms-jailbreak                attack   207     28  13.5%
+calibration  jailbreak-llms-regular                  safe    1912      0  0.0%
+calibration  llmail-inject                           attack   381    365  95.8%
+calibration  notinject                               safe      54      0  0.0%
+calibration  oasst2                                  safe    2045      0  0.0%
+calibration  prompts-chat                            safe     439      0  0.0%
+calibration  redcode-exec-bash                       attack    84     78  92.9%
+external     link-benign                             safe      24      0  0.0%
+external     link-threat                             attack    24      1  4.2%
+external     near-miss (180)                         safe     180      0  0.0%
+test         cyberseceval-prompt-injection           attack    33      5  15.2%
+test         deepset-prompt-injections               attack    38      7  18.4%
+test         deepset-prompt-injections               safe      71      0  0.0%
+test         gandalf-ignore-instructions             attack   175     99  56.6%
+test         injecagent-data-stealing                attack     6      2  33.3%
+test         injecagent-direct-harm                  attack     6      0  0.0%
+test         jailbreak-llms-jailbreak                attack   192     29  15.1%
+test         jailbreak-llms-regular                  safe    2061      4  0.2%
+test         llmail-inject                           attack   566    552  97.5%
+test         notinject                               safe      46      0  0.0%
+test         oasst2                                  safe    2013      0  0.0%
+test         prompts-chat                            safe     440      0  0.0%
+test         redcode-exec-bash                       attack   100     95  95.0%
+
+held-out safe prompts flagged (test + near-miss + link-benign): 0 of 2774
+
+threshold  held-out safe flagged  test attacks caught  link threats caught
+0.9990        0 of 2774          789 of 1116          1 of 24
+0.9800        5 of 2774          911 of 1116          1 of 24
+0.9900        3 of 2774          883 of 1116          1 of 24
+0.9950        2 of 2774          853 of 1116          1 of 24
+0.9980        0 of 2774          813 of 1116          1 of 24
+0.9990        0 of 2774          789 of 1116          1 of 24
+0.9995        0 of 2774          756 of 1116          1 of 24
+test attacks caught: 789 of 1116
+
+final check, second near-miss set: 0 of 95 flagged; highest score 0.9904

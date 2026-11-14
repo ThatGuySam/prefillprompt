@@ -110,6 +110,11 @@ export const redirectCases = [
         location: 'https://claude.ai/new?model=claude-sonnet-5&incognito=true',
     },
     {
+        name: 'missing prompt with a small model opens a new chat, not the preview',
+        query: { s: 'claude', model: 'claude-haiku-5.5' },
+        location: 'https://claude.ai/new?model=claude-haiku-5.5',
+    },
+    {
         name: 'missing prompt skips the Gemini handoff',
         query: { s: 'gemini' },
         location: 'https://gemini.google.com/app',

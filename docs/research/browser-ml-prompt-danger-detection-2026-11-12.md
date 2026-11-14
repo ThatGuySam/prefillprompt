@@ -7,13 +7,13 @@ This memo sits beside the regex research in `prompt-danger-signals-2026-11-12.md
 ## Scope
 
 - In scope: which models fit in a browser, how well they separate attacks from ordinary shared prompts, how they are evaded, how the target model should change the checks, and what it takes to ship one from a Cloudflare Worker site.
-- Evidence: eight models scored locally on the corpora the regex work already cached, plus two extra sets; load and latency measured in headless Chrome; vendor and research sources read directly where noted.
+- Evidence: seven classifiers and one embedding model scored locally on a sample of the corpora the regex work already cached, plus three extra sets (NotInject, a link-threat set, and 180 safe look-alike prompts added 2026-11-14); load and latency measured in headless Chrome; vendor and research sources read directly where noted. A run over the whole corpus was stopped partway on 2026-11-12 and produced no results, so false-alarm rates come from the sample.
 - Out of scope: building the feature, training a custom model, and phone performance (not measured).
 
 ## Short Answer
 
-- **A browser-sized model can do this job, and one clearly beat the rest.** `Horizon-Labs/prompt-injection-guard-small` at a strict threshold of 0.99 flagged 29% of corpus attacks with PENDING_FULL_FP. It runs in Chrome through Transformers.js. It is at the size ceiling: 268 MB plus a 34 MB tokenizer, about 243 MB compressed.
-- **"90% certain" holds only at that strict threshold, and only if dangerous links are not rare.** PENDING_PRECISION_SENTENCE
+- **A browser-sized model can do this job, and one clearly beat the rest.** `Horizon-Labs/prompt-injection-guard-small` at a strict threshold of 0.99 flagged 29% of corpus attacks and one of 2,942 safe prompts, and that one is a jailbreak the dataset had labeled as ordinary. It runs in Chrome through Transformers.js. It is at the size ceiling: 268 MB plus a 34 MB tokenizer, about 243 MB compressed.
+- **"90% certain" holds only at that strict threshold, and only if dangerous links are not rare.** If 1 shared link in 100 were dangerous, about 9 in 10 of its flags at 0.99 would be right on my best estimate, and about 6 in 10 on the worst plausible one. If 1 in 1,000 were dangerous, fewer than half would be. Nobody knows PrefillPrompt's rate yet.
 - **The model has to run when a link is opened, not when it is built.** `/api/prompt` is a server redirect, so anything that only runs in the builder is skipped by a hand-written link. The `/open` preview page in the `main` worktree is the right place.
 - **Do not relax checks because a link names a frontier model.** A prefilled prompt arrives as the user's own message, and the published model-robustness numbers measure a different attack (instructions hidden in tool output). Use the model and the destination to add checks, never to remove the ones that protect the recipient.
 - **It stops lazy, mass-produced attacks, not determined ones.** The model ships to every browser, so an attacker can test against it offline until a prompt passes. Research on adaptive attacks reports over 90% success against most published defenses.
@@ -23,7 +23,7 @@ This memo sits beside the regex research in `prompt-danger-signals-2026-11-12.md
 
 - `src/lib/sensitive-data.ts` (this branch) warns about API keys and passwords in the builder. It protects the sender, not the recipient.
 - `src/server/api/prompt.ts` validates a link and returns a 307 redirect to the provider. No page loads, so no browser check can run on that path.
-- In the `main` worktree, uncommitted as of this memo: `src/lib/prompt-safety.ts` (regex signals in three tiers), `src/pages/open.vue` (a preview page that runs those signals in the recipient's browser and can hand off to desktop apps), and `scripts/safety/` (corpus fetch and measurement).
+- In the `main` worktree, uncommitted when this memo was first written on 2026-11-12 and merged into this repo by 2026-11-14: `src/lib/prompt-safety.ts` (regex signals in three tiers), `src/pages/open.vue` (a preview page that runs those signals in the recipient's browser and can hand off to desktop apps), and `scripts/safety/` (corpus fetch and measurement).
 - That work's finding, which this memo builds on: famous phrases are poor signals. "Ignore all previous instructions" was malicious in 35.5% of its matches, and only two patterns cleared a 99% bar. On my sample, its attack-tier patterns had no false alarms and caught 3.3% of attacks, so the gap a model could fill is recall.
 - `README.md` states that model and mode controls are best-effort and that a service "may ignore an option, fall back to its default". The model named in a link is a hint the sender chose, not a fact about what will run.
 
@@ -80,17 +80,52 @@ What stands out:
 - **No model caught the tool-abuse prompts from InjecAgent.** At 0.9 the best result was 19% on the data-stealing half (Horizon and TestSavant), and most were under 7%. A request such as "forward my bank emails to this address" is, as text, an ordinary request.
 - **The cheap do-it-yourself route failed.** Comparing a prompt to a dozen known link attacks with a 23 MB embedding model caught 2 of 24 held-out attacks at any threshold with near-zero false alarms.
 
+#### Safe prompts that look like attacks (added 2026-11-14)
+
+The public sets above are mostly generic chat. To test the prompts PrefillPrompt users are likely to share, I wrote 180 safe prompts that borrow attack vocabulary or shape, before scoring any of them, and did not edit them afterwards. They fall in eleven groups: security questions, memory requests, "ignore / forget / from now on" wording, shell and credential questions, role prompts, email and calendar tasks, URL summaries, prompt writing, coding-agent tasks, long templates, and 25 prompts in 15 other languages. Horizon was scored on each prompt as written and after the normalization pass. The site's current regex signals (`src/lib/prompt-safety.ts`, SHA-256 prefix `aa940d687015`) were run on the same prompts.
+
+| Check | Flagged (of 180) | Which prompts |
+| --- | --- | --- |
+| Horizon at 0.99 | 0 | |
+| Horizon at 0.9 | 2 | Both coding questions: converting a `curl -H 'Authorization: Bearer $TOKEN'` command to `fetch` (0.97), and asking how the `curl … \| bash` Bun installer works (0.94) |
+| Horizon at 0.5 | 10 | Also "skip the disclaimers", "act without asking: rename the variables", "you don't need to confirm with me", one Hindi and one Japanese "forget / remember" request |
+| Normalized, Horizon at 0.9 | 2 | Same two |
+| Regex, any signal | 4 | All coding questions: `~/.ssh/known_hosts` (credential access), `git push --force-with-lease` and an old `dd` command (destructive command), the Bun installer (downloads and runs code) |
+| Regex, attack tier | 0 | |
+
+What this adds:
+
+- **Horizon stays quiet on the prompts most likely to cause trouble.** No security question, memory request, role prompt, email task, or non-English prompt reached 0.9. The highest non-English score was 0.63.
+- **Questions about shell commands are its blind spot.** Both 0.9 flags, plus the 0.88 share-prompt flag in the first run, are someone asking about a command, not telling an agent to run one. That is everyday traffic for the Codex and Claude Code destinations, which are exactly where section 7 says to always run the model.
+- **The regex signals have the same blind spot today.** Because any regex signal currently stops a link at the preview, these four safe coding questions would stop there too. That is a mild cost, since the preview only asks the reader to look, but `credential-access` matching `~/.ssh/known_hosts`, a file that holds no secrets, could be narrowed.
+
 Limits on these numbers:
 
 - Horizon's training data includes two of the attack corpora used here (Gandalf and the in-the-wild jailbreak set) and the training half of deepset. Its attack-detection percentages are therefore optimistic. Other models probably share some of this overlap; I did not check each.
-- The link-style set is small and written by me. It shows direction, not a rate.
+- The link-style set and the near-miss set are small and written by me. They show direction, not a rate.
 - Horizon's own card reports a higher false-alarm rate on real chat turns than I saw on prompts.chat: 1.2% of English OpenAssistant user turns at 0.9, and 0.08% across 24,788 prompts in 65 languages. That is the vendor's measurement.
 
 ### 5. Can it be "90% certain"?
 
 "90% certain" means that of the prompts the model flags, nine in ten are really dangerous. That depends on how common dangerous links are, which nobody has measured for PrefillPrompt.
 
-PENDING_BASE_RATE_BLOCK
+Inputs, pooled across all four safe sets (2,399 corpus prompts, 339 NotInject, 24 share prompts, 180 near-miss prompts; 2,942 in all):
+
+- At 0.99, Horizon flagged 1 safe prompt (the WormGPT jailbreak labeled "regular"). Counting it anyway gives a false-alarm rate of 0.034%. One event in 2,942 is too few to pin a rate, so the table also uses the 95% upper bound, 0.16%.
+- At 0.9 it flagged 17. Eight are real jailbreaks under a benign label, so the best guess is 9 (0.31%). The vendor reports 1.2% at 0.9 on English chat turns, the worst figure available.
+- For the catch rate I used the link-style threats (6 of 24 at 0.99, 10 of 24 at 0.9), not the corpus, because Horizon trained on parts of the corpus.
+
+Share of flags that are really dangerous, by how common dangerous links are:
+
+| Threshold and false-alarm rate | 1 in 10 links dangerous | 1 in 100 | 1 in 1,000 |
+| --- | --- | --- | --- |
+| 0.99, best guess (0.034%) | 99% | 88% | 42% |
+| 0.99, upper bound (0.16%) | 95% | 61% | 13% |
+| 0.9, best guess (0.31%) | 94% | 58% | 12% |
+| 0.9, all flags counted (0.58%) | 89% | 42% | 7% |
+| 0.9, vendor's English chat rate (1.2%) | 79% | 26% | 3% |
+
+So "90% certain" is reachable at 0.99 if roughly 1 link in 100 or more is dangerous, and not at 0.9 unless attacks are common. If PrefillPrompt gets abused the way Microsoft's report describes, a single campaign could push the share up quickly; on a quiet site, most red warnings would be wrong even at 0.99. That is why the recommendation below treats the model as a reason to look, not a verdict.
 
 ### 6. How people get around it
 
@@ -180,7 +215,7 @@ Measured in headless Chrome 157 on a 12-core Mac, files served from localhost, s
 ## Recommendation
 
 1. **Ship the no-download layer first.** Add a normalization pass ahead of the regex signals, show decoded hidden text on `/open`, and make shared links land on `/open` (or have the Worker send any request that matches a regex signal, targets an agent, or names a small model there). This is the largest gain for the least work, and none of it needs a model.
-2. **Add Horizon small as an optional second look, not a default.** Load it on `/open` only for the situations in the table in section 7, on desktop-class connections. Red warning at 0.99 or above, amber at 0.9 to 0.99, nothing below. Host it on R2 with a pinned file hash.
+2. **Add Horizon small as an optional second look, not a default.** Load it on `/open` only for the situations in the table in section 7, on desktop-class connections. Red warning at 0.99 or above, amber at 0.9 to 0.99, nothing below. For destinations that run commands, show only the red level: questions about shell commands caused every amber flag in the near-miss set. Host it on R2 with a pinned file hash.
 3. **Hold the "90% certain" claim until there is traffic data.** Add an opt-in "report this prompt" control so real prevalence can be estimated without logging prompts by default.
 4. **Before depending on Horizon, weigh that it is seven weeks old.** The long-established alternative does not solve this: ProtectAI v2 over-flags, so quantizing it is not worth the work. For a young model, pin an exact file hash, re-run this evaluation before taking any update, and keep a switch that turns the feature off.
 5. **If link-style threats turn out to be the main abuse, plan a small custom model.** No off-the-shelf model was trained on them, and the best one scored five of eight Microsoft-style prompts below 0.6.
@@ -193,7 +228,7 @@ What would change this: measured prevalence of dangerous links (sets the thresho
 | --- | --- | --- | --- |
 | Prefilled links are used for attacks | 50 prompts, 31 companies, 60 days | Microsoft email-traffic telemetry, 2026-02-10 | Direct: same link format PrefillPrompt generates. |
 | The prompt is treated as the user's own | Stated by Varonis for Copilot's `q` parameter | One assistant, since patched | Inference that other assistants behave alike; consistent with how `?q=` prefill works. |
-| Horizon small has few false alarms at 0.99 | PENDING_CLAIM_FP | My runs, public corpora, English-heavy | Real shared links may differ; vendor reports 1.2% at 0.9 on English chat turns. |
+| Horizon small has few false alarms at 0.99 | 1 of 2,942 safe prompts flagged, and it is a mislabeled jailbreak; 0 of 180 near-miss prompts | My runs, public corpora plus my own sets, English-heavy | Real shared links may differ; vendor reports 1.2% at 0.9 on English chat turns. |
 | Horizon small catches 29% to 58% of attacks | Sample of 1,025 | Includes corpora it trained on | Optimistic. The 24 link threats (6 to 10 caught) are the fairer figure. |
 | Character tricks defeat classifiers | 0% recall on four tricks for Prompt Guard 2 22M | 120 prompts, my perturbations | Matches arXiv 2504.11168. |
 | Smaller models are slightly weaker | Luna 0.897 vs Sol 0.910; Haiku 5.5 7.1% vs Opus 5.5 1.0% | Vendor system cards, tool-output attacks | Weak transfer: different attack surface. |
@@ -235,7 +270,7 @@ Local:
 - Run ID: `bmd-20261112-a`
 - Skill: `sams-research`, SKILL.md SHA-256 prefix `4249735c7353`
 - Category: security and product decision
-- Research date: 2026-11-12
-- Evidence: `evidence/browser-ml-prompt-danger-detection-2026-11-12/` (scripts as run, the link-threat set, summaries). Corpora are read from the `main` worktree's `.cache/safety/`; model files are not stored.
+- Research date: 2026-11-12; near-miss set and the "90% certain" section added 2026-11-14
+- Evidence: `evidence/browser-ml-prompt-danger-detection-2026-11-12/` (scripts as run, the link-threat and near-miss sets, summaries, per-prompt near-miss scores). Corpora are read from the `main` worktree's `.cache/safety/`; model files are not stored.
 - Source-access gaps: a search for Tenable's ChatGPT link research was blocked by a safety filter, so whether ChatGPT submits a `?q=` prompt without a click was not re-verified (the repo's manual link check says it only prefills). OpenAI's help page on plan defaults returned 403, so "free accounts default to Luna" is unverified. The two arXiv papers listed above were not read in full.
-- Unresolved checks: prevalence of dangerous links in real traffic; phone, Safari and Firefox performance; whether wolf-defender's 130 MB build loads in the browser; a second, independent link-threat set; R2 hosting cost.
+- Unresolved checks: prevalence of dangerous links in real traffic; Horizon's false-alarm rate on the whole corpus (the run was stopped at 15,500 of 19,841 prompts because it slowed the machine during a call; rerun at 2 threads); near-miss prompts from real PrefillPrompt links rather than my own; phone, Safari and Firefox performance; whether wolf-defender's 130 MB build loads in the browser; a second, independent link-threat set; R2 hosting cost.
