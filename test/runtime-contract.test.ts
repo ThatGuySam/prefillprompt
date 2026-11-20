@@ -15,7 +15,7 @@ describe('runtime and workflow contracts', () => {
         const readme = readRepositoryFile('README.md')
 
         assert.equal(packageJson.engines?.node, '^22.13.0 || >=24.0.0')
-        assert.equal(pinnedNode, '22.16.0')
+        assert.equal(pinnedNode, '22.23.4')
         assert.match(
             readme,
             /requires Node 22\.13 or newer within the Node 22 release line, or Node 24 and newer/,
