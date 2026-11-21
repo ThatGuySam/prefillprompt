@@ -1,8 +1,32 @@
 {
     "source": "OpenRouter",
     "sourceUrl": "https://openrouter.ai/api/v1/models",
-    "generatedAt": "2026-11-14T19:37:00.486Z",
+    "generatedAt": "2026-11-21T21:12:21.001Z",
     "models": [
+        {
+            "id": "openai/gpt-6.2-astra-pro",
+            "name": "GPT-6.2 Astra Pro",
+            "provider": "chatgpt",
+            "created": 1794938432
+        },
+        {
+            "id": "openai/gpt-6.2-astra",
+            "name": "GPT-6.2 Astra",
+            "provider": "chatgpt",
+            "created": 1794938423
+        },
+        {
+            "id": "openai/gpt-6.2-sol-pro",
+            "name": "GPT-6.2 Sol Pro",
+            "provider": "chatgpt",
+            "created": 1794938409
+        },
+        {
+            "id": "openai/gpt-6.2-sol",
+            "name": "GPT-6.2 Sol",
+            "provider": "chatgpt",
+            "created": 1794938371
+        },
         {
             "id": "openai/gpt-6.1-terra-pro",
             "name": "GPT-6.1 Terra Pro",
@@ -332,6 +356,12 @@
             "name": "Opus 4.1",
             "provider": "claude",
             "created": 1754411591
+        },
+        {
+            "id": "google/gemini-4-neon",
+            "name": "4 Neon",
+            "provider": "gemini",
+            "created": 1795006977
         },
         {
             "id": "google/gemini-4-hydrogen",
