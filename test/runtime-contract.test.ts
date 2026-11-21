@@ -16,6 +16,7 @@ describe('runtime and workflow contracts', () => {
 
         assert.equal(packageJson.engines?.node, '^22.13.0 || >=24.0.0')
         assert.equal(pinnedNode, '22.23.4')
+        assert.ok(readme.includes(`pins Node ${pinnedNode}`))
         assert.match(
             readme,
             /requires Node 22\.13 or newer within the Node 22 release line, or Node 24 and newer/,
@@ -30,7 +31,7 @@ describe('runtime and workflow contracts', () => {
         ]) {
             const workflow = readRepositoryFile(path)
             const enablePnpm = workflow.indexOf('run: corepack enable')
-            const setupNode = workflow.indexOf('uses: actions/setup-node@v4')
+            const setupNode = workflow.search(/uses: actions\/setup-node@[a-f0-9]{40}\b/)
 
             assert.ok(enablePnpm >= 0, `${path} must enable pnpm`)
             assert.ok(setupNode >= 0, `${path} must set up Node`)

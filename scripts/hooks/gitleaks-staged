@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if git diff --cached --quiet --; then
+  echo "betterleaks: no staged changes to scan"
+  exit 0
+fi
+
+if ! command -v betterleaks >/dev/null 2>&1; then
+  echo "betterleaks is required. Install the pinned tool with: mise install" >&2
+  exit 1
+fi
+
+betterleaks git --pre-commit --staged --redact --no-banner .

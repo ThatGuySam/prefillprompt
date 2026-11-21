@@ -179,11 +179,9 @@ Plain HTTP proves that PrefillPrompt builds the right URL. It cannot prove that 
 
 ## Contributing
 
-1. Fork and clone the repository.
-2. Create a focused branch.
-3. Make the change and add or update tests.
-4. Run `pnpm check`.
-5. Open a pull request describing the behavior change and verification.
+Maintainers work in the primary checkout on `main` and run `pnpm check` before pushing. Set up the [trunk guards](docs/workflows/trunk-policy.md) and check the [project contract](PROJECT.md) for release and automation commands.
+
+If you lack write access, send a focused pull request from a fork with the checks you ran. Report vulnerabilities privately using the [security policy](SECURITY.md).
 
 ## License
 

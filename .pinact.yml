@@ -1,0 +1,6 @@
+# pinact keeps GitHub Actions pinned to full commit SHAs.
+# https://github.com/suzuki-shunsuke/pinact
+version: 3
+min_age:
+  value: 7
+  always: true

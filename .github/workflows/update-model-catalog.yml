@@ -5,22 +5,30 @@ on:
         - cron: "17 13 * * 1"
     workflow_dispatch:
 
-permissions:
-    contents: write
-    pull-requests: write
+concurrency:
+    group: model-catalog-${{ github.ref }}
+
+permissions: {}
 
 jobs:
-    update:
+    prepare:
         runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: read
+        outputs:
+            changed: ${{ steps.diff.outputs.changed }}
         steps:
-            - name: Check out repository
-              uses: actions/checkout@v4
+            - name: Check out repository without persisted credentials
+              uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+              with:
+                  persist-credentials: false
 
             - name: Enable pnpm
               run: corepack enable
 
             - name: Set up Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: .node-version
                   cache: pnpm
@@ -44,12 +52,41 @@ jobs:
               if: steps.diff.outputs.changed == 'true'
               run: pnpm check
 
-            - name: Open catalog update pull request
+            - name: Upload verified catalog
               if: steps.diff.outputs.changed == 'true'
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                  name: model-catalog
+                  path: src/data/models.generated.json
+                  if-no-files-found: error
+                  retention-days: 1
+
+    publish:
+        needs: prepare
+        if: github.ref == 'refs/heads/main' && needs.prepare.outputs.changed == 'true'
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: write
+            pull-requests: write
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+            - name: Download verified catalog
+              uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+              with:
+                  name: model-catalog
+                  path: src/data
+
+            - name: Open catalog update pull request
               env:
                   GH_TOKEN: ${{ github.token }}
               run: |
                   branch="automation/model-catalog-${GITHUB_RUN_ID}"
+                  if [ "$GITHUB_RUN_ATTEMPT" -gt 1 ]; then
+                    branch="$branch-$GITHUB_RUN_ATTEMPT"
+                  fi
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git switch -c "$branch"
@@ -57,7 +94,7 @@ jobs:
                   git commit -m "chore: refresh model catalog"
                   git push --set-upstream origin "$branch"
                   gh pr create \
-                    --base "${GITHUB_REF_NAME:-main}" \
+                    --base main \
                     --head "$branch" \
                     --title "chore: refresh model catalog" \
                     --body "Automated weekly refresh from OpenRouter's public model endpoint. The generated catalog passed the full project check."

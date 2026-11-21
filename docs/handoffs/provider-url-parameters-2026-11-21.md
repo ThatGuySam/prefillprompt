@@ -37,6 +37,6 @@ As of 2026-11-21, at commit `d42f2a7` (on `origin/main`):
 
 1. Sam clicks the untested candidate links in the manual check and fills in the result cells: ChatGPT `prompt=`, Claude model plus `thinking=extended`, Gemini `prompt_text`.
 2. Sam says which step of the Gemini handoff fails: the copy, Gemini opening, or the paste.
-3. Run the `Update model catalog` workflow once by hand. Confirm it opens a PR now that the setting is on, then delete the old `automation/model-catalog-*` branches.
-4. Review the `security/node-22.23.4-emsign-20261023` branch (Node bump, unmerged).
+3. The [manual catalog run](https://github.com/ThatGuySam/prefillprompt/actions/runs/44950279745) passed and opened [PR #10](https://github.com/ThatGuySam/prefillprompt/pull/10).
+4. [PR #7](https://github.com/ThatGuySam/prefillprompt/pull/7) brings the Node pin to 22.23.4. The trunk workflow and publication boundaries are in [PROJECT.md](../../PROJECT.md).
 5. Ask Sam before deploying `main` to production. No standing approval.

@@ -1,0 +1,60 @@
+minimum_prek_version = "0.3.11"
+default_install_hook_types = [ "pre-commit" ]
+
+[[repos]]
+repo = "builtin"
+
+[[repos.hooks]]
+id = "check-added-large-files"
+args = [ "--maxkb=5120" ]
+
+[[repos.hooks]]
+id = "check-case-conflict"
+
+[[repos.hooks]]
+id = "check-illegal-windows-names"
+
+[[repos.hooks]]
+id = "check-json"
+
+[[repos.hooks]]
+id = "check-toml"
+
+[[repos.hooks]]
+id = "check-yaml"
+args = [ "--allow-multiple-documents" ]
+
+[[repos.hooks]]
+id = "check-merge-conflict"
+
+[[repos.hooks]]
+id = "detect-private-key"
+
+[[repos.hooks]]
+id = "mixed-line-ending"
+args = [ "--fix=no" ]
+
+[[repos.hooks]]
+id = "check-symlinks"
+
+[[repos.hooks]]
+id = "destroyed-symlinks"
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "git-policy"
+name = "trunk branch policy"
+language = "system"
+entry = "sh scripts/hooks/git-policy commit"
+pass_filenames = false
+always_run = true
+
+[[repos.hooks]]
+id = "gitleaks-staged"
+name = "betterleaks staged secret scan"
+language = "system"
+entry = "bash scripts/hooks/gitleaks-staged"
+pass_filenames = false
+always_run = true

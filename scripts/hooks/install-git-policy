@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+# Installs the trunk policy launchers into this checkout's Git hooks directory.
+# Local effect only: writes two hook files, changes no Git settings.
+set -eu
+
+marker='git-policy launcher'
+root=$(git rev-parse --show-toplevel)
+[ "$root" = "$(pwd -P)" ] || {
+  echo "install-git-policy: run from the repository root ($root)." >&2
+  exit 1
+}
+hooks=$(git rev-parse --git-path hooks)
+mkdir -p "$hooks"
+
+for hook in reference-transaction pre-push; do
+  target="$hooks/$hook"
+  lfs=""
+  if [ -e "$target" ] && grep -q "git lfs $hook" "$target"; then
+    # Keep Git LFS working: the launcher runs the guard, then hands the same input to LFS.
+    lfs=yes
+  elif [ -e "$target" ] && ! grep -q "$marker" "$target"; then
+    echo "install-git-policy: $target exists and is not ours. Call 'sh scripts/hooks/git-policy $hook \"\$@\"' from it instead." >&2
+    exit 1
+  fi
+  cat >"$target" <<LAUNCHER
+#!/usr/bin/env sh
+# $marker (written by scripts/hooks/install-git-policy; do not edit)
+set -eu
+top=\$(git rev-parse --show-toplevel 2>/dev/null || :)
+guard="\$top/scripts/hooks/git-policy"
+if [ ! -f "\$guard" ]; then
+  common=\$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null || :)
+  guard="\${common%/.git}/scripts/hooks/git-policy"
+fi
+[ -f "\$guard" ] || guard=""
+LAUNCHER
+  if [ -n "$lfs" ]; then
+    cat >>"$target" <<LAUNCHER
+input=\$(cat)
+[ -z "\$guard" ] || printf '%s\n' "\$input" | sh "\$guard" $hook "\$@"
+command -v git-lfs >/dev/null 2>&1 || {
+  echo "This repository uses Git LFS but 'git-lfs' was not found on your path." >&2
+  exit 2
+}
+printf '%s\n' "\$input" | git lfs $hook "\$@"
+LAUNCHER
+  else
+    cat >>"$target" <<LAUNCHER
+[ -n "\$guard" ] || exit 0
+exec sh "\$guard" $hook "\$@"
+LAUNCHER
+  fi
+  chmod 755 "$target"
+  echo "installed $target"
+done

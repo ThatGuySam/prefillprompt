@@ -1,0 +1,112 @@
+# Enforces the zero-exception rules in AGENTS.md for Codex.
+# Test a command: codex execpolicy check --rules .codex/rules/starter.rules -- <command>
+# Prefix rules match literal leading words only. The Git hooks in
+# scripts/hooks/git-policy catch what a reordered or wrapped command slips past.
+
+prefix_rule(
+    pattern = ["git", "push", ["--force", "-f"]],
+    decision = "forbidden",
+    justification = "AGENTS.md, Change safety: never force-push. Ask the user; an approved rewrite uses --force-with-lease with an exact SHA.",
+    match = ["git push --force origin main", "git push -f"],
+    not_match = ["git push origin HEAD:refs/heads/main", "git push --dry-run origin main"],
+)
+prefix_rule(
+    pattern = ["git", "push", "--no-verify"],
+    decision = "forbidden",
+    justification = "AGENTS.md, Validation: never bypass hooks or guardrails.",
+    match = ["git push --no-verify origin main"],
+    not_match = ["git push origin main"],
+)
+prefix_rule(
+    pattern = ["git", "commit", ["--no-verify", "-n"]],
+    decision = "forbidden",
+    justification = "AGENTS.md, Validation: never bypass prek, Betterleaks, or repository guardrails.",
+    match = ["git commit --no-verify -m x", "git commit -n -m x"],
+    not_match = ["git commit -m x", "git commit -F message.txt"],
+)
+prefix_rule(
+    pattern = ["git", "add", ["-A", "--all", "."]],
+    decision = "forbidden",
+    justification = "AGENTS.md, Change safety: stage explicit paths; never git add -A.",
+    match = ["git add -A", "git add --all", "git add ."],
+    not_match = ["git add -- README.md", "git add src/index.ts"],
+)
+prefix_rule(
+    pattern = ["gh", "auth", "token"],
+    decision = "forbidden",
+    justification = "AGENTS.md, Secrets: never print credentials.",
+    match = ["gh auth token"],
+    not_match = ["gh auth status"],
+)
+prefix_rule(
+    pattern = ["gh", "auth", "status", ["--show-token", "-t"]],
+    decision = "forbidden",
+    justification = "AGENTS.md, Secrets: never print credentials.",
+    match = ["gh auth status --show-token"],
+    not_match = ["gh auth status"],
+)
+prefix_rule(
+    pattern = ["gh", "repo", "delete"],
+    decision = "forbidden",
+    justification = "Deleting a repository is never an agent action.",
+    match = ["gh repo delete owner/name --yes"],
+    not_match = ["gh repo view owner/name"],
+)
+
+# Allowed only when the user asked for this exact operation: prompt every time.
+prefix_rule(
+    pattern = ["git", "switch", ["-c", "-C", "--create", "--force-create", "--orphan"]],
+    decision = "prompt",
+    justification = "AGENTS.md, Branch policy: create a branch only when a human asked for it by name.",
+    match = ["git switch -c feature", "git switch --orphan feature"],
+    not_match = ["git switch main"],
+)
+prefix_rule(
+    pattern = ["git", "checkout", ["-b", "-B", "--orphan"]],
+    decision = "prompt",
+    justification = "AGENTS.md, Branch policy: create a branch only when a human asked for it by name.",
+    match = ["git checkout -b feature"],
+    not_match = ["git checkout -- README.md"],
+)
+prefix_rule(
+    pattern = ["git", "worktree", "add"],
+    decision = "prompt",
+    justification = "AGENTS.md, Branch policy: a worktree needs a human's explicit request.",
+    match = ["git worktree add --detach /tmp/example HEAD"],
+    not_match = ["git worktree list"],
+)
+prefix_rule(
+    pattern = ["gh", "pr", "create"],
+    decision = "prompt",
+    justification = "AGENTS.md, Development model: work lands on main; do not open a pull request as a closeout.",
+    match = ["gh pr create --draft"],
+    not_match = ["gh pr view 1"],
+)
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "prompt",
+    justification = "AGENTS.md, Change safety: do not reset to simplify a task; uncommitted work is lost.",
+    match = ["git reset --hard HEAD~1"],
+    not_match = ["git reset -- README.md"],
+)
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "prompt",
+    justification = "AGENTS.md, Change safety: git clean deletes untracked work.",
+    match = ["git clean -fd"],
+    not_match = ["git status"],
+)
+prefix_rule(
+    pattern = ["git", "stash"],
+    decision = "prompt",
+    justification = "AGENTS.md, Change safety: do not stash as a convenience fallback.",
+    match = ["git stash", "git stash push -u"],
+    not_match = ["git status"],
+)
+prefix_rule(
+    pattern = ["mise", "trust"],
+    decision = "prompt",
+    justification = "Trusting a mise config lets it run code; the user decides.",
+    match = ["mise trust"],
+    not_match = ["mise install"],
+)

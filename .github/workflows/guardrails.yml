@@ -1,0 +1,60 @@
+name: Guardrails
+
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+concurrency:
+    group: guardrails-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    guardrails:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        steps:
+            - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+              with:
+                  persist-credentials: false
+            - name: Check hook syntax
+              run: |
+                  for hook in git-policy install-git-policy; do
+                    sh -n "scripts/hooks/$hook"
+                  done
+                  bash -n scripts/hooks/gitleaks-staged
+            - name: Check GitHub Action pins
+              run: |
+                  awk '/^[[:space:]]*(-[[:space:]]+)?uses:[[:space:]]/ {
+                    reference = ($1 == "-" ? $3 : $2)
+                    if (reference ~ /^\.\//) next
+                    split(reference, action, "@")
+                    if (length(action[2]) != 40 || action[2] !~ /^[0-9a-f]+$/) {
+                      print FILENAME ":" FNR ": pin " reference " to a full SHA"
+                      failed = 1
+                    }
+                  } END { exit failed }' .github/workflows/*.yml
+
+    secrets:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        steps:
+            - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
+            - name: Install pinned Betterleaks and scan history
+              working-directory: ${{ runner.temp }}
+              shell: bash
+              run: |
+                  curl --fail --silent --show-error --location \
+                    --output betterleaks.tar.gz \
+                    https://github.com/betterleaks/betterleaks/releases/download/v1.9.0/betterleaks_1.9.0_linux_x64.tar.gz
+                  echo 'f8b185a39ffcece2a1ca82bf3a4e7435cd81963ffd16b7a9128daf75f35f6de7  betterleaks.tar.gz' | sha256sum --check
+                  tar -xzf betterleaks.tar.gz betterleaks
+                  ./betterleaks git --log-opts=--all --redact --no-banner "$GITHUB_WORKSPACE"
