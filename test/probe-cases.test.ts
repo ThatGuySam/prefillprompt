@@ -13,7 +13,7 @@ interface RedirectCase {
 // The same decision the /api/prompt route makes.
 function redirectFor({ query }: RedirectCase) {
     return promptRedirectLocation({
-        prompt: query.q!,
+        prompt: query.q,
         requestedProvider: query.s ?? query.m,
         model: query.model,
         webSearch: parseBooleanParam(query.web),

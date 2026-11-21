@@ -1,0 +1,3273 @@
+[
+    {
+        "title": "Use the Gemini web app to get answers in Chrome - Gemini Apps Help",
+        "url": "https://support.google.com/gemini/answer/14886647?hl=en-re",
+        "status": 200,
+        "final_url": "https://support.google.com/gemini/answer/14886647?hl=en-re",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "beca39f1706be91510b3c26fb944576871c09115b82ace767ca965c0ee5315eb",
+        "bytes": 1626821,
+        "page_title": "Use the Gemini web app to get answers in Chrome - Gemini Apps Help",
+        "assessment": {
+            "parameters": "Chrome shortcut; HTTP header, not query",
+            "claim": "Official Chrome shortcut entry; inspected help does not specify a reusable prompt query.",
+            "reliability": "High for Chrome UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Using study mode in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "80a3a871c9f12d6be2ad04ced707d339902c484bc8dbe726fb01f442014cc093",
+        "bytes": 90847,
+        "page_title": "Using study mode in ChatGPT | OpenAI Help Center",
+        "assessment": {
+            "parameters": "study mode",
+            "claim": "Official study-mode help; useful product context, useless for current URL-key verification.",
+            "reliability": "High for UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Using study mode in ChatGPT | OpenAI Help Center",
+        "url": "https://fandai.donguapan.workers.dev/https/help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt",
+        "status": 429,
+        "final_url": "https://fandai.donguapan.workers.dev/https/help.openai.com/en/articles/11780217-using-study-mode-in-chatgpt",
+        "error": "HTTP Error 429: Too Many Requests",
+        "assessment": {
+            "parameters": "study mode",
+            "claim": "Unavailable on direct GET. Official study-mode help; useful product context, useless for current URL-key verification.",
+            "reliability": "Unusable body; High for UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 429; unavailable"
+        }
+    },
+    {
+        "title": "ChatGPT Work and Codex | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001275",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d0e67a7a5c7601abcf97ffa7333e539a99b6bbb30b0030bb9742b8a0692f8313",
+        "bytes": 106604,
+        "page_title": "ChatGPT Work and Codex | OpenAI Help Center",
+        "assessment": {
+            "parameters": "Work; models; reasoning",
+            "claim": "Official Chat/Work separation, model picker, plan and rollout conditions; no query selector specified in inspected text.",
+            "reliability": "High for product availability; no query proof",
+            "date": "help says updated 9 days ago",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Change the model, effort, and thinking settings | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings?trk=article-ssr-frontend-pulse_little-text-block",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings?trk=article-ssr-frontend-pulse_little-text-block",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ff84cff15b6fce3b79f6e060505a6e34be1a138fe52af870285079e8908e9c6f",
+        "bytes": 221747,
+        "page_title": "Change the model, effort, and thinking settings | Claude Help Center",
+        "assessment": {
+            "parameters": "model; thinking; effort",
+            "claim": "Official consumer model names and separate effort/thinking controls; no accepted query key contract.",
+            "reliability": "High for UI; no query proof",
+            "date": "updated 2026-11-09",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Use incognito chats | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/12260368-use-incognito-chats?trk=article-ssr-frontend-pulse_little-text-block",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/12260368-use-incognito-chats?trk=article-ssr-frontend-pulse_little-text-block",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "47d5398856322902c9db059ec5e9c26540c512ddcc0325a7c14a1548a3305476",
+        "bytes": 214343,
+        "page_title": "Use incognito chats | Claude Help Center",
+        "assessment": {
+            "parameters": "incognito",
+            "claim": "Official instructions for incognito UI; does not establish URL acceptance.",
+            "reliability": "High for UI; no query proof",
+            "date": "updated 2026-10-30",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Use Claude’s chat search and memory to build on previous context | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context?trk=public_post_comment-text",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context?trk=public_post_comment-text",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "25a89492a1aaad78523261a441f67373aa5a8d5d989decf26c09b53332617fd3",
+        "bytes": 319676,
+        "page_title": "Use Claude’s chat search and memory to build on previous context | Claude Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "ChatGPT Business - Release Notes | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/11391654-chatgpt-busin",
+        "status": 403,
+        "final_url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "I would like to input sensitive data into my chats with Claude. Who can view my conversations? | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations?q=thumbs",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations?q=thumbs",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "df9bf0cd1d974913a3537f432c50946fb57a728fe6cd972645d3d6ca683b78e1",
+        "bytes": 209924,
+        "page_title": "I would like to input sensitive data into my chats with Claude. Who can view my conversations? | Claude Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "ChatGPT — Release Notes | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/6825453-how-do-i-use-chatgpt-with-browsing",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "0acf274cad25148c4c2cc015f5aec104ae6fd7881a1c581d645e2b2483125f22",
+        "bytes": 853118,
+        "page_title": "ChatGPT release notes | OpenAI Help Center",
+        "assessment": {
+            "parameters": "models; thinking; Work",
+            "claim": "Official release chronology. No substantiated replacement model/Work navigation key found in inspected passages.",
+            "reliability": "High for releases; no query proof",
+            "date": "multiple dated entries",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Why Claude switched models in your conversation with Fable models | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ab182928a16230199f8134af9559369344de7f85e2ad2ad53d83bd3996686a1a",
+        "bytes": 232510,
+        "page_title": "Why Claude switched models in your conversation with Fable models | Claude Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Get started with Claude | Claude Help Center",
+        "url": "https://support.claude.com/en/articles/8114491-get-started-with-claude?__from__=talkingdev",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/8114491-get-started-with-claude?__from__=talkingdev",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "9cdd0f0edfe0ae058dd40e353ab9b8f59d086e3d0a7e45e5c89ad842cfa3fd73",
+        "bytes": 218884,
+        "page_title": "Get started with Claude | Claude Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Temporary chat in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/8914046-temporary-chat-in-chatgpt",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/8914046-temporary-chat-in-chatgpt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ecc580b69710bd38930a798731dbf8437d7c19571cb649db4a130426a23199be",
+        "bytes": 68397,
+        "page_title": "Temporary chat in ChatGPT | OpenAI Help Center",
+        "assessment": {
+            "parameters": "temporary-chat",
+            "claim": "Official temporary-chat UI and retention behavior; query switch not specified in inspected text.",
+            "reliability": "High for UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Chat and file retention in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/8983778-what-is-temporary-chat",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "183a320aba4ba5106d569b9e92097c8d611c01cb3dac1b19ebc32fe7f84f170d",
+        "bytes": 60189,
+        "page_title": "Chat and file retention in ChatGPT | OpenAI Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Searching the web with ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9237897-chatgpt-search",
+        "status": 403,
+        "final_url": "https://help.openai.com/en/articles/9237897-chatgpt-search",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "search",
+            "claim": "Unavailable on direct GET. Official search help. UI capability does not verify a hints query value.",
+            "reliability": "Unusable body; High for UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Searching the web with ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9237897-conducting-your-searches-on-search",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/9237897-searching-the-web-with-chatgpt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "abc33219ffea08d870099a53425ef7e3519a3e5f84a45014edf7b0ad18e7d139",
+        "bytes": 104297,
+        "page_title": "Searching the web with ChatGPT | OpenAI Help Center",
+        "assessment": {
+            "parameters": "search",
+            "claim": "Official search help. UI capability does not verify a hints query value.",
+            "reliability": "High for UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Using the built-in browser in the ChatGPT desktop app | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001277-using-the-built-in-browser-in-the-chatgpt-desktop-app",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/20001277-using-the-built-in-browser-in-the-chatgpt-desktop-app",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "b80c1adbd940fa63406f88eb4874298af0d44bdc8e6fce131f762dccd334c2d6",
+        "bytes": 68793,
+        "page_title": "Using the built-in browser in the ChatGPT desktop app | OpenAI Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Temporary Chats on the ChatGPT macOS app | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9295248-temporary-chats-on-the-chatgpt-macos-app%3F.avif",
+        "status": 403,
+        "final_url": "https://help.openai.com/en/articles/9295248-temporary-chats-on-the-chatgpt-macos-app%3F.avif",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Using site tools in the ChatGPT desktop app | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001423",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/20001423-using-site-tools-in-the-chatgpt-desktop-app",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "9ce27edbb65f7392c928340b1581de6ff7dd54aaca462f522e6d33e2f0feeadf",
+        "bytes": 68333,
+        "page_title": "Using site tools in the ChatGPT desktop app | OpenAI Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Offline web search for ChatGPT workspaces | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001203-offline-web-search-for-chatgpt-workspaces",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/20001203-offline-web-search-for-chatgpt-workspaces",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "1a6e8239db968f5b1155da76c7331c22b25582f8e6d09823f6b3ce0b21a97d02",
+        "bytes": 83051,
+        "page_title": "Offline web search for ChatGPT workspaces | OpenAI Help Center",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "What is Pro Search? | Perplexity Help Center",
+        "url": "https://www.perplexity.ai/help-center/en/articles/10352903-what-is-pro-search",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/help-center/en/articles/10352903-what-is-pro-search",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Effort Mode, GPT-6 Astra & Skills Marketplace | Perplexity",
+        "url": "https://www.perplexity.ai/changelog/effort-mode-gpt-6-astra-and-skills-marketplace",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/changelog/effort-mode-gpt-6-astra-and-skills-marketplace",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Which Perplexity Subscription Plan is right for you? | Perplexity Help Center",
+        "url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "url": "https://models.dev/",
+        "title": "Models.dev model catalog",
+        "status": 200,
+        "final_url": "https://models.dev/",
+        "content_type": "text/html",
+        "sha256": "ee12d0ee26f2e75344feab2128e1bb7be362ed94023b55fd263c5bf4e0059555",
+        "bytes": 2263004,
+        "page_title": "Models.dev - An open-source database of AI models",
+        "assessment": {
+            "parameters": "model metadata",
+            "claim": "Maintained API/SDK metadata registry; no verified consumer-navigation slug matrix.",
+            "reliability": "High for registry scope; unsuitable URL authority",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/anomalyco/models.dev",
+        "title": "Models.dev maintained source",
+        "status": 200,
+        "final_url": "https://github.com/anomalyco/models.dev",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "f544f6c6a6daff09c54fa251c04e2718febbfead047c2484af7b77c2fb0cd434",
+        "bytes": 325939,
+        "page_title": "GitHub - anomalyco/models.dev: An open-source database of AI models. · GitHub",
+        "assessment": {
+            "parameters": "model metadata",
+            "claim": "Maintained API/SDK metadata registry; no verified consumer-navigation slug matrix.",
+            "reliability": "High for registry scope; unsuitable URL authority",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://gemini.google.com/updates",
+        "title": "Gemini release updates",
+        "status": 200,
+        "final_url": "https://gemini.google.com/updates",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "945bde317ae242154fc3154ddacc114353d8f93fba724d0efa4dfc3aff2bd816",
+        "bytes": 924115,
+        "page_title": "‎Google Gemini",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://support.claude.com/en/articles/12138966-release-notes",
+        "title": "Claude consumer release notes",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/12138966-release-notes",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "122f32710e050108838bfbfda121bd69d44011ab087c48ba4f0e64da69a9df59",
+        "bytes": 370846,
+        "page_title": "Release notes | Claude Help Center",
+        "assessment": {
+            "parameters": "consumer model availability",
+            "claim": "Official consumer release notes. Useful for changes and retest triggers, not verified URL slugs.",
+            "reliability": "High for releases; no query proof",
+            "date": "updated 2026-11-12",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://www.perplexity.ai/changelog",
+        "title": "Perplexity changelog",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/changelog",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "url": "https://help.openai.com/en/articles/7864572-what-is-the-chatgpt-model-selector",
+        "title": "ChatGPT model selector",
+        "status": 404,
+        "final_url": "https://help.openai.com/en/articles/7864572-what-is-the-chatgpt-model-selector",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "title": "ChatGPT release notes",
+        "status": 200,
+        "final_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "e8ef19cecd0d6dacae49fe313c0dda46f42141dce146159958eaff21069a4120",
+        "bytes": 853118,
+        "page_title": "ChatGPT release notes | OpenAI Help Center",
+        "assessment": {
+            "parameters": "models; thinking; Work",
+            "claim": "Official release chronology. No substantiated replacement model/Work navigation key found in inspected passages.",
+            "reliability": "High for releases; no query proof",
+            "date": "multiple dated entries",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://support.google.com/gemini/answer/13594961?hl=en",
+        "title": "Use Gemini web app",
+        "status": 200,
+        "final_url": "https://support.google.com/gemini/answer/13594961?hl=en",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "5daff1479b33488bc99e027e1f4eb2cda827a8847af50a462f4d6eac245887d5",
+        "bytes": 1720748,
+        "page_title": "Gemini Apps Privacy Hub - Gemini Apps Help",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://support.google.com/gemini/answer/14554984?hl=en",
+        "title": "Gemini mobile app",
+        "status": 200,
+        "final_url": "https://support.google.com/gemini/answer/14554984?hl=en",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "7fc14bcd7a81c314f6698c0ecfe38c3e36728122c06e8b1026fffe4f1a2a37ae",
+        "bytes": 1655259,
+        "page_title": "Get started with the Gemini mobile app - Android phone &amp; tablet - Gemini Apps Help",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://www.perplexity.ai/help-center/en/articles/10354909-how-do-i-make-perplexity-my-default-search-engine",
+        "title": "Perplexity default search engine",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/help-center/en/articles/10354909-how-do-i-make-perplexity-my-default-search-engine",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "url": "https://www.perplexity.ai/help-center/en/articles/10352968-what-is-incognito-mode",
+        "title": "Perplexity incognito",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/help-center/en/articles/10352968-what-is-incognito-mode",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "url": "https://chromium.googlesource.com/chromium/src/+/main/chrome/browser/ui/search/search_tab_helper.cc",
+        "title": "Chromium Gemini omnibox implementation",
+        "status": 200,
+        "final_url": "https://chromium.googlesource.com/chromium/src/+/main/chrome/browser/ui/search/search_tab_helper.cc",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ce8870cf5fb1e7b1f3d3562ad5db298ed80bfa862f4710fe9ea3427d7a531af2",
+        "bytes": 143618,
+        "page_title": "chrome/browser/ui/search/search_tab_helper.cc - chromium/src - Git at Google",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://source.chromium.org/search?q=X-Omnibox-Gemini&ss=chromium",
+        "title": "Chromium Gemini header code search",
+        "status": 200,
+        "final_url": "https://accounts.google.com/v3/signin/identifier?continue=https://source.chromium.org/search?q%3DX-Omnibox-Gemini%26ss%3Dchromium&osid=1&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-268172351:1794685184509095",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "721d94596463473ad1e859c88f06f816bd8466588181373f6b4eb26dbfe7fca5",
+        "bytes": 945802,
+        "page_title": "Sign in - Google Accounts",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "GitHub - quochuydev/gemini-url-launcher: Send prompts to Google Gemini from a URL. Auto-types and submits — zero clicks. · GitHub",
+        "url": "https://github.com/quochuydev/gemini-url-launcher",
+        "status": 200,
+        "final_url": "https://github.com/quochuydev/gemini-url-launcher",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "30eee872e3bcebdb6cea82013bf613b3fc292393ecb41d967c6c829fb2ad8e35",
+        "bytes": 213779,
+        "page_title": "GitHub - quochuydev/gemini-url-launcher: Send prompts to Google Gemini from a URL. Auto-types and submits — zero clicks. · GitHub",
+        "assessment": {
+            "parameters": "q",
+            "claim": "Launcher reads query and inserts prompt into Gemini DOM. This is extension-provided behavior.",
+            "reliability": "High for inspected code; no native support proof",
+            "date": "repo commit 2026-04-24",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - chaofz/chatgpt-navigator · GitHub",
+        "url": "https://github.com/chaofz/chatgpt-navigator",
+        "status": 200,
+        "final_url": "https://github.com/chaofz/chatgpt-navigator",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "1f80e3175ba47cce557ac8d63c705178421c7d019534571a6065703927750d09",
+        "bytes": 242846,
+        "page_title": "GitHub - chaofz/chatgpt-navigator · GitHub",
+        "assessment": {
+            "parameters": "prompt; autoSubmit; think; extendedthink",
+            "claim": "Extension parses hash/URL and operates model UI. Its controls do not prove native query support.",
+            "reliability": "High for code; extension only",
+            "date": "repo commit 2026-06-28",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - MHSEA/openai-chatgpt-4o-auto-selector: Automatically enables GPT-4o and Temporary Chat on ChatGPT load. Includes Ctrl + Space toggle. Fast, reliable, and skips execution when correct URL parameters are already set. · GitHub",
+        "url": "https://github.com/MHSEA/openai-chatgpt-4o-auto-selector",
+        "status": 200,
+        "final_url": "https://github.com/MHSEA/openai-chatgpt-4o-auto-selector",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "8adef48144c16f1fa0a6202842eae52ec4ac0b3062719e9c941afbf623783a20",
+        "bytes": 217005,
+        "page_title": "GitHub - MHSEA/openai-chatgpt-4o-auto-selector: Automatically enables GPT-4o and Temporary Chat on ChatGPT load. Includes Ctrl + Space toggle. Fast, reliable, and skips execution when correct URL parameters are already set. · GitHub",
+        "assessment": {
+            "parameters": "model; temporary-chat",
+            "claim": "Uses DOM automation; README says URL selection stopped but skip logic contradicts blanket statement. Local temp result is newer.",
+            "reliability": "Medium historical; internally inconsistent",
+            "date": "repo commit 2025-08-12",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/KudoAI/chatgpt.js",
+        "title": "chatgpt.js consumer client library",
+        "status": 200,
+        "final_url": "https://github.com/KudoAI/chatgpt.js",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "723e65ac95c1663af4647f8a09aaf466a7fb1afca599cb92e194f2712efeac4e",
+        "bytes": 582209,
+        "page_title": "GitHub - KudoAI/chatgpt.js: 🤖 A powerful, lightweight JavaScript library + interactive CLI for ChatGPT · GitHub",
+        "assessment": {
+            "parameters": "client models and backend",
+            "claim": "Consumer-client implementation lead. Inspected code does not supply a current public navigation-slug registry.",
+            "reliability": "Medium; unofficial client; no query proof",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/HanaokaYuzu/Gemini-API",
+        "title": "Gemini web client reverse engineering",
+        "status": 200,
+        "final_url": "https://github.com/HanaokaYuzu/Gemini-API",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "bcb355f3e0a48687fa195296b94d72a69672676a4666cc5a98d39d23347d3432",
+        "bytes": 539675,
+        "page_title": "GitHub - HanaokaYuzu/Gemini-API: ✨ Reverse-engineered Python API for Google Gemini web app · GitHub",
+        "assessment": {
+            "parameters": "consumer identifiers; model header",
+            "claim": "Consumer reverse engineering deprecates static model enum in favor of account discovery. Selection uses headers, not navigation query.",
+            "reliability": "High for inspected code; unofficial backend",
+            "date": "identifier file revision 2026-10-01",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/dsdanielpark/Bard-API",
+        "title": "Bard web client historical",
+        "status": 200,
+        "final_url": "https://github.com/dsdanielpark/Bard-API",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fe4146a32e7f46bcd340b9847537093078a1f10aa371d79c1817a2beea270f1c",
+        "bytes": 439564,
+        "page_title": "GitHub - dsdanielpark/Bard-API: The unofficial python package that returns response of Google Bard through cookie value. · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/xtekky/gpt4free",
+        "title": "gpt4free model/provider registry",
+        "status": 200,
+        "final_url": "https://github.com/xtekky/gpt4free",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "f77bce54a118e324b65a593dca3ef4d5b605eafbb7da4d769f32f400baff9363",
+        "bytes": 472398,
+        "page_title": "GitHub - xtekky/gpt4free: The official gpt4free repository | various collection of powerful language models | opus 4.6 gpt 5.3 kimi 2.5 deepseek v3.2 gemini 3 · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/raycast/extensions/tree/main/extensions/chatgpt",
+        "title": "Raycast ChatGPT extension",
+        "status": 200,
+        "final_url": "https://github.com/raycast/extensions/tree/main/extensions/chatgpt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fc08bf835477e2c3d6ae3ab5cc393785165fb304669d3fc0352471ea38194e9f",
+        "bytes": 341797,
+        "page_title": "extensions/extensions/chatgpt at main · raycast/extensions · GitHub",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/raycast/extensions/tree/main/extensions/perplexity",
+        "title": "Raycast Perplexity extension",
+        "status": 200,
+        "final_url": "https://github.com/raycast/extensions/tree/main/extensions/perplexity",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "f014b65ccb0f633007cc42fc3891d1b8aaaf51c5ca3dee56d3d9dd023f53d2a3",
+        "bytes": 272152,
+        "page_title": "extensions/extensions/perplexity at main · raycast/extensions · GitHub",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/raycast/extensions/tree/main/extensions/claude",
+        "title": "Raycast Claude extension",
+        "status": 200,
+        "final_url": "https://github.com/raycast/extensions/tree/main/extensions/claude",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "1b345a8a831c798bc78e421435256fe0bb9bae409ed40cd34c6a0f6c06dff8a9",
+        "bytes": 314069,
+        "page_title": "extensions/extensions/claude at main · raycast/extensions · GitHub",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/raycast/extensions/tree/main/extensions/google-gemini",
+        "title": "Raycast Gemini extension",
+        "status": 404,
+        "final_url": "https://github.com/raycast/extensions/tree/main/extensions/google-gemini",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Unavailable on direct GET. Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "Unusable body; High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://github.com/0xW01F/ChatGPT_Model_Switcher",
+        "title": "ChatGPT model switcher",
+        "status": 404,
+        "final_url": "https://github.com/0xW01F/ChatGPT_Model_Switcher",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://github.com/lencx/ChatGPT",
+        "title": "ChatGPT desktop wrapper",
+        "status": 200,
+        "final_url": "https://github.com/lencx/ChatGPT",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "22e501f52705f548ae7bcdc60a88d22904ed1a95883f31f92ebcec96cafc8b1f",
+        "bytes": 233574,
+        "page_title": "GitHub - lencx/ChatGPT: ❄️ ChatGPT Desktop Application (Mac, Windows and Linux) · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/austegard/claude-utils",
+        "title": "Claude utilities",
+        "status": 404,
+        "final_url": "https://github.com/austegard/claude-utils",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://github.com/austegard/bookmarklets",
+        "title": "Austegard bookmarklets",
+        "status": 404,
+        "final_url": "https://github.com/austegard/bookmarklets",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "title": "[BUG] Submission of prompt via URL parameter stopped working · Issue #8827 · anthropics/claude-code · GitHub",
+        "url": "https://github.com/anthropics/claude-code/issues/8827",
+        "status": 200,
+        "final_url": "https://github.com/anthropics/claude-code/issues/8827",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d3ba238a6046bd716ec4d42d34edc391ccc3006791345f38e376f304b61294c3",
+        "bytes": 237110,
+        "page_title": "[BUG] Submission of prompt via URL parameter stopped working · Issue #8827 · anthropics/claude-code · GitHub",
+        "assessment": {
+            "parameters": "q",
+            "claim": "October regression report concerns automatic answering from Claude q URL. Does not disprove newer prefill observation.",
+            "reliability": "Medium historical regression report",
+            "date": "opened 2025-10-03",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Gemini URL Prompt - Chrome Web Store",
+        "url": "https://chromewebstore.google.com/detail/gemini-url-prompt/kdbgjkfdooaiompgeckjbegnnccchmma",
+        "status": 200,
+        "final_url": "https://chromewebstore.google.com/detail/gemini-url-prompt/kdbgjkfdooaiompgeckjbegnnccchmma",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "4ce1c0ea45031f921a786cac1ea8396dc1654162f58ce52adffafe33d2cd155f",
+        "bytes": 831302,
+        "page_title": "Gemini URL Prompt - Chrome Web Store",
+        "assessment": {
+            "parameters": "q; prompt",
+            "claim": "Extension supplies prefill via query keys. Does not demonstrate Google native support.",
+            "reliability": "Medium for extension behavior only",
+            "date": "store updated 2026-01-31",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Query parameters in chatgpt - Use cases and examples - OpenAI Developer Community",
+        "url": "https://community.openai.com/t/query-parameters-in-chatgpt/1027747",
+        "status": 200,
+        "final_url": "https://community.openai.com/t/query-parameters-in-chatgpt/1027747",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "78c0d1e81375faf947e32696410939486fa936e98ae20921b24d119bf4b503ab",
+        "bytes": 50432,
+        "page_title": "Query parameters in chatgpt - Use cases and examples - OpenAI Developer Community",
+        "assessment": {
+            "parameters": "q; prompt; hints=search; temporary-chat; model",
+            "claim": "Users report query/search/temp support; later comments describe prompt and app mentions. Model failure also reported.",
+            "reliability": "Medium; firsthand forum, scoped dates",
+            "date": "2024-11-22 through 2026-01-13",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Set prompt to aistudio via url query parameter - Google AI Studio - Google AI Developers Forum",
+        "url": "https://discuss.ai.google.dev/t/set-prompt-to-aistudio-via-url-query-parameter/77309",
+        "status": 200,
+        "final_url": "https://discuss.ai.google.dev/t/set-prompt-to-aistudio-via-url-query-parameter/77309",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "2e5c84f655c937b4507d400c5f8ab1fd9136ff4571dec8d358e30ae8eba69331",
+        "bytes": 32335,
+        "page_title": "Set prompt to aistudio via url query parameter - Google AI Studio - Google AI Developers Forum",
+        "assessment": {
+            "parameters": "x-omnibox-gemini; /prompt",
+            "claim": "Practitioner identifies Chrome header-based prompt transfer; AI Studio query example is a feature request, not proof.",
+            "reliability": "Medium for observed header; no generic URL proof",
+            "date": "published 2025-04-03",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Bug: \"Pro\" switch automatically disables itself",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1ezme92",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1ezme92/",
+        "content_type": "text/html",
+        "sha256": "5de0f17f49f60d0893f483db9aaa1e79c19c7109dbfb84efdf4ea16407c2da3d",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "BUG | \"Pro\" Search Displays as \"Auto\" via Address Bar Search",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1j6bcu1",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1j6bcu1/",
+        "content_type": "text/html",
+        "sha256": "34b9eed52a3d027af3550900e94ea05295c01fa1b79b4c588b74f337dfd17110",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Anyone have the Search URL figured out yet?",
+        "url": "https://www.reddit.com/r/OpenAI/comments/1gii630",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/OpenAI/comments/1gii630/",
+        "content_type": "text/html",
+        "sha256": "622990939071a225b13e2dcce7533435541c40afb6857cc369bd77699f263073",
+        "bytes": 8423,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "docs/docs/features/chat-conversations/chat-features/url-params.md at main · open-webui/docs · GitHub",
+        "url": "https://github.com/open-webui/docs/blob/main/docs/features/chat-conversations/chat-features/url-params.md",
+        "status": 200,
+        "final_url": "https://github.com/open-webui/docs/blob/main/docs/features/chat-conversations/chat-features/url-params.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "2b8e5aec40cfdcbc114f64266938dd5ff9e80ab7281a6352b820d5b3858a8fb8",
+        "bytes": 280716,
+        "page_title": "docs/docs/features/chat-conversations/chat-features/url-params.md at main · open-webui/docs · GitHub",
+        "assessment": {
+            "parameters": "URL controls for Open WebUI",
+            "claim": "Different application; useless for native provider URL support.",
+            "reliability": "High for its own app; excluded here",
+            "date": "seen 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Integrating Perplexity search · qutebrowser qutebrowser · Discussion #8435 · GitHub",
+        "url": "https://github.com/qutebrowser/qutebrowser/discussions/8435",
+        "status": 200,
+        "final_url": "https://github.com/qutebrowser/qutebrowser/discussions/8435",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "e3b57c9170eec4c9e56cb2de04eee601c2dc4d08eb8f5dff9f05a9ce5e72fdd1",
+        "bytes": 294383,
+        "page_title": "Integrating Perplexity search · qutebrowser/qutebrowser · Discussion #8435 · GitHub",
+        "assessment": {
+            "parameters": "q; copilot=true",
+            "claim": "Users verify search query; report copilot broken Feb 2025, repaired, broken again Oct 2025.",
+            "reliability": "Medium; dated firsthand regression history",
+            "date": "latest relevant comment 2025-10-02",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "ChatGPT Temporary Chat by Default | Hacker News",
+        "url": "https://news.ycombinator.com/item?id=49508562",
+        "status": 200,
+        "final_url": "https://news.ycombinator.com/item?id=49508562",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "6c835a712f69c5fffe04a847284667fb55f0e5046d6314bbc4a9d89b64800936",
+        "bytes": 5144,
+        "page_title": "ChatGPT Temporary Chat by Default | Hacker News",
+        "assessment": {
+            "parameters": "q; prompt; model; hints=reason; oai-dm; temporary-chat",
+            "claim": "Comment explicitly says parameter list came from ChatGPT; excludes list as behavioral evidence.",
+            "reliability": "Low; model-generated list",
+            "date": "September 2026; read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Understanding ChatGPT’s ?hints Parameter - A UI Shortcut, Not a Search Window - Notes, Thoughts & Inspiration - Matthew Philogene",
+        "url": "https://matthew.philogene.co.za/understanding-chatgpts-hints-parameter-a-ui-shortcut-not-a-search-window/",
+        "status": 200,
+        "final_url": "https://matthew.philogene.co.za/understanding-chatgpts-hints-parameter-a-ui-shortcut-not-a-search-window/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "191dcdbf367d5c1f1aa7a3b4727422c65acda2decd23bb4946478af78167a379",
+        "bytes": 39041,
+        "page_title": "Understanding ChatGPT’s ?hints Parameter - A UI Shortcut, Not a Search Window - Notes, Thoughts &amp; Inspiration - Matthew Philogene",
+        "assessment": {
+            "parameters": "hints=search; hints=reason",
+            "claim": "Undated explanation calls hints frontend suggestions; no current controlled model-selection evidence.",
+            "reliability": "Low; undated, limited method",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Claude Prompt Link Generator - Free | U2L AI",
+        "url": "https://u2l.ai/tools/claude-prompt-link-generator",
+        "status": 200,
+        "final_url": "https://u2l.ai/tools/claude-prompt-link-generator",
+        "content_type": "text/html",
+        "sha256": "927a76664e5910eb4f083d331008ad7359871011041d915df034a17de72678b7",
+        "bytes": 266057,
+        "page_title": "Claude Prompt Link Generator - Free | U2L AI",
+        "assessment": {
+            "parameters": "q",
+            "claim": "Generator marketing claims automatic submission. Conditions and testing unclear; conflicts with local prefill result.",
+            "reliability": "Low; promotional; excluded from recommendations",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Here's how you can set Perplexity as a default search engine in the Firefox browser. For the mobile version, you can set it without add-ons. Credits: yi5 @ Perplexity AI Discord community",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/11677ea",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/11677ea/",
+        "content_type": "text/html",
+        "sha256": "7589eed89f100dcb22e2b23eaa339dfd1479a050e3d7b3020bbd3bd1f54aff16",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Whats the deal with perplexity search engine? Is it worth it?",
+        "url": "https://www.reddit.com/r/ArcBrowser/comments/1abtq5f",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/ArcBrowser/comments/1abtq5f/",
+        "content_type": "text/html",
+        "sha256": "77642d8c133f695fd2907986ed0700dfe6a876dd69cf7674632e378d1b64f559",
+        "bytes": 8427,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "〖QuickTips 11〗Googleスプレッドシートのハイパーリンクで Gemini Deep Linkを作る（代替方法追記）｜mir",
+        "url": "https://note.com/mir4545/n/nc040c760226f",
+        "status": 200,
+        "final_url": "https://note.com/mir4545/n/nc040c760226f",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "1b9c0cbf1732429e657aea4a6bd0e8e06f73868b4f17293dad059c1ec38351d9",
+        "bytes": 462752,
+        "page_title": "【QuickTips 11】Googleスプレッドシートのハイパーリンクで Gemini Deep Linkを作る（代替方法追記）｜mir",
+        "assessment": {
+            "parameters": "prompt_text; prompt_action=prefill; tool routes",
+            "claim": "Reports native deep-link failure Jan 12 and prefill recovery Jan 17; derives original technique from another author.",
+            "reliability": "Medium historical; same discovery lineage",
+            "date": "published 2026-01-11; update 2026-01-17",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Bug: /bug deep-link payload crashes GitHub Mobile app in Termux · Issue #27590 · google-gemini/gemini-cli · GitHub",
+        "url": "https://github.com/google-gemini/gemini-cli/issues/27590",
+        "status": 200,
+        "final_url": "https://github.com/google-gemini/gemini-cli/issues/27590",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "2fe9a65ebf3e4a5da3cf5b9e5a797fa25a0f8e546622d3132562ddc6b7c14f9c",
+        "bytes": 278436,
+        "page_title": "Bug: /bug deep-link payload crashes GitHub Mobile app in Termux · Issue #27590 · google-gemini/gemini-cli · GitHub",
+        "assessment": {
+            "parameters": "q; copilot=true",
+            "claim": "Search redirect duplication issue contains URL example. Does not verify current Pro activation.",
+            "reliability": "Medium for example; low for mode acceptance",
+            "date": "opened 2024-04-15",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Gemini works with just a click!? Gemini Deep Link is incredibly convenient｜けいすけ",
+        "url": "https://note.com/tyaperujp01/n/n562f7aa10b54?hl=en",
+        "status": 200,
+        "final_url": "https://note.com/tyaperujp01/n/n562f7aa10b54?hl=en",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "51fb5aaa0b195fb7c1e1a4b33b9d96da3da17926c294706302d2dae1474c7bc4",
+        "bytes": 421651,
+        "page_title": "Gemini works with just a click!? Gemini Deep Link is incredibly convenient｜けいすけ",
+        "assessment": {
+            "parameters": "prompt_text; prompt_action=prefill; tool routes",
+            "claim": "Original tutorial now has June 2026 failure warning. Older tool and prefill recipes are historical.",
+            "reliability": "Medium; dated correction is consequential",
+            "date": "published 2025-12-22; updated 2026-06-04",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "AI Recommendation Poisoning via hidden Ask AI deep-link prompt injection • CyberHappenings",
+        "url": "https://cyberhappenings.com/happenings/2026/08/06/ai-recommendation-poisoning-via-hidden-ask-ai-deep-link-prompt-injection.html",
+        "status": 200,
+        "final_url": "https://cyberhappenings.com/happenings/2026/08/06/ai-recommendation-poisoning-via-hidden-ask-ai-deep-link-prompt-injection.html",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "84a7cf603cf001adb083361ddcb7dbbb9f995347c4ad3c80a302b3cfb88c301c",
+        "bytes": 29452,
+        "page_title": "AI Recommendation Poisoning via hidden Ask AI deep-link prompt injection • CyberHappenings",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "AI Recommendation Poisoning via hidden Ask AI deep-link prompt injection • CyberHappenings",
+        "url": "https://www.cyberhappenings.com/happenings/2026/08/06/ai-recommendation-poisoning-via-hidden-ask-ai-deep-link-prompt-injection/",
+        "status": 200,
+        "final_url": "https://www.cyberhappenings.com/happenings/2026/08/06/ai-recommendation-poisoning-via-hidden-ask-ai-deep-link-prompt-injection/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "84a7cf603cf001adb083361ddcb7dbbb9f995347c4ad3c80a302b3cfb88c301c",
+        "bytes": 29452,
+        "page_title": "AI Recommendation Poisoning via hidden Ask AI deep-link prompt injection • CyberHappenings",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "perplexity.ai/q?prompt_here",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1cgbqq0",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1cgbqq0/",
+        "content_type": "text/html",
+        "sha256": "0739f3065b05367239eff979ffa22931b2c7bb73a6613e25598337eee25615e3",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "claude.ai/Desktop custom connector never exchanges the OAuth code (WorkOS AuthKit) — same server connects via ChatGPT, Claude Code, curl · Issue #518 · anthropics/claude-ai-mcp · GitHub",
+        "url": "https://github.com/anthropics/claude-ai-mcp/issues/518",
+        "status": 200,
+        "final_url": "https://github.com/anthropics/claude-ai-mcp/issues/518",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d59446739a0ecac54da64c4a95552c75ef567b9bae42de7e684cfc0d2c0d1849",
+        "bytes": 278993,
+        "page_title": "claude.ai/Desktop custom connector never exchanges the OAuth code (WorkOS AuthKit) — same server connects via ChatGPT, Claude Code, curl · Issue #518 · anthropics/claude-ai-mcp · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "AI Prompt Link Generator: Prefilled ChatGPT and Perplexity Links and Ask AI Buttons",
+        "url": "https://trevorfox.com/tools/seo/ai-prompt-link-generator/",
+        "status": 200,
+        "final_url": "https://trevorfox.com/tools/seo/ai-prompt-link-generator/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ae17ae43f207dbef48882db978eaa2941e64515bad07703565c5809f9e41e21f",
+        "bytes": 76780,
+        "page_title": "AI Prompt Link Generator: Prefilled ChatGPT and Perplexity Links and Ask AI Buttons",
+        "assessment": {
+            "parameters": "q; prompt; hints=search; temporary-chat; focus; copilot; prompt_text",
+            "claim": "Named author reports logged-out tests: ChatGPT q sends, prompt prefills; Gemini q/prompt_text ignored; no visible Perplexity focus/copilot effect.",
+            "reliability": "Medium; dated firsthand, logged-out scope",
+            "date": "updated 2026-11-13",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Start AI Queries Directly Within Your Zen URL bar",
+        "url": "https://www.reddit.com/r/zen_browser/comments/1l2v171",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/zen_browser/comments/1l2v171/",
+        "content_type": "text/html",
+        "sha256": "3ae3b2ae4b2bcc2c07689eda96564b4645fb401eaf7941486dc9c61187c1eb09",
+        "bytes": 8428,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "I vibe coded a script to use Gemini as a custom search engine in FF, just like you can with ChatGPT!",
+        "url": "https://www.reddit.com/r/GoogleGeminiAI/comments/1maw04i/i_vibe_coded_a_script_to_use_gemini_as_a_custom/",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/GoogleGeminiAI/comments/1maw04i/i_vibe_coded_a_script_to_use_gemini_as_a_custom/",
+        "content_type": "text/html",
+        "sha256": "e3f1f545a775860a9dc17990f810de20a301a225507f50c0ec06b2b68e3f9c1b",
+        "bytes": 8479,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Is there a way to start a chat using a querystring parameter?",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/17j7h91",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/ClaudeAI/comments/17j7h91/",
+        "content_type": "text/html",
+        "sha256": "6712f065d97597e5effe1b98f40fca9336ad6e107152110fa15d34973de4c8c9",
+        "bytes": 8425,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "TIL Claude can now access a web page from URL",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1jnkcwo/til_claude_can_now_access_a_web_page_from_url/",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/ClaudeAI/comments/1jnkcwo/til_claude_can_now_access_a_web_page_from_url/",
+        "content_type": "text/html",
+        "sha256": "8e09ef660d79909f3d10fddb9f08dcafc81393c895edc1445139064c102b66fd",
+        "bytes": 8471,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "ChatGPT Prompt Link Generator - Free | U2L AI",
+        "url": "https://u2l.ai/tools/chatgpt-prompt-link-generator",
+        "status": 200,
+        "final_url": "https://u2l.ai/tools/chatgpt-prompt-link-generator",
+        "content_type": "text/html",
+        "sha256": "aa875b8f6b5e0451bd37cd94a0f19f92fd226a4c93a86d7b7461013b669cfc52",
+        "bytes": 266444,
+        "page_title": "ChatGPT Prompt Link Generator - Free | U2L AI",
+        "assessment": {
+            "parameters": "q",
+            "claim": "Generator marketing claims automatic submission. Conditions and testing unclear; conflicts with local prefill result.",
+            "reliability": "Low; promotional; excluded from recommendations",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "How can I start a ChatGPT conversation from a URL? - Web Applications Stack Exchange",
+        "url": "https://webapps.stackexchange.com/questions/172731/how-can-i-start-a-chatgpt-conversation-from-a-url/175084",
+        "status": 403,
+        "final_url": "https://webapps.stackexchange.com/questions/172731/how-can-i-start-a-chatgpt-conversation-from-a-url/175084",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Fun thing with url switching",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1nelk1g",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/ChatGPT/comments/1nelk1g/",
+        "content_type": "text/html",
+        "sha256": "aa2a0f205d5d2712b04bfdf07c70a6f8f9d738d5a75fe0ebc57030878ae47615",
+        "bytes": 166976,
+        "page_title": "Reddit - Prove your humanity",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "From Search Engines to Answer Engines",
+        "url": "https://www.americanbar.org/groups/law_practice/resources/law-practice-magazine/2024/november-december-2024/from-search-engines-to-answer-engines/",
+        "status": 403,
+        "final_url": "https://www.americanbar.org/groups/law_practice/resources/law-practice-magazine/2024/november-december-2024/from-search-engines-to-answer-engines/",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Tip: Add SearchGPT as a custom search engine in Chrome",
+        "url": "https://www.reddit.com/r/OpenAI/comments/1ghjnl2/tip_add_searchgpt_as_a_custom_search_engine_in/",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/OpenAI/comments/1ghjnl2/tip_add_searchgpt_as_a_custom_search_engine_in/",
+        "content_type": "text/html",
+        "sha256": "2415e213132bfd3ce05d28e212a541f5c75cb5906c1cf3b3499b769d93cf9de2",
+        "bytes": 167022,
+        "page_title": "Reddit - Prove your humanity",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "You can use chatGPT to load data into an application via URL Parameters!",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/zrbtaf",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/ChatGPT/comments/zrbtaf/",
+        "content_type": "text/html",
+        "sha256": "e26ac6469e7244b0c0b60bd3ca326bc5aac9e132f577398b99306f5ea67b15b7",
+        "bytes": 166975,
+        "page_title": "Reddit - Prove your humanity",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "\"GPT-ing\" (searching) without the plugin - ChatGPT - OpenAI Developer Community",
+        "url": "https://community.openai.com/t/gpt-ing-searching-without-the-plugin/1021771",
+        "status": 200,
+        "final_url": "https://community.openai.com/t/gpt-ing-searching-without-the-plugin/1021771",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "bca28fa29e1279fd5fabe8cc51bbf2d121fd9a2192342d1ff715a627da212bcd",
+        "bytes": 31583,
+        "page_title": "&quot;GPT-ing&quot; (searching) without the plugin - ChatGPT - OpenAI Developer Community",
+        "assessment": {
+            "parameters": "q; hints=search; temporary-chat; model",
+            "claim": "Historical shortcut recipe lists now-old model values; does not verify current selection.",
+            "reliability": "Medium historical; low for current model support",
+            "date": "published 2024-11-17",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "iOS shortcut broken?!",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1je28wo",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1je28wo/",
+        "content_type": "text/html",
+        "sha256": "79b31f9a01fa542de9801ade9e07a88099af82f8122fe01ef6b21d6fdd67eb17",
+        "bytes": 166982,
+        "page_title": "Reddit - Prove your humanity",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "How to select the right effort setting in Claude · Claude Academy",
+        "url": "https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat",
+        "status": 200,
+        "final_url": "https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat",
+        "content_type": "text/html",
+        "sha256": "1868d96f1d9b1026ea363249f0df45c7ad9a1ac7f8265b30327d97673c6ab98a",
+        "bytes": 59159,
+        "page_title": "How to select the right effort setting in Claude · Claude Academy",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Claude's extended thinking \\ Anthropic",
+        "url": "https://www.anthropic.com/news/visible-extended-thinking",
+        "status": 200,
+        "final_url": "https://www.anthropic.com/news/visible-extended-thinking",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d2cfd352a91880ad696fe0b5e7ce78334fc8e980fc7a3e48ead961cc8aea7b72",
+        "bytes": 195235,
+        "page_title": "Claude&#x27;s extended thinking \\ Anthropic",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Getting started with Perplexity",
+        "url": "https://www.perplexity.ai/en-GB/hub/blog/getting-started-with-perplexity",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/en-GB/hub/blog/getting-started-with-perplexity",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "Chromeの検索エンジンにChatGPTを追加してアドレスバーからChatGPTと会話する",
+        "url": "https://zenn.dev/appseed246/articles/699dc5579b33f3",
+        "status": 200,
+        "final_url": "https://zenn.dev/appseed246/articles/699dc5579b33f3",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fe57be885ad4eaf6e825e55ab7cb637dc1caa9f2c335fb59e428dffaefd8fb07",
+        "bytes": 72178,
+        "page_title": "Chromeの検索エンジンにChatGPTを追加してアドレスバーからChatGPTと会話する",
+        "assessment": {
+            "parameters": "q; hints=reason; hints=search",
+            "claim": "Shortcut recipe offers reason hint. No current Work/model verification.",
+            "reliability": "Low for present reasoning support",
+            "date": "date not established",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Claude Sonnet \\ Anthropic",
+        "url": "https://www.anthropic.com/claude/sonnet",
+        "status": 200,
+        "final_url": "https://www.anthropic.com/claude/sonnet",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "aea1569c27dc3bd10d200ac224827fbf4f298d714d8b10b248f43e31dd4ed68f",
+        "bytes": 187932,
+        "page_title": "Claude Sonnet \\ Anthropic",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Models \\ Anthropic",
+        "url": "https://www.anthropic.com/news/models",
+        "status": 200,
+        "final_url": "https://www.anthropic.com/news/models",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "29dc083a44255dff39eb80e666acda28526a43d719351dac501ec409b242fa47",
+        "bytes": 264448,
+        "page_title": "Models \\ Anthropic",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Perplexity – Telegram",
+        "url": "https://t.me/s/perplexity_ai?after=73",
+        "status": 200,
+        "final_url": "https://t.me/s/perplexity_ai?after=73",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fdef14a436a0aba50ef32c9a3fd7862d9953d664db4331ade0a3868ea8e98e42",
+        "bytes": 117645,
+        "page_title": "Perplexity – Telegram",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Perplexity – Telegram",
+        "url": "https://t.me/s/perplexity_ai/65",
+        "status": 200,
+        "final_url": "https://t.me/s/perplexity_ai/65",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "3952113f1f9ecbe6b67628e2d4c6049547facf9bada12eefa18df2d4b795d8c2",
+        "bytes": 100460,
+        "page_title": "Perplexity – Telegram",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Perplexity – Telegram",
+        "url": "https://t.me/s/perplexity_ai/70",
+        "status": 200,
+        "final_url": "https://t.me/s/perplexity_ai/70",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "5e5701b3d80990fae3a425fc8a7fefb39cbbdaba9fba32d7cb4ef0c733ed0457",
+        "bytes": 97175,
+        "page_title": "Perplexity – Telegram",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "What is Perplexity AI and How to Use It",
+        "url": "https://allthings.how/what-is-perplexity-ai-and-how-to-use-it/",
+        "status": 200,
+        "final_url": "https://allthings.how/what-is-perplexity-ai-and-how-to-use-it/",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "8c37a50500314c03da4860b381136fb1ab4cde88ce9f2832062b84e86fa2dfa9",
+        "bytes": 128797,
+        "page_title": "What is Perplexity AI and How to Use It",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Using Perplexity for search | Atomic Ego AI",
+        "url": "https://atomicego.com/ai-search/using-perplexity-for-search",
+        "status": 200,
+        "final_url": "https://atomicego.com/ai-search/using-perplexity-for-search",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "2f05c744cbda54372536cedeb211e04639b8a42559f0b932812de71b5eb9cbbc",
+        "bytes": 157351,
+        "page_title": "Using Perplexity for search | Atomic Ego AI",
+        "assessment": {
+            "parameters": "focus=internet/scholar/youtube/reddit/wolfram/writing; copilot=true",
+            "claim": "Author describes own shortcut setup and Pro/focus recipes. Historical evidence, no present confirmation.",
+            "reliability": "Medium historical firsthand",
+            "date": "published 2024-06-01",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Perplexity.ai UI Design: 18 Real Screens & Flows (2026) | SaaSUI",
+        "url": "https://www.saasui.design/application/perplexity-ai",
+        "status": 200,
+        "final_url": "https://www.saasui.design/application/perplexity-ai",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "181128a6ddd1aa7fbfb78e8b784afa8beb5984ba7fee7084065fedaee7cc8412",
+        "bytes": 569818,
+        "page_title": "Perplexity.ai UI Design: 18 Real Screens &amp; Flows (2026) | SaaSUI",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Perplexity General Use Guidelines?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/189a01i",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/189a01i/",
+        "content_type": "text/html",
+        "sha256": "2860643992c62de689789ccd0ed630b2048a98f8b223a10f6071c04ba4759da8",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Thoughts on Perplexity, the pros and cons.",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1cltxyr",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1cltxyr/",
+        "content_type": "text/html",
+        "sha256": "4973cf6770ef2a46bb61cbce85dbd78edba3f024db8e1e3a90d6e0bba94adee4",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "How does search / searching for answers with Perplexity Pro compare to the free tier?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/17kly15",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/17kly15/",
+        "content_type": "text/html",
+        "sha256": "257fafcb0aaab3a4dda384e6968e1f664d59aa5e2bef4d4e2e5d98b2d3561e33",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "What the heck happened with perplexity AI?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1fr67si",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1fr67si/",
+        "content_type": "text/html",
+        "sha256": "3c4bf8a4e4377639494895531dc304f2340163144f7004239d39d1a62f159a73",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Perplexity has become garbage",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1rznhzp/perplexity_has_become_garbage/",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1rznhzp/perplexity_has_become_garbage/",
+        "content_type": "text/html",
+        "sha256": "6354354ab2d78aec3ff638999c9ba1050fbaafb55e507125782684c0c6861b7b",
+        "bytes": 8460,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "GPT-5 with Thinking now available to Pro Users",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1my9od0",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1my9od0/",
+        "content_type": "text/html",
+        "sha256": "61303c36d62a58a6d7578cd7753b9907feab67f50a268f5a3b084bd0170ddbd9",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Why is Perplexity suddenly not doing what it's supposed to do lately?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/17v8q07",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/17v8q07/",
+        "content_type": "text/html",
+        "sha256": "fae084837534558a553f2025addeed765410a4d8a2ef0b89706cd009c998e562",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "I unsubscribed from chatgpt to subscribe to perplexity, but I already regret it",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1h4x6n8",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1h4x6n8/",
+        "content_type": "text/html",
+        "sha256": "725dadd28ada227c71d3195936c7a65dfcb708a85d61fad84b59bd6f52906a53",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "What do you prefer: Perplexity or Google Search?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1btcvxq",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1btcvxq/",
+        "content_type": "text/html",
+        "sha256": "4abd083a7346aee47f4cee2a875d13d4430e66b8d4ec940ad3822ad3c86206fa",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Sell me on Perplexity",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1c5gyd8",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1c5gyd8/",
+        "content_type": "text/html",
+        "sha256": "234cf79cc259f8836b6b08a528214396bd500725c73c87afb8e27886c32a9b72",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "How to turn on pro search by default.",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1cleo1i",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1cleo1i/",
+        "content_type": "text/html",
+        "sha256": "2621ea9eef592f57a3be134f86d67619b321784153be3d798151edf8d794663f",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Perplexity AI-Based Search - PopClip Extensions - PopClip Forum",
+        "url": "https://forum.popclip.app/t/perplexity-ai-based-search/1336",
+        "status": 200,
+        "final_url": "https://forum.popclip.app/t/perplexity-ai-based-search/1336",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "83852b04a0ba4af56fdbf002d69e79e18895458106266665a9f6fcd25c64f8a9",
+        "bytes": 25139,
+        "page_title": "Perplexity AI-Based Search - PopClip Extensions - PopClip Forum",
+        "assessment": {
+            "parameters": "q; copilot=true; perplexity://search",
+            "claim": "Historical launcher recipes and app scheme; no present mode/model verification.",
+            "reliability": "Medium historical implementation report",
+            "date": "thread 2023 onward; read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "AI agent memory: How to build agents with persistent context",
+        "url": "https://www.perplexity.ai/en-GB/hub/blog/ai-agent-memory",
+        "status": 200,
+        "final_url": "https://www.perplexity.ai/en-GB/hub/blog/ai-agent-memory",
+        "content_type": "text/html",
+        "sha256": "139beadb6e83fcd223ec0571bf6e51f6acc8a41d293a302b602f783d5e038604",
+        "bytes": 201104,
+        "page_title": "AI agent memory: How to build agents with persistent context",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "How to change the focus option in the new spaces feature?",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1g6xgw6",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1g6xgw6/",
+        "content_type": "text/html",
+        "sha256": "8927ccbcc03fb13a39df20399dca86a6a5bf07836868f0b1579bba995ef4b813",
+        "bytes": 8430,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Focus mode being replaced by sources on load",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1hd8fx7",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1hd8fx7/",
+        "content_type": "text/html",
+        "sha256": "efa510506d1f69e9311d73e9532ad5de5f07644a971886adc1dde52b53f6761e",
+        "bytes": 166982,
+        "page_title": "Reddit - Prove your humanity",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Gemini 3 Pro is now available on Perplexity via browser",
+        "url": "https://www.reddit.com/r/perplexity_ai/comments/1p18rfy/gemini_3_pro_is_now_available_on_perplexity_via/",
+        "status": 200,
+        "final_url": "https://www.reddit.com/r/perplexity_ai/comments/1p18rfy/gemini_3_pro_is_now_available_on_perplexity_via/",
+        "content_type": "text/html",
+        "sha256": "b6a7dc205677e47033afbddf9269e7a3bce2e8038bda1bf0a705056d8b5d0886",
+        "bytes": 8478,
+        "page_title": "Reddit",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless response for verification. Discovery snippet, if any, remains unverified.",
+            "reliability": "Unusable body",
+            "date": "publication unknown",
+            "access": "HTTP 200; shell/challenge/sign-in, no usable original text"
+        }
+    },
+    {
+        "title": "Perplexity Computer for Buyside Professionals | Perplexity",
+        "url": "https://www.perplexity.ai/en-GB/hub/workshops/perplexity-computer-for-buyside-professionals",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/en-GB/hub/workshops/perplexity-computer-for-buyside-professionals",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 403; unavailable"
+        }
+    },
+    {
+        "title": "claude-wiki/15-Claude-AI-Features/change-the-model-effort-and-thinking-settings-7573bc3122.md at master · johnzfitch/claude-wiki · GitHub",
+        "url": "https://github.com/johnzfitch/claude-wiki/blob/master/15-Claude-AI-Features/change-the-model-effort-and-thinking-settings-7573bc3122.md",
+        "status": 404,
+        "final_url": "https://github.com/johnzfitch/claude-wiki/blob/master/15-Claude-AI-Features/change-the-model-effort-and-thinking-settings-7573bc3122.md",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "title": "anthropic-mirror/platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md at main · ai-native-engineer/anthropic-mirror · GitHub",
+        "url": "https://github.com/ai-native-engineer/anthropic-mirror/blob/main/platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md",
+        "status": 200,
+        "final_url": "https://github.com/ai-native-engineer/anthropic-mirror/blob/main/platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "922c8e25e18b934b393a1d4c3c50ed98a58b7ba9d4d8fac61c7693280f6ecabb",
+        "bytes": 651957,
+        "page_title": "anthropic-mirror/platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.md at main · ai-native-engineer/anthropic-mirror · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "codex-chatgpt-web/src/chatgpt-session.ts at main · miuuyy/codex-chatgpt-web · GitHub",
+        "url": "https://github.com/miuuyy/codex-chatgpt-web/blob/main/src/chatgpt-session.ts",
+        "status": 200,
+        "final_url": "https://github.com/miuuyy/codex-chatgpt-web/blob/main/src/chatgpt-session.ts",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "47d3766298d69306f9745afd017d500916a57c590d42c58622d6ca5270dd5cc4",
+        "bytes": 289397,
+        "page_title": "codex-chatgpt-web/src/chatgpt-session.ts at main · miuuyy/codex-chatgpt-web · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Claude/claude/prompt-engineering-guide/chapters/03-chain-of-thought.md at main · ClaudeOfficial/Claude · GitHub",
+        "url": "https://github.com/ClaudeOfficial/Claude/blob/main/claude/prompt-engineering-guide/chapters/03-chain-of-thought.md",
+        "status": 200,
+        "final_url": "https://github.com/ClaudeOfficial/Claude/blob/main/claude/prompt-engineering-guide/chapters/03-chain-of-thought.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "de66bb067fd11b3f658e94fa04e747ad023a6434ee2466c79181f58b957b8870",
+        "bytes": 186556,
+        "page_title": "Claude/claude/prompt-engineering-guide/chapters/03-chain-of-thought.md at main · ClaudeOfficial/Claude · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "[DOCS] Thinking docs omit `--thinking disabled` and per-model disable behavior for default-thinking models · Issue #65785 · anthropics/claude-code · GitHub",
+        "url": "https://github.com/anthropics/claude-code/issues/65785",
+        "status": 200,
+        "final_url": "https://github.com/anthropics/claude-code/issues/65785",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "cd959b0e4f5cc8b45e9eca013d43cd2533eeb7d20b80117fa4ec9eddb2701214",
+        "bytes": 283933,
+        "page_title": "[DOCS] Thinking docs omit `--thinking disabled` and per-model disable behavior for default-thinking models · Issue #65785 · anthropics/claude-code · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "skills/skills/cloud/gemini-api/references/structured_and_tools.md at main · google/skills · GitHub",
+        "url": "https://github.com/google/skills/blob/main/skills/cloud/gemini-api/references/structured_and_tools.md",
+        "status": 200,
+        "final_url": "https://github.com/google/skills/blob/main/skills/cloud/gemini-api/references/structured_and_tools.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "19cbf2a85a7bd1ce8dbbce23817c9bde66cb542b7bb0d7aa8b3e6a7eedb5ce27",
+        "bytes": 254712,
+        "page_title": "skills/skills/cloud/gemini-api/references/structured_and_tools.md at main · google/skills · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "claude-world-examples/guides/extended-thinking.md at main · claude-world/claude-world-examples · GitHub",
+        "url": "https://github.com/claude-world/claude-world-examples/blob/main/guides/extended-thinking.md",
+        "status": 200,
+        "final_url": "https://github.com/claude-world/claude-world-examples/blob/main/guides/extended-thinking.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "39fb0be94f54840c6883d3ba0a8f46dddba96be21d5e2766c1ddb654716897b0",
+        "bytes": 383642,
+        "page_title": "claude-world-examples/guides/extended-thinking.md at main · claude-world/claude-world-examples · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "gemini-cli/docs/tools/web-fetch.md at main · google-gemini/gemini-cli · GitHub",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/web-fetch.md",
+        "status": 200,
+        "final_url": "https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/web-fetch.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "4f4d9a76742098e63dd2eacaefdb1d15a44f62722d678b0a38a1f5cdac83abaf",
+        "bytes": 196862,
+        "page_title": "gemini-cli/docs/tools/web-fetch.md at main · google-gemini/gemini-cli · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - ThatGuySam/prefillprompt: Turn you AI Prompts into links! · GitHub",
+        "url": "https://github.com/ThatGuySam/prefillprompt",
+        "status": 200,
+        "final_url": "https://github.com/ThatGuySam/prefillprompt",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "c1e5ab3d32a2c0c5b322ceae5cb3c912d93af971c40ff292fe77d9acf6b7c2ac",
+        "bytes": 309902,
+        "page_title": "GitHub - ThatGuySam/prefillprompt: Turn you AI Prompts into links! · GitHub",
+        "assessment": {
+            "parameters": "current builder",
+            "claim": "Same repository under investigation; not independent corroboration.",
+            "reliability": "Context only; circular evidence excluded",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "claude-docs/content/api-models/build-with-claude/thinking.md at main · MOFU0712/claude-docs · GitHub",
+        "url": "https://github.com/MOFU0712/claude-docs/blob/main/content/api-models/build-with-claude/thinking.md",
+        "status": 200,
+        "final_url": "https://github.com/MOFU0712/claude-docs/blob/main/content/api-models/build-with-claude/thinking.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "dce7842d452f39d7af9cf76ae05f99632c536a506e3a1835804131d89d1e1006",
+        "bytes": 631537,
+        "page_title": "claude-docs/content/api-models/build-with-claude/thinking.md at main · MOFU0712/claude-docs · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "claude-systems-prompts/README.md at main · KalarisLabs/claude-systems-prompts · GitHub",
+        "url": "https://github.com/KalarisLabs/claude-systems-prompts/blob/main/README.md",
+        "status": 200,
+        "final_url": "https://github.com/KalarisLabs/claude-systems-prompts/blob/main/README.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "9e4ee7b0d0de39d6f6eb0b1f8875ce4001386fffc55edca1a4cf7ccfd2789297",
+        "bytes": 382362,
+        "page_title": "claude-systems-prompts/README.md at main · KalarisLabs/claude-systems-prompts · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "cc-switch-cli/src-tauri/src/deeplink/parser.rs at main · SaladDay/cc-switch-cli · GitHub",
+        "url": "https://github.com/SaladDay/cc-switch-cli/blob/main/src-tauri/src/deeplink/parser.rs",
+        "status": 200,
+        "final_url": "https://github.com/SaladDay/cc-switch-cli/blob/main/src-tauri/src/deeplink/parser.rs",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "bd5eec03ab7277964f13986ab7084fe0e7b68f5c7f1638e4b6ac4437c2c66ff4",
+        "bytes": 410465,
+        "page_title": "cc-switch-cli/src-tauri/src/deeplink/parser.rs at main · SaladDay/cc-switch-cli · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - anxkhn/perplexity-mcp: Use Perplexity as an MCP server in coding agents with cookie auth instead of API token pricing. · GitHub",
+        "url": "https://github.com/anxkhn/perplexity-mcp",
+        "status": 200,
+        "final_url": "https://github.com/anxkhn/perplexity-mcp",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fe1c678447a5ef362200cf5ac422db017f9ddb5cfa4b00315ccbc3483ff059b7",
+        "bytes": 327317,
+        "page_title": "GitHub - anxkhn/perplexity-mcp: Use Perplexity as an MCP server in coding agents with cookie auth instead of API token pricing. · GitHub",
+        "assessment": {
+            "parameters": "model; mode; is_incognito; consumer catalog",
+            "claim": "Consumer client uses authenticated request parameters and tier-aware model discovery. Does not establish navigation query keys.",
+            "reliability": "High for code; unofficial backend, account-dependent",
+            "date": "pinned/latest repo revision 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - Boen36/context7-local: Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors · GitHub",
+        "url": "https://github.com/Boen36/context7-local",
+        "status": 200,
+        "final_url": "https://github.com/Boen36/context7-local",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "923b1a44c7ae04d2f7655679794df3f5c791e7d438ee376202d7f4045fa2105b",
+        "bytes": 501972,
+        "page_title": "GitHub - Boen36/context7-local: Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "Bug: duplicates in Perplexity rewrites or redirects · Issue #2 · archignes/searchpaths · GitHub",
+        "url": "https://github.com/archignes/searchpaths/issues/2",
+        "status": 200,
+        "final_url": "https://github.com/archignes/searchpaths/issues/2",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "c49986fa40f05f7bfd323e3b9127d5db805e9c9c7d7a1b126db01bc33a4414c5",
+        "bytes": 188006,
+        "page_title": "Bug: duplicates in Perplexity rewrites or redirects · Issue #2 · archignes/searchpaths · GitHub",
+        "assessment": {
+            "parameters": "q; copilot=true",
+            "claim": "Search redirect duplication issue contains URL example. Does not verify current Pro activation.",
+            "reliability": "Medium for example; low for mode acceptance",
+            "date": "opened 2024-04-15",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - shakeebshaan/claude-pool: Pool several Claude subscriptions for Claude Code: auto-switch accounts on 5-hour/weekly usage limits and resume the same session. Desktop widget, one-click login, auto hi at every 5h reset. One file, zero deps. · GitHub",
+        "url": "https://github.com/shakeebshaan/claude-pool",
+        "status": 200,
+        "final_url": "https://github.com/shakeebshaan/claude-pool",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "17af860c1457d4925a7e9eae0d62483c0706ef1c3899615445bd754cf0a2009b",
+        "bytes": 365260,
+        "page_title": "GitHub - shakeebshaan/claude-pool: Pool several Claude subscriptions for Claude Code: auto-switch accounts on 5-hour/weekly usage limits and resume the same session. Desktop widget, one-click login, auto hi at every 5h reset. One file, zero deps. · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "[BUG] Published artifacts show blank screen - postMessage origin mismatch (app://localhost) · Issue #42064 · anthropics/claude-code · GitHub",
+        "url": "https://github.com/anthropics/claude-code/issues/42064",
+        "status": 200,
+        "final_url": "https://github.com/anthropics/claude-code/issues/42064",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "c116839f312fd3d183ae6e6c41253d892e0e4897bee46721fa2651e697a445fb",
+        "bytes": 248652,
+        "page_title": "[BUG] Published artifacts show blank screen - postMessage origin mismatch (app://localhost) · Issue #42064 · anthropics/claude-code · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "bomonike.github.io/anthropic-claude.md at master · bomonike/bomonike.github.io · GitHub",
+        "url": "https://github.com/bomonike/bomonike.github.io/blob/master/anthropic-claude.md",
+        "status": 200,
+        "final_url": "https://github.com/bomonike/bomonike.github.io/blob/master/anthropic-claude.md",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "b36678ade48ebab4808fbd47d0546de2a93546af174a6b2ec45eb81122bf6d2c",
+        "bytes": 1362098,
+        "page_title": "bomonike.github.io/anthropic-claude.md at master · bomonike/bomonike.github.io · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "[BUG] Claude in Chrome: Authorize button click handler empty, oauth_callback.html missing · Issue #17786 · anthropics/claude-code · GitHub",
+        "url": "https://github.com/anthropics/claude-code/issues/17786",
+        "status": 200,
+        "final_url": "https://github.com/anthropics/claude-code/issues/17786",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "22185ba3c4ed881d4541cfb76bb58e33ae0ec92066f35b47cbef4e4405ee0246",
+        "bytes": 428245,
+        "page_title": "[BUG] Claude in Chrome: Authorize button click handler empty, oauth_callback.html missing · Issue #17786 · anthropics/claude-code · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - RobC06/Dual-sessions-for-Claude · GitHub",
+        "url": "https://github.com/RobC06/Dual-sessions-for-Claude",
+        "status": 200,
+        "final_url": "https://github.com/RobC06/Dual-sessions-for-Claude",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "470963dc883caf6aebfcd74ea215c58e2da0036a53d19b2f555f48511831d182",
+        "bytes": 238498,
+        "page_title": "GitHub - RobC06/Dual-sessions-for-Claude · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "title": "GitHub - jmuraca/claudeplusplus: functionality improvements from claude.ai interface · GitHub",
+        "url": "https://github.com/jmuraca/claudeplusplus",
+        "status": 200,
+        "final_url": "https://github.com/jmuraca/claudeplusplus",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "33ab5107add97168017e996c932e378f218aa9b6e965de07610845806ccbb2d2",
+        "bytes": 430873,
+        "page_title": "GitHub - jmuraca/claudeplusplus: functionality improvements from claude.ai interface · GitHub",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://whtwnd.com/austegard.com/3mfcfa4kdpa2h",
+        "title": "Claude new unofficial reverse engineering",
+        "status": 200,
+        "final_url": "https://whtwnd.com/austegard.com/3mfcfa4kdpa2h",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "03150b9021541908735c66da913de3c9791ef52b94c12828218fab8843870ff7",
+        "bytes": 109441,
+        "page_title": "claude.ai/new UNOFFICIAL README | Oskar 🕊️ | WhiteWind blog",
+        "assessment": {
+            "parameters": "q; model; thinking; project; attachment; skill-name; mode; incognito; error; spotlight; modal; debug_show_all_prompt_chips",
+            "claim": "Reverse-engineers new-chat keys; thinking requires compatible explicit model. Incognito description conflicts with newer local observation.",
+            "reliability": "Medium; dated reverse engineering, stale risk",
+            "date": "published 2026-02-20",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/Andrej730/chatgpt-query",
+        "title": "ChatGPT query URL builder",
+        "status": 200,
+        "final_url": "https://github.com/Andrej730/chatgpt-query",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "88ac1f397eadd09e7eb6a6a1d0362ea34d2babdf43b45ab6a543d527faa2f675",
+        "bytes": 216168,
+        "page_title": "GitHub - Andrej730/chatgpt-query · GitHub",
+        "assessment": {
+            "parameters": "q; hints=search; model",
+            "claim": "Public builder emits a URL with requested model. Generation alone does not prove consumer acceptance.",
+            "reliability": "High for generated URL; low for acceptance",
+            "date": "repo commit 2025-09-27",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/refs/heads/main/README.md",
+        "title": "ChatGPT query README",
+        "status": 404,
+        "final_url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/refs/heads/main/README.md",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "q; hints=search; model",
+            "claim": "Unavailable on direct GET. Public builder emits a URL with requested model. Generation alone does not prove consumer acceptance.",
+            "reliability": "Unusable body; High for generated URL; low for acceptance",
+            "date": "repo commit 2025-09-27",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/quochuydev/gemini-url-launcher/main/content.js",
+        "title": "Gemini launcher content script",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/quochuydev/gemini-url-launcher/main/content.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "703f8ec6ccf665bd391f10dfccf71528641f87b1aba383c6b25c06ce57dfdf5d",
+        "bytes": 2825,
+        "page_title": "Gemini launcher content script",
+        "assessment": {
+            "parameters": "q",
+            "claim": "Launcher reads query and inserts prompt into Gemini DOM. This is extension-provided behavior.",
+            "reliability": "High for inspected code; no native support proof",
+            "date": "repo commit 2026-04-24",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/background.js",
+        "title": "Navigator extension background script",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/background.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "fcbf1e0053a567ddbc515cd1fd5cb8c6aeda543033c5684797628b9f3b2b2b0e",
+        "bytes": 858,
+        "page_title": "Navigator extension background script",
+        "assessment": {
+            "parameters": "prompt; autoSubmit; think; extendedthink",
+            "claim": "Extension parses hash/URL and operates model UI. Its controls do not prove native query support.",
+            "reliability": "High for code; extension only",
+            "date": "repo commit 2026-06-28",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/MHSEA/openai-chatgpt-4o-auto-selector/main/chatgpt-gpt4o-automation.js",
+        "title": "GPT4o selector userscript",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/MHSEA/openai-chatgpt-4o-auto-selector/main/chatgpt-gpt4o-automation.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "46fefa570d1ebaa525ab3de47226c55be209d2b38e72c19928149398381466d1",
+        "bytes": 4319,
+        "page_title": "GPT4o selector userscript",
+        "assessment": {
+            "parameters": "model; temporary-chat",
+            "claim": "Uses DOM automation; README says URL selection stopped but skip logic contradicts blanket statement. Local temp result is newer.",
+            "reliability": "Medium historical; internally inconsistent",
+            "date": "repo commit 2025-08-12",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/HanaokaYuzu/Gemini-API/master/src/gemini_webapi/constants.py",
+        "title": "Gemini consumer model identifiers",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/HanaokaYuzu/Gemini-API/master/src/gemini_webapi/constants.py",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "8feda36c8920e68a233dcf7f16737cd4a31b4c843f9ec4621aeccbe38c91448e",
+        "bytes": 11400,
+        "page_title": "Gemini consumer model identifiers",
+        "assessment": {
+            "parameters": "consumer identifiers; model header",
+            "claim": "Consumer reverse engineering deprecates static model enum in favor of account discovery. Selection uses headers, not navigation query.",
+            "reliability": "High for inspected code; unofficial backend",
+            "date": "identifier file revision 2026-10-01",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/KudoAI/chatgpt.js/main/chatgpt.js",
+        "title": "ChatGPT consumer client source",
+        "status": 404,
+        "final_url": "https://raw.githubusercontent.com/KudoAI/chatgpt.js/main/chatgpt.js",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "client models and backend",
+            "claim": "Unavailable on direct GET. Consumer-client implementation lead. Inspected code does not supply a current public navigation-slug registry.",
+            "reliability": "Unusable body; Medium; unofficial client; no query proof",
+            "date": "read 2026-11-14",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://github.com/spullara/models",
+        "title": "Model registry",
+        "status": 200,
+        "final_url": "https://github.com/spullara/models",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "ef2a22fb698600e22dc18e82503719ef388b89294bed4890d75f77cce3a3e196",
+        "bytes": 431406,
+        "page_title": "GitHub - spullara/models · GitHub",
+        "assessment": {
+            "parameters": "API model IDs",
+            "claim": "Registry includes API-only audio, embedding and other IDs. Useless as verification of consumer URL slugs.",
+            "reliability": "Medium registry; unsuitable URL authority",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/openai/sign-in-with-chatgpt-devkit/blob/main/packages/local/src/models.ts",
+        "title": "Sign in with ChatGPT model loader",
+        "status": 200,
+        "final_url": "https://github.com/openai/sign-in-with-chatgpt-devkit/blob/main/packages/local/src/models.ts",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "e342fc238f55fb7d991f2929ca5a42ebf37624c654542581e6ceb9ae1c09163c",
+        "bytes": 195826,
+        "page_title": "sign-in-with-chatgpt-devkit/packages/local/src/models.ts at main · openai/sign-in-with-chatgpt-devkit · GitHub",
+        "assessment": {
+            "parameters": "subscription catalog; slug",
+            "claim": "Official loader consumes authenticated model catalog and filters visible entries. Different interface from ChatGPT navigation.",
+            "reliability": "High for code; no URL proof",
+            "date": "read 2026-11-14; file date not independently established",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/openai/sign-in-with-chatgpt-devkit/main/packages/local/src/models.ts",
+        "title": "Official subscription model loader source",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/openai/sign-in-with-chatgpt-devkit/main/packages/local/src/models.ts",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "a1e33e85073aa2f79095ecb572c6123b329d60aa7f68cff3591c53f838ef2bd1",
+        "bytes": 1344,
+        "page_title": "Official subscription model loader source",
+        "assessment": {
+            "parameters": "subscription catalog; slug",
+            "claim": "Official loader consumes authenticated model catalog and filters visible entries. Different interface from ChatGPT navigation.",
+            "reliability": "High for code; no URL proof",
+            "date": "read 2026-11-14; file date not independently established",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/model-provider/src/models_endpoint.rs",
+        "title": "Official Codex model endpoint source",
+        "status": 200,
+        "final_url": "https://github.com/openai/codex/blob/main/codex-rs/model-provider/src/models_endpoint.rs",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "441eaa6bbe538efa9f6f4b1a7c3b252795df863e7e761608f3abf53bf8d9943c",
+        "bytes": 573782,
+        "page_title": "codex/codex-rs/model-provider/src/models_endpoint.rs at main · openai/codex · GitHub",
+        "assessment": {
+            "parameters": "subscription models",
+            "claim": "Official Codex model loader, not a consumer Chat navigation contract.",
+            "reliability": "High for code; different interface",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://github.com/BillZong/codex-models-slug",
+        "title": "Codex model slugs community list",
+        "status": 200,
+        "final_url": "https://github.com/BillZong/codex-models-slug",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "5e16931451439ecde6e2136da6ea97c1c97da085823dc62b15c78a929cac1890",
+        "bytes": 426422,
+        "page_title": "GitHub - BillZong/codex-models-slug: This repo collects model slugs for Codex, the straight and simple way to integrate those models you need to Codex. · GitHub",
+        "assessment": {
+            "parameters": "Codex slugs",
+            "claim": "Codex-specific slug list; no proof values select a ChatGPT consumer model through URL.",
+            "reliability": "Low for current navigation support",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/anomalyco/models.dev/dev/README.md",
+        "title": "Models.dev scope",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/anomalyco/models.dev/dev/README.md",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "5e5491fccebf8c71825ebcef5e59a76d3230c4521d1a10f635dc20f69100de09",
+        "bytes": 11801,
+        "page_title": "Models.dev scope",
+        "assessment": {
+            "parameters": "model metadata",
+            "claim": "Maintained API/SDK metadata registry; no verified consumer-navigation slug matrix.",
+            "reliability": "High for registry scope; unsuitable URL authority",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/KudoAI/chatgpt.js/git/trees/HEAD?recursive=1",
+        "title": "ChatGPT.js tree discovery",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/KudoAI/chatgpt.js/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "54604aba89bdffa14522b7b144da0cc9b2b86aee3a23ba436014c2729dd4ab29",
+        "bytes": 147465,
+        "page_title": "ChatGPT.js tree discovery",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/MHSEA/openai-chatgpt-4o-auto-selector/git/trees/HEAD?recursive=1",
+        "title": "Selector tree discovery",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MHSEA/openai-chatgpt-4o-auto-selector/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "aa1f14b0898cb8ea99ab3bf94eab6750846ce8d9b14846884ab82c06b8273bd1",
+        "bytes": 697,
+        "page_title": "Selector tree discovery",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/quochuydev/gemini-url-launcher/git/trees/HEAD?recursive=1",
+        "title": "Gemini launcher tree discovery",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/quochuydev/gemini-url-launcher/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "f0f39b69e7cfa26844d27382508d08f19063c2d51944c4ec36cd7200f3f67296",
+        "bytes": 1819,
+        "page_title": "Gemini launcher tree discovery",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/austegard/bookmarklets/git/trees/HEAD?recursive=1",
+        "title": "Bookmarklet tree discovery",
+        "status": 404,
+        "final_url": "https://api.github.com/repos/austegard/bookmarklets/git/trees/HEAD?recursive=1",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Unavailable on direct GET. Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Unusable body; Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/raycast/extensions/contents/extensions/chatgpt/src",
+        "title": "Raycast ChatGPT source directory",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/raycast/extensions/contents/extensions/chatgpt/src",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "e6e5c623a14a5632a505b58acd74147eeb7986012405c732b15eefeaf2a7f1e3",
+        "bytes": 12119,
+        "page_title": "Raycast ChatGPT source directory",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/raycast/extensions/contents/extensions/perplexity/src",
+        "title": "Raycast Perplexity source directory",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/raycast/extensions/contents/extensions/perplexity/src",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "215d860867c12778c85a2586bc38ad7f92b62c8d257d66b4409f42a51611013a",
+        "bytes": 956,
+        "page_title": "Raycast Perplexity source directory",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/raycast/extensions/contents/extensions/claude/src",
+        "title": "Raycast Claude source directory",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/raycast/extensions/contents/extensions/claude/src",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "412eb7ebfef0e8688cc43772226d4c7bce8d35196bcaf2e74e9108822ca33c85",
+        "bytes": 9009,
+        "page_title": "Raycast Claude source directory",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://chatgpt.com/?q=hello&model=thinking&temporary-chat=true",
+        "title": "Signed-out ChatGPT HTTP probe",
+        "status": 200,
+        "final_url": "https://chatgpt.com/?q=hello&model=thinking&temporary-chat=true",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "4d996e9cb6e97e83302a55310f4ac33cae645b79d3925ef20bbd9e22d99ed117",
+        "bytes": 725571,
+        "page_title": "ChatGPT",
+        "assessment": {
+            "parameters": "q=hello&model=thinking&temporary-chat=true",
+            "claim": "Signed-out GET preserved destination URL and returned an app shell; no client execution or parameter acceptance observed.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 200; transport only"
+        }
+    },
+    {
+        "url": "https://claude.ai/new?q=hello&model=claude-sonnet-5",
+        "title": "Signed-out Claude HTTP probe",
+        "status": 200,
+        "final_url": "https://claude.ai/new?q=hello&model=claude-sonnet-5",
+        "content_type": "text/html",
+        "sha256": "2098ec415afd480a0a3231fdd45d39736d3a568e666eb5a5d4a3c26fd3b1281a",
+        "bytes": 166273,
+        "page_title": "Claude",
+        "assessment": {
+            "parameters": "q=hello&model=claude-sonnet-5",
+            "claim": "Signed-out GET preserved destination URL and returned an app shell; no client execution or parameter acceptance observed.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 200; transport only"
+        }
+    },
+    {
+        "url": "https://gemini.google.com/app?q=hello",
+        "title": "Signed-out Gemini q HTTP probe",
+        "status": 200,
+        "final_url": "https://gemini.google.com/app?q=hello",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "dca21d90019b1a843b1f0ebe471dc2822128de6a382ecb133560a402edff410d",
+        "bytes": 924235,
+        "page_title": "‎Google Gemini",
+        "assessment": {
+            "parameters": "q=hello",
+            "claim": "Signed-out GET preserved destination URL and returned an app shell; no client execution or parameter acceptance observed.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 200; transport only"
+        }
+    },
+    {
+        "url": "https://gemini.google.com/?prompt_text=hello&prompt_action=prefill",
+        "title": "Signed-out Gemini prompt_text HTTP probe",
+        "status": 200,
+        "final_url": "https://gemini.google.com/?prompt_text=hello&prompt_action=prefill",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "05d5a317c1215540621eac2470d147fe3fc9b18fd503bbf51feda64b9b53b8b8",
+        "bytes": 924248,
+        "page_title": "‎Google Gemini",
+        "assessment": {
+            "parameters": "prompt_text=hello&prompt_action=prefill",
+            "claim": "Signed-out GET preserved destination URL and returned an app shell; no client execution or parameter acceptance observed.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 200; transport only"
+        }
+    },
+    {
+        "url": "https://gemini.google.com/canvas?prompt_text=hello&prompt_action=prefill",
+        "title": "Signed-out Gemini Canvas HTTP probe",
+        "status": 200,
+        "final_url": "https://gemini.google.com/canvas?prompt_text=hello&prompt_action=prefill",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "cf21a146e47b5108fb3f3e82e1b51c34c7d8c0eb66dfc42e27f2ef65eb744dd4",
+        "bytes": 925330,
+        "page_title": "‎Google Gemini",
+        "assessment": {
+            "parameters": "prompt_text=hello&prompt_action=prefill",
+            "claim": "Signed-out GET preserved destination URL and returned an app shell; no client execution or parameter acceptance observed.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 200; transport only"
+        }
+    },
+    {
+        "url": "https://www.perplexity.ai/search?s=o&q=hello&copilot=true",
+        "title": "Signed-out Perplexity HTTP probe",
+        "status": 403,
+        "final_url": "https://www.perplexity.ai/search/new?s=o&q=hello&copilot=true",
+        "error": "HTTP Error 403: Forbidden",
+        "assessment": {
+            "parameters": "s=o&q=hello&copilot=true",
+            "claim": "Redirected to /search/new with query intact, then 403. No challenge bypass and no acceptance inference.",
+            "reliability": "High for transport observation only",
+            "date": "publication unknown",
+            "access": "HTTP 403; transport only"
+        }
+    },
+    {
+        "url": "https://support.google.com/gemini/answer/14886647?hl=en",
+        "title": "Gemini Chrome shortcut official help",
+        "status": 200,
+        "final_url": "https://support.google.com/gemini/answer/14886647?hl=en",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "d634eec1d490f8cada116644b45fae08008b3fb024df64e8474072e936ca7e3c",
+        "bytes": 1624975,
+        "page_title": "Use the Gemini web app to get answers in Chrome - Gemini Apps Help",
+        "assessment": {
+            "parameters": "Chrome shortcut; HTTP header, not query",
+            "claim": "Official Chrome shortcut entry; inspected help does not specify a reusable prompt query.",
+            "reliability": "High for Chrome UI; no query proof",
+            "date": "date unknown",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings",
+        "title": "Claude model effort settings official",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "cf1f7ad470b69c77cc1e7389585c62c632c28d39b779fef6e5f9806b32a5d36f",
+        "bytes": 221694,
+        "page_title": "Change the model, effort, and thinking settings | Claude Help Center",
+        "assessment": {
+            "parameters": "model; thinking; effort",
+            "claim": "Official consumer model names and separate effort/thinking controls; no accepted query key contract.",
+            "reliability": "High for UI; no query proof",
+            "date": "updated 2026-11-09",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://support.claude.com/en/articles/12260368-use-incognito-chats",
+        "title": "Claude incognito official",
+        "status": 200,
+        "final_url": "https://support.claude.com/en/articles/12260368-use-incognito-chats",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "4bad3061a08818482370afda3135709254cba28b9174a21ebe9bbe810180752b",
+        "bytes": 214290,
+        "page_title": "Use incognito chats | Claude Help Center",
+        "assessment": {
+            "parameters": "incognito",
+            "claim": "Official instructions for incognito UI; does not establish URL acceptance.",
+            "reliability": "High for UI; no query proof",
+            "date": "updated 2026-10-30",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/KudoAI/chatgpt.js/main/src/chatgpt.js",
+        "title": "chatgpt.js",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/KudoAI/chatgpt.js/main/src/chatgpt.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "2e010a2006a45190c2cd84ad5f974aaa4d3b4732fd5e0b3b9349253738ccb553",
+        "bytes": 117148,
+        "page_title": "chatgpt.js",
+        "assessment": {
+            "parameters": "client models and backend",
+            "claim": "Consumer-client implementation lead. Inspected code does not supply a current public navigation-slug registry.",
+            "reliability": "Medium; unofficial client; no query proof",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/perplexity/src/ask-perplexity.tsx",
+        "title": "ask-perplexity.tsx",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/perplexity/src/ask-perplexity.tsx",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "450f860eaf4dcc8c697dacdef3d600455b2dfb562a90d401113eedfeb5c0b704",
+        "bytes": 1458,
+        "page_title": "ask-perplexity.tsx",
+        "assessment": {
+            "parameters": "q; perplexity-app://search",
+            "claim": "Source constructs web /search?q= and desktop-app search?q=. No model, Pro, focus or incognito keys emitted.",
+            "reliability": "High for builder implementation; no live execution",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/model.tsx",
+        "title": "model.tsx",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/model.tsx",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "0ad2825dd8f3cf842417d9bb1fd76f40c264760900cdcb7d6c1a76288f07ce5f",
+        "bytes": 7803,
+        "page_title": "model.tsx",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/model.tsx",
+        "title": "model.tsx",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/model.tsx",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "5e08d610727d8966544c0e0f58985c29f44a3e969d69774129e8ca25ca7f15a9",
+        "bytes": 4036,
+        "page_title": "model.tsx",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/ask.tsx",
+        "title": "ask.tsx",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/ask.tsx",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "59898ebac923390869f4cc88e3758a514b2c08f448f65b2b90435265de0da89f",
+        "bytes": 7973,
+        "page_title": "ask.tsx",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/ask.tsx",
+        "title": "ask.tsx",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/ask.tsx",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "a88bce2820e887177890d3ffa83b16703a3b7083332c800fd6f95228d2d5b08a",
+        "bytes": 5431,
+        "page_title": "ask.tsx",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/Andrej730/chatgpt-query/contents",
+        "title": "contents",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/Andrej730/chatgpt-query/contents",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "51e9deaa760e6356199e2be99b68fea55b10f520228657a9fef2594c3134063c",
+        "bytes": 6263,
+        "page_title": "contents",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/chaofz/chatgpt-navigator/git/trees/HEAD?recursive=1",
+        "title": "HEAD?recursive=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/chaofz/chatgpt-navigator/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "ea8253cc9eb6fc09940630977113e32b896b3cc5d392327147ada2aec9ab2621",
+        "bytes": 6140,
+        "page_title": "HEAD?recursive=1",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/HanaokaYuzu/Gemini-API/commits?path=src/gemini_webapi/constants.py&per_page=1",
+        "title": "constants.py&per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/HanaokaYuzu/Gemini-API/commits?path=src/gemini_webapi/constants.py&per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "ca2b1c2beff453227711a48029c7c6cbcf550240f0da657cbe70ee86a641aa14",
+        "bytes": 3384,
+        "page_title": "constants.py&per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/Andrej730/chatgpt-query/commits?per_page=1",
+        "title": "commits?per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/Andrej730/chatgpt-query/commits?per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "555299b27f41b2f4a010bce8d9d95df692146044a515a032ca6fc81ad5f9bda3",
+        "bytes": 3293,
+        "page_title": "commits?per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/chaofz/chatgpt-navigator/commits?per_page=1",
+        "title": "commits?per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/chaofz/chatgpt-navigator/commits?per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "e4c1263a711d0809b18a87342339c9ab433128112902cf9fa0de6c09407d5ab9",
+        "bytes": 1559,
+        "page_title": "commits?per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/anxkhn/perplexity-mcp/commits?per_page=1",
+        "title": "commits?per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/anxkhn/perplexity-mcp/commits?per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "5104257da7ff619080f773539dc4e7cf69ca13cc999948126133e7df53ed5c5a",
+        "bytes": 4307,
+        "page_title": "commits?per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/MHSEA/openai-chatgpt-4o-auto-selector/commits?per_page=1",
+        "title": "commits?per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MHSEA/openai-chatgpt-4o-auto-selector/commits?per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "cfa09ca1f531252013413756187c13c41f6a24880464ccbf0fc1d54fad1cbe11",
+        "bytes": 4442,
+        "page_title": "commits?per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/quochuydev/gemini-url-launcher/commits?per_page=1",
+        "title": "commits?per_page=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/quochuydev/gemini-url-launcher/commits?per_page=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "0808b65202b9c64f9f66cdc0eaa3fdcf614bfed7b3472f67a53609eae042c99f",
+        "bytes": 4397,
+        "page_title": "commits?per_page=1",
+        "assessment": {
+            "parameters": "source revision date",
+            "claim": "Public commit metadata used to date source revision; activity alone does not verify working behavior.",
+            "reliability": "High for commit metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://www.perplexity.ai/opensearch.xml",
+        "title": "opensearch.xml",
+        "status": 200,
+        "final_url": "https://www.perplexity.ai/opensearch.xml",
+        "content_type": "application/xml; charset=utf-8",
+        "sha256": "c3c37863589f3a13eb8f237985f0b3614f8eeeb4b9d61f7fe358d1731b01c81d",
+        "bytes": 577,
+        "page_title": "opensearch.xml",
+        "assessment": {
+            "parameters": "s=o; q",
+            "claim": "Live first-party XML advertises /search?s=o&q={searchTerms}. This specifies URL format; UI working result comes from local manual check.",
+            "reliability": "High; live first-party URL declaration",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://chatgpt.com/opensearch.xml",
+        "title": "opensearch.xml",
+        "status": 404,
+        "final_url": "https://chatgpt.com/opensearch.xml",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "none established",
+            "claim": "Unavailable on direct GET. Useless for this question: screened retrieved content does not establish a consumer navigation parameter.",
+            "reliability": "Unusable body; Low relevance; no support used",
+            "date": "publication unknown",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://claude.ai/opensearch.xml",
+        "title": "opensearch.xml",
+        "status": 200,
+        "final_url": "https://claude.ai/opensearch.xml",
+        "content_type": "text/html",
+        "sha256": "749546e1fa0b4ab6151c08f31f0223e2c0a09e71a59b491dfc9762fb25d58d7e",
+        "bytes": 163156,
+        "page_title": "Claude",
+        "assessment": {
+            "parameters": "unknown",
+            "claim": "Returned an app shell rather than useful OpenSearch evidence. Useless for parameter support.",
+            "reliability": "Unusable for URL contract",
+            "date": "seen 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/master/README.md",
+        "title": "README.md",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/master/README.md",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "614417a71b2975ab72d0282f24675ba86eb56e75353923542394e163a8579ed4",
+        "bytes": 543,
+        "page_title": "README.md",
+        "assessment": {
+            "parameters": "q; hints=search; model",
+            "claim": "Public builder emits a URL with requested model. Generation alone does not prove consumer acceptance.",
+            "reliability": "High for generated URL; low for acceptance",
+            "date": "repo commit 2025-09-27",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/master/chatgpt_query.py",
+        "title": "chatgpt_query.py",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/Andrej730/chatgpt-query/master/chatgpt_query.py",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "88059f641ac5fd93f22fa77a2f171fe48790d23ec2672c22fe9ea79e63f22de3",
+        "bytes": 1452,
+        "page_title": "chatgpt_query.py",
+        "assessment": {
+            "parameters": "q; hints=search; model",
+            "claim": "Public builder emits a URL with requested model. Generation alone does not prove consumer acceptance.",
+            "reliability": "High for generated URL; low for acceptance",
+            "date": "repo commit 2025-09-27",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/content/content.js",
+        "title": "content.js",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/content/content.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "287e775f5b4ea5775ad9660c7b624b9d5468b74fa80c9c261fed0d5fd95da08e",
+        "bytes": 21002,
+        "page_title": "content.js",
+        "assessment": {
+            "parameters": "prompt; autoSubmit; think; extendedthink",
+            "claim": "Extension parses hash/URL and operates model UI. Its controls do not prove native query support.",
+            "reliability": "High for code; extension only",
+            "date": "repo commit 2026-06-28",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/content/content-utils.js",
+        "title": "content-utils.js",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/chaofz/chatgpt-navigator/main/content/content-utils.js",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "72f0964e9b7fc806a842dbb1c21a4366120afbc47867d01551bf7b0b5cf6e1c9",
+        "bytes": 7129,
+        "page_title": "content-utils.js",
+        "assessment": {
+            "parameters": "prompt; autoSubmit; think; extendedthink",
+            "claim": "Extension parses hash/URL and operates model UI. Its controls do not prove native query support.",
+            "reliability": "High for code; extension only",
+            "date": "repo commit 2026-06-28",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/hooks/useModelCatalog.ts",
+        "title": "useModelCatalog.ts",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/hooks/useModelCatalog.ts",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "5c61941492e658f7d75a5c954a3b521a71fc98a62688eebed48e008103f62cc5",
+        "bytes": 958,
+        "page_title": "useModelCatalog.ts",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/utils/model-catalog.ts",
+        "title": "model-catalog.ts",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/chatgpt/src/utils/model-catalog.ts",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "9203b16a5b0d95622fc1988cd99cd8395930befbde3b337d9d8db4e809b235f7",
+        "bytes": 9294,
+        "page_title": "model-catalog.ts",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/api/index.ts",
+        "title": "index.ts",
+        "status": 404,
+        "final_url": "https://raw.githubusercontent.com/raycast/extensions/main/extensions/claude/src/api/index.ts",
+        "error": "HTTP Error 404: Not Found",
+        "assessment": {
+            "parameters": "models; launcher entry",
+            "claim": "Unavailable on direct GET. Inspected extension source/directory. ChatGPT/Claude catalog UI is not proof of native consumer query support.",
+            "reliability": "Unusable body; High for inspected code; limited URL relevance",
+            "date": "read 2026-11-14",
+            "access": "HTTP 404; unavailable"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/main/README.md",
+        "title": "README.md",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/main/README.md",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "a4601b7a7b76cadb5bdef40a44fa35e521a2c620ba6d74a423a97a8292d43d5a",
+        "bytes": 15337,
+        "page_title": "README.md",
+        "assessment": {
+            "parameters": "model; mode; is_incognito; consumer catalog",
+            "claim": "Consumer client uses authenticated request parameters and tier-aware model discovery. Does not establish navigation query keys.",
+            "reliability": "High for code; unofficial backend, account-dependent",
+            "date": "pinned/latest repo revision 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/HanaokaYuzu/Gemini-API/42f89a77308e4f809c399f4899f8c0d830e7b46d/src/gemini_webapi/constants.py",
+        "title": "constants.py",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/HanaokaYuzu/Gemini-API/42f89a77308e4f809c399f4899f8c0d830e7b46d/src/gemini_webapi/constants.py",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "8feda36c8920e68a233dcf7f16737cd4a31b4c843f9ec4621aeccbe38c91448e",
+        "bytes": 11400,
+        "page_title": "constants.py",
+        "assessment": {
+            "parameters": "consumer identifiers; model header",
+            "claim": "Consumer reverse engineering deprecates static model enum in favor of account discovery. Selection uses headers, not navigation query.",
+            "reliability": "High for inspected code; unofficial backend",
+            "date": "identifier file revision 2026-10-01",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/anxkhn/perplexity-mcp/git/trees/HEAD?recursive=1",
+        "title": "HEAD?recursive=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/anxkhn/perplexity-mcp/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "5a1164ed5c6fe8c00e87a7fc5d0e5a014c7a6aec4304eee8dbd93e53ae484819",
+        "bytes": 12841,
+        "page_title": "HEAD?recursive=1",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/yyjeqhc/webcodex/git/trees/HEAD?recursive=1",
+        "title": "HEAD?recursive=1",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/yyjeqhc/webcodex/git/trees/HEAD?recursive=1",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "ebf70b137f50543b72eba6aa10e5b9fcaa26bc2b66d8d660f3356c695350ffb0",
+        "bytes": 875284,
+        "page_title": "HEAD?recursive=1",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://api.github.com/repos/raycast/extensions/contents/extensions/claude/src/api",
+        "title": "api",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/raycast/extensions/contents/extensions/claude/src/api",
+        "content_type": "application/json; charset=utf-8",
+        "sha256": "5b8b240b1d6b31071244d5e6465c7eee011d0c666c725625c5c26f83c3971bee",
+        "bytes": 893,
+        "page_title": "api",
+        "assessment": {
+            "parameters": "repository discovery",
+            "claim": "Public file/directory inventory used to locate source files. Does not verify parameters.",
+            "reliability": "Discovery metadata only",
+            "date": "fetched 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/a69f8efede324ad8065242be7bf9dbdab4416209/perplexity/models.py",
+        "title": "models.py",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/a69f8efede324ad8065242be7bf9dbdab4416209/perplexity/models.py",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "34d780e9ab5fe283afb73ab64ab977910e0f65e49762559461617f1171c11d71",
+        "bytes": 11098,
+        "page_title": "models.py",
+        "assessment": {
+            "parameters": "model; mode; is_incognito; consumer catalog",
+            "claim": "Consumer client uses authenticated request parameters and tier-aware model discovery. Does not establish navigation query keys.",
+            "reliability": "High for code; unofficial backend, account-dependent",
+            "date": "pinned/latest repo revision 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/a69f8efede324ad8065242be7bf9dbdab4416209/perplexity/client.py",
+        "title": "client.py",
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/anxkhn/perplexity-mcp/a69f8efede324ad8065242be7bf9dbdab4416209/perplexity/client.py",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "5cd81495be15119b7ee616639dc72410d1a5df86f114c4936561a8bc02ea4499",
+        "bytes": 11913,
+        "page_title": "client.py",
+        "assessment": {
+            "parameters": "model; mode; is_incognito; consumer catalog",
+            "claim": "Consumer client uses authenticated request parameters and tier-aware model discovery. Does not establish navigation query keys.",
+            "reliability": "High for code; unofficial backend, account-dependent",
+            "date": "pinned/latest repo revision 2026-11-14",
+            "access": "HTTP 200; body screened"
+        }
+    },
+    {
+        "url": "https://note.com/tyaperujp01/n/n562f7aa10b54",
+        "title": "Gemini deep-link tutorial and June failure correction",
+        "status": 200,
+        "final_url": "https://note.com/tyaperujp01/n/n562f7aa10b54",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "9cc7d03a55a9f2234b302ab821ce236ae1c85a2f9117cfbb5ac2af4f51683b65",
+        "bytes": 426950,
+        "page_title": "クリックだけで Gemini が動く！？ Gemini Deep Link がめちゃくちゃ便利｜けいすけ",
+        "assessment": {
+            "parameters": "prompt_text; prompt_action=prefill; tool routes",
+            "claim": "Original tutorial now has June 2026 failure warning. Older tool and prefill recipes are historical.",
+            "reliability": "Medium; dated correction is consequential",
+            "date": "published 2025-12-22; updated 2026-06-04",
+            "access": "HTTP 200; body screened"
+        }
+    }
+]

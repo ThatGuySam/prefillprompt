@@ -43,10 +43,21 @@ describe('with no feature flags set', () => {
         assert.equal(handoff.searchParams.get('temporary'), null)
     })
 
-    it('keeps the shipped capability table', () => {
+    it('offers only what the signed-in check showed working', () => {
         assert.equal(getProvider('chatgpt').capabilities.webSearch, 'supported')
+        assert.equal(getProvider('chatgpt').capabilities.temporary, 'supported')
+        assert.equal(getProvider('chatgpt').capabilities.models, 'unavailable')
         assert.equal(getProvider('claude').capabilities.webSearch, 'unavailable')
+        assert.equal(getProvider('claude').capabilities.temporary, 'supported')
+        assert.equal(getProvider('claude').capabilities.models, 'experimental')
+        assert.equal(getProvider('gemini').capabilities.models, 'unavailable')
         assert.equal(getProvider('perplexity').capabilities.models, 'unavailable')
+    })
+
+    it('offers no exact ChatGPT or Gemini models', () => {
+        assert.equal(modelChoices.some(choice => choice.provider === 'chatgpt' && choice.kind === 'exact'), false)
+        assert.equal(modelChoices.some(choice => choice.provider === 'gemini' && choice.kind === 'exact'), false)
+        assert.equal(modelChoices.some(choice => choice.provider === 'claude' && choice.model === 'anthropic/claude-sonnet-5'), true)
     })
 
     it('offers no recipient choices in the model list', () => {

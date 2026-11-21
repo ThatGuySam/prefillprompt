@@ -94,13 +94,41 @@ export const redirectCases = [
         query: { m: 'claude', q: 'hello' },
         location: 'https://claude.ai/new?q=hello',
     },
+    {
+        name: 'missing prompt opens a new ChatGPT chat',
+        query: {},
+        location: 'https://chatgpt.com/',
+    },
+    {
+        name: 'missing prompt keeps model and temporary chat',
+        query: { s: 'chatgpt', model: 'latest-reasoning', temporary: '1' },
+        location: 'https://chatgpt.com/?model=thinking&temporary-chat=true',
+    },
+    {
+        name: 'blank prompt opens a new Claude chat with its settings',
+        query: { s: 'claude', q: '   ', model: 'claude-sonnet-5', temporary: '1' },
+        location: 'https://claude.ai/new?model=claude-sonnet-5&incognito=true',
+    },
+    {
+        name: 'missing prompt with a small model opens a new chat, not the preview',
+        query: { s: 'claude', model: 'claude-haiku-5.5' },
+        location: 'https://claude.ai/new?model=claude-haiku-5.5',
+    },
+    {
+        name: 'missing prompt skips the Gemini handoff',
+        query: { s: 'gemini' },
+        location: 'https://gemini.google.com/app',
+    },
+    {
+        name: 'missing prompt opens Perplexity home',
+        query: { s: 'perplexity' },
+        location: 'https://www.perplexity.ai/',
+    },
 ]
 
 export const roundTripPrompt = 'Résumé & "quotes" #1 100% =?+ 日本語 😀\nline two'
 
 export const errorCases = [
-    { name: 'missing prompt', query: {}, status: 400, code: 'PROMPT_REQUIRED' },
-    { name: 'blank prompt', query: { q: '   ' }, status: 400, code: 'PROMPT_REQUIRED' },
     { name: 'unsupported service', query: { s: 'bogus', q: 'hi' }, status: 400, code: 'UNSUPPORTED_SERVICE' },
     { name: 'prompt over 12,000 chars', query: { q: 'a'.repeat(12_001) }, status: 400, code: 'PROMPT_TOO_LONG' },
     { name: 'URL over 15,000 bytes', query: { q: 'a'.repeat(15_500) }, status: 414, code: 'PROMPT_URL_TOO_LONG' },

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+import { isChatAppModel } from './chat-app-models.mjs'
 
 const endpoint = 'https://openrouter.ai/api/v1/models?output_modalities=text&sort=newest'
 const outputUrl = new URL('../src/data/models.generated.json', import.meta.url)
@@ -46,6 +47,7 @@ if (!body || typeof body !== 'object' || !Array.isArray(body.data)) {
 
 const models = body.data
     .filter(isCatalogModel)
+    .filter(model => isChatAppModel(model.id))
     .flatMap((model) => {
         const provider = Object.entries(providerPrefixes)
             .find(([, prefix]) => model.id.startsWith(prefix))?.[0]

@@ -6,7 +6,7 @@ import { buildGeminiHandoffPath, buildOpenPath, buildProviderUrl, isProviderId, 
 import { detectSafetySignals } from './prompt-safety.ts'
 
 export interface PromptRedirectInput {
-    prompt: string
+    prompt?: string
     requestedProvider?: string
     model?: string
     webSearch?: boolean
@@ -25,17 +25,19 @@ export function namesSmallModel(model: string | undefined) {
 // model implies, else ChatGPT. Two kinds of link stop at the preview screen instead, so the
 // reader sees the prompt and the on-device scan before anything opens: a prompt that trips a
 // safety signal, and a link that asks for a small model. The preview only gets a provider the
-// link named itself, so an unnamed link lets the reader choose.
-export function promptRedirectLocation({ prompt, requestedProvider, model, webSearch, temporary }: PromptRedirectInput) {
+// link named itself, so an unnamed link lets the reader choose. A link without a prompt has
+// nothing to scan, so it opens a new chat that keeps the model and chat settings.
+export function promptRedirectLocation({ prompt: rawPrompt, requestedProvider, model, webSearch, temporary }: PromptRedirectInput) {
+    const prompt = rawPrompt?.trim() ? rawPrompt : ''
     const options = { prompt, model, webSearch, temporary }
 
-    if (detectSafetySignals(prompt).length > 0 || namesSmallModel(model)) {
+    if (detectSafetySignals(prompt).length > 0 || (prompt && namesSmallModel(model))) {
         const named: ProviderId | undefined = isProviderId(requestedProvider) ? requestedProvider : undefined
         return buildOpenPath({ ...options, provider: named })
     }
 
     const provider = resolveProvider(requestedProvider, model)
-    if (provider === 'gemini') {
+    if (provider === 'gemini' && prompt) {
         return buildGeminiHandoffPath({ ...options, provider })
     }
     return buildProviderUrl({ ...options, provider })
