@@ -30,4 +30,4 @@ jobs:
             - name: Probe the share-link contract
               env:
                   PROBE_BASE: ${{ inputs.base || 'https://prefillprompt.com' }}
-              run: node scripts/probe/run.mjs --providers --base "$PROBE_BASE"
+              run: node --max-http-header-size=65536 scripts/probe/run.mjs --providers --base "$PROBE_BASE"

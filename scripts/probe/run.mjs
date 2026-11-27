@@ -19,6 +19,10 @@ function apiUrl(query) {
     return `${base}/api/prompt?${new URLSearchParams(query).toString()}`
 }
 
+// Gemini sends a content-security-policy header of about 20 KB. Node's fetch rejects
+// responses whose headers exceed --max-http-header-size (16 KB by default on Node 22)
+// with "fetch failed" (UND_ERR_HEADERS_OVERFLOW), so the package scripts and the
+// workflow raise the limit.
 async function get(url, init = {}) {
     return fetch(url, {
         redirect: 'manual',
@@ -34,7 +38,8 @@ async function check(group, name, run) {
         record(group, name, outcome?.warn ? 'warn' : 'pass', outcome?.warn ?? '')
     }
     catch (error) {
-        record(group, name, 'fail', error instanceof Error ? error.message : String(error))
+        const cause = error instanceof Error && error.cause instanceof Error ? ` (${error.cause.code ?? error.cause.message})` : ''
+        record(group, name, 'fail', error instanceof Error ? `${error.message}${cause}` : String(error))
     }
 }
 
