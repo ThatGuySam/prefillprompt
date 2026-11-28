@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Destination, DestinationId } from '~/lib/destinations'
 import { arrangeDestinations, buildDestinationUrl, getDestination, readPreferredDestination, savePreferredDestination } from '~/lib/destinations'
+import { PROMPT_SAFETY } from '~/lib/flags'
 import { tryOpenApp } from '~/lib/open-destination'
 import { isProviderId, MAX_PROMPT_LENGTH, parseBooleanParam } from '~/lib/prompt-links'
 import { detectSafetySignals } from '~/lib/prompt-safety'
@@ -20,10 +21,11 @@ const options = computed(() => ({
     webSearch: parseBooleanParam(first(route.query.web)),
     temporary: parseBooleanParam(first(route.query.temporary)),
 }))
-const signals = computed(() => detectSafetySignals(prompt.value))
+const signals = computed(() => PROMPT_SAFETY ? detectSafetySignals(prompt.value) : [])
 const attack = computed(() => signals.value.some(signal => signal.tier === 'attack'))
 // A prompt the rules already call an attack needs no download to confirm it.
-const scan = usePromptScan(prompt, computed(() => !attack.value))
+const scanEnabled = computed(() => PROMPT_SAFETY && !attack.value)
+const scan = usePromptScan(prompt, scanEnabled)
 
 // Apps and the saved choice are only known in the browser, so the server renders websites only.
 const apps = ref(false)
@@ -119,7 +121,7 @@ async function open(destination: Destination, event: MouseEvent) {
             </div>
 
             <PromptScan
-                v-if="prompt && !attack"
+                v-if="prompt && scanEnabled"
                 :state="scanState"
                 @start="scan.deepScan()"
             />

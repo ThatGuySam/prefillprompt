@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import dataset from '~/data/safety/dangerous-prompts.json'
 import measurements from '~/data/safety/signal-measurements.json'
+import { PROMPT_SAFETY } from '~/lib/flags'
 import { safetySignals } from '~/lib/prompt-safety'
 
 const REPOSITORY = 'https://github.com/ThatGuySam/prefillprompt/blob/main'
@@ -9,8 +10,8 @@ const exampleFor = (id: string) => dataset.examples.find(example => example.tech
 const short = (value: string) => (value.length > 220 ? `${value.slice(0, 220)}…` : value)
 
 const tiers = [
-    { tier: 'attack', heading: 'Almost always an attack', note: 'At least 99 in 100 prompts with this trait were malicious in the prompts we measured. PrefillPrompt shows a red warning.' },
-    { tier: 'caution', heading: 'Risky to run without reading', note: 'These almost never appear in ordinary prompts, but there were too few cases to measure 99 in 100. PrefillPrompt shows a caution.' },
+    { tier: 'attack', heading: 'Almost always an attack', note: 'At least 99 in 100 prompts with this trait were malicious in the prompts we measured. When checks are enabled, this triggers a red warning.' },
+    { tier: 'caution', heading: 'Risky to run without reading', note: 'These almost never appear in ordinary prompts, but there were too few cases to measure 99 in 100. When checks are enabled, this triggers a caution.' },
     { tier: 'unreliable', heading: 'Common in attacks, and in harmless prompts too', note: 'Attackers use these, and so do many ordinary templates, so PrefillPrompt does not warn about them.' },
 ] as const
 
@@ -45,8 +46,13 @@ useSeoMeta({
         <h1>Why a prompt gets a warning</h1>
         <p>
             A prompt link fills in text that someone else wrote. Most are harmless. A few try to make
-            your AI, or an agent that can act for you, do something you would not choose. Before you
-            open a shared prompt, PrefillPrompt checks it for the traits below.
+            your AI, or an agent that can act for you, do something you would not choose.
+        </p>
+        <p v-if="PROMPT_SAFETY">
+            Before you open a shared prompt, PrefillPrompt checks it for the traits below.
+        </p>
+        <p v-else>
+            PrefillPrompt's safety checks are off. The traits below describe what the checks look for when enabled.
         </p>
         <p>
             A prompt with no warning is not proven safe. Read what you are about to send.

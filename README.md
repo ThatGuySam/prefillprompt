@@ -44,7 +44,7 @@ Prompt links are not private: the prompt is encoded in the URL and can appear in
 
 `GET https://prefillprompt.com/api/prompt` redirects the browser to the selected service with the prompt and supported options.
 
-A link redirects straight to its service: the one it names, else the one its model implies, else ChatGPT. The one exception is a prompt that trips a [safety signal](#safety-warnings). That link stops at a preview screen, `/open`, so the reader sees the warning before anything opens.
+A link redirects to the service it names, the service its model implies, or ChatGPT by default. Gemini uses a copy-and-open handoff. PrefillPrompt's [safety checks](#safety-warnings) are off by default.
 
 | Query key | Required | Meaning |
 | --- | --- | --- |
@@ -67,17 +67,19 @@ https://prefillprompt.com/api/prompt?s=chatgpt&temporary=true&q=Help%20me%20brai
 
 ### The preview screen
 
-`https://prefillprompt.com/open` takes the same query keys as the API and never redirects on its own. It shows the prompt, any safety warning, and one frame of places to open it. Every place has its own Open link, so opening takes one click. Once a place is known, from the link or from a saved choice, the frame starts as a single button for it, and a toggle beside the button opens the rest of the list inside the same frame.
+`https://prefillprompt.com/open` takes the same query keys as the API and never redirects on its own. It shows the prompt and one frame of places to open it. With safety checks enabled, it also shows any warning. Every place has its own Open link, so opening takes one click. Once a place is known, from the link or from a saved choice, the frame starts as a single button for it, and a toggle beside the button opens the rest of the list inside the same frame.
 
 - **Destinations.** ChatGPT website, Claude website, Gemini, and Perplexity, plus two apps on computers: Codex in the ChatGPT desktop app (`codex://new?prompt=`) and Claude Code in a terminal (`claude-cli://open?q=`). Both app links are the vendors' documented forms; they fill the prompt in and wait for the reader to send it. If the app does not take over within a second and a half, the page offers the website. Touch devices are offered websites only, since a phone hands those links to an installed app itself.
 - **Remembered choice.** For a link with no `s`, the destination the reader opens is saved in that browser and becomes the single button next time.
 - **A named service wins for one visit.** With `s=claude`, the preview opens on Claude and leaves the saved choice alone. The saved choice still decides between app and website.
 
-Link to `/open?s=claude&q=…` directly when you want the preview and the app option even for a clean prompt.
+Link to `/open?s=claude&q=…` directly when you want the preview and the app option.
 
 ### Safety warnings
 
-Before a shared prompt is opened, PrefillPrompt checks it for traits that mark an attack on the reader or their agent. Two traits show a red warning: telling an agent to send email to a named address, and fake chat-control markers such as `<|assistant|>`. On 6,581 malicious and 17,111 ordinary prompts from public datasets, 99.7% and 99.6% of their matches were malicious. Nine more, such as reading key files or piping a download to a shell, show an amber caution. Well-known phrases such as "ignore all previous instructions" are not flagged: 64% of their matches were ordinary shared templates.
+Set `NUXT_PUBLIC_PROMPT_SAFETY=true` when building to restore the safety interstitial and on-device scan. See [the prompt safety switch](./docs/prompt-safety-switch.md) for rollout and verification.
+
+When enabled, PrefillPrompt checks shared prompts for traits that mark an attack on the reader or their agent. A match stops the link at `/open`. Telling an agent to send email to a named address or using fake chat-control markers such as `<|assistant|>` shows a red warning. On 6,581 malicious and 17,111 ordinary prompts from public datasets, 99.7% and 99.6% of their matches were malicious. Nine more traits, such as reading key files or piping a download to a shell, show an amber caution. Well-known phrases such as "ignore all previous instructions" are not flagged because 64% of their matches were ordinary shared templates.
 
 - Plain explanations with real examples: `https://prefillprompt.com/safety`
 - The patterns: [`src/lib/prompt-safety.ts`](src/lib/prompt-safety.ts)
@@ -89,13 +91,13 @@ A prompt with no warning is not proven safe. The checks are plain patterns and a
 
 ### On-device scan
 
-The preview also scans the prompt in the reader's browser. The prompt is never sent anywhere to be scanned.
+With safety checks enabled, the preview also scans the prompt in the reader's browser. The prompt is never sent anywhere to be scanned.
 
 1. **Quick check.** A 1 MB linear model ([`src/lib/scanner/first-pass.ts`](src/lib/scanner/first-pass.ts)) runs first. It only ever warns, and only when it is very sure: at its 0.999 threshold it flagged none of 2,774 held-out safe prompts or of a second hand-written set of 95 safe look-alikes, and caught 789 of 1,116 held-out attacks. When it warns, nothing else downloads.
 2. **Deep scan.** Otherwise `Horizon-Labs/prompt-injection-guard-small` runs in a Web Worker with ONNX Runtime Web. Its weights are stored as int8 (142 MB, down from 268 MB, with the same calls on the link-threat and safe sets) and served from this site as 44 gzipped pieces of 4 MiB, 124 MB in all. Each piece is checked against the manifest in [`src/data/scanner/deep.json`](src/data/scanner/deep.json) and kept in the Cache API, so an interrupted download resumes and later scans skip it. A score of 0.99 or more shows a red warning and 0.9 to 0.99 an amber one, except when the chosen place is an app that runs commands, where only red shows.
 3. **When it downloads.** On its own only when the scanner is already saved, or the browser reports a fast connection without data saver. Otherwise the reader gets a "Run deeper scan" button.
 
-Links that name a small model (Luna, mini, nano, Haiku, Flash, Lite) stop at the preview, like links with a warning, so the scan runs before anything opens. The `latest-fast` alias still goes straight through.
+With safety checks enabled, links with a prompt and an explicitly small model (Luna, mini, nano, Haiku, Flash, Lite) stop at the preview so the scan runs before anything opens. The `latest-fast` alias still goes straight through for prompts without a warning.
 
 The model pieces are generated, not committed. Rebuild them with the steps at the top of [`scripts/scanner/build-deep.mjs`](scripts/scanner/build-deep.mjs); the deploy scripts refuse to run until they are present. Retrain the quick check with [`scripts/scanner/train-first-pass.ts`](scripts/scanner/train-first-pass.ts). Method and numbers: [`docs/research/browser-ml-prompt-danger-detection-2026-11-12.md`](docs/research/browser-ml-prompt-danger-detection-2026-11-12.md) and [`docs/research/browser-model-download-optimization-2026-11-14.md`](docs/research/browser-model-download-optimization-2026-11-14.md).
 
@@ -127,11 +129,12 @@ The repository requires Node 22.13 or newer within the Node 22 release line, or 
 
 ## Feature flags
 
-Unfinished work lives on `main` behind build-time flags in `src/lib/flags.ts`. A flag is off unless the build sets its environment variable, so a normal production build ships with every flag off.
+Build-time flags live in `src/lib/flags.ts`. A flag is off unless the build sets its environment variable, so a normal production build ships with every flag off.
 
 | Flag | Turn on with | What it adds |
 | --- | --- | --- |
 | `providerCompatibility` | `NUXT_PUBLIC_PROVIDER_COMPATIBILITY=true` | The July 2026 builder: a "recipient decides" option, the `/choose` page, compatibility notices, a warning when a prompt contains an API key or other secret, and web search sent as prompt text instead of the ChatGPT `hints` parameter. |
+| `PROMPT_SAFETY` | `NUXT_PUBLIC_PROMPT_SAFETY=true` | Safety warnings, on-device scanning, and automatic preview for flagged prompts or prompts targeting small models. |
 
 Try a flag locally with `NUXT_PUBLIC_PROVIDER_COMPATIBILITY=true pnpm dev`. With the flag off, the live builder components (`PromptBuilder`, `MoreSheet`, `ModelCombobox`) are the ones that render; the flagged versions are the files ending in `Next.vue`. `test/flags-off.test.ts` holds the flag-off behavior in place.
 

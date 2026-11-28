@@ -3,6 +3,7 @@ import process from 'node:process'
 // Build-time feature flags, read by src/lib/flags.ts. Off unless the build sets the variable.
 const flagDefines = {
     __PROVIDER_COMPATIBILITY__: JSON.stringify(process.env.NUXT_PUBLIC_PROVIDER_COMPATIBILITY === 'true'),
+    __PROMPT_SAFETY__: JSON.stringify(process.env.NUXT_PUBLIC_PROMPT_SAFETY === 'true'),
 }
 
 export default defineNuxtConfig({

@@ -2,6 +2,7 @@
 // hand-written probe cases.
 
 import type { ProviderId } from './providers.ts'
+import { PROMPT_SAFETY } from './flags.ts'
 import { buildGeminiHandoffPath, buildOpenPath, buildProviderUrl, isProviderId, resolveProvider } from './prompt-links.ts'
 import { detectSafetySignals } from './prompt-safety.ts'
 
@@ -21,17 +22,14 @@ export function namesSmallModel(model: string | undefined) {
     return model !== undefined && SMALL_MODEL.test(model)
 }
 
-// A link goes straight to its provider, as it always has: the one it names, else the one its
-// model implies, else ChatGPT. Two kinds of link stop at the preview screen instead, so the
-// reader sees the prompt and the on-device scan before anything opens: a prompt that trips a
-// safety signal, and a link that asks for a small model. The preview only gets a provider the
-// link named itself, so an unnamed link lets the reader choose. A link without a prompt has
-// nothing to scan, so it opens a new chat that keeps the model and chat settings.
+// With safety checks on, flagged prompts and links with a prompt and a small model stop at
+// the preview. Only an explicitly named provider is carried into the preview so readers can
+// choose the destination for unnamed links.
 export function promptRedirectLocation({ prompt: rawPrompt, requestedProvider, model, webSearch, temporary }: PromptRedirectInput) {
     const prompt = rawPrompt?.trim() ? rawPrompt : ''
     const options = { prompt, model, webSearch, temporary }
 
-    if (detectSafetySignals(prompt).length > 0 || (prompt && namesSmallModel(model))) {
+    if (PROMPT_SAFETY && (detectSafetySignals(prompt).length > 0 || (prompt && namesSmallModel(model)))) {
         const named: ProviderId | undefined = isProviderId(requestedProvider) ? requestedProvider : undefined
         return buildOpenPath({ ...options, provider: named })
     }

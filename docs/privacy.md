@@ -21,7 +21,8 @@ if browser storage is blocked or full. Clearing site data removes them.
 
 ## The on-device prompt scan
 
-The preview screen at `/open` scans the shared prompt in your browser. A small
+The on-device prompt scan is off by default. When [enabled](prompt-safety-switch.md),
+the preview screen at `/open` scans the shared prompt in your browser. A small
 model (about 1 MB) runs first. When it is not sure, a larger model (about
 124 MB) can download from `prefillprompt.com` and run in a Web Worker. The
 prompt text is never sent anywhere for scanning. The larger model's files are

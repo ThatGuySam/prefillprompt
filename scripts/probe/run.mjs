@@ -9,6 +9,7 @@ function option(name, fallback) {
 }
 
 const base = option('base', 'https://prefillprompt.com').replace(/\/$/, '')
+const promptSafety = process.env.NUXT_PUBLIC_PROMPT_SAFETY === 'true'
 const results = []
 
 function record(group, name, status, detail = '') {
@@ -49,7 +50,8 @@ for (const testCase of redirectCases) {
         const response = await get(apiUrl(testCase.query))
         expectEqual(response.status, 307, 'status')
         const location = response.headers.get('location') ?? ''
-        expectEqual(new URL(location, base).href, new URL(testCase.location, base).href, 'location')
+        const expected = promptSafety ? testCase.locationWithSafety ?? testCase.location : testCase.location
+        expectEqual(new URL(location, base).href, new URL(expected, base).href, 'location')
         expectEqual(response.headers.get('cache-control'), 'private, no-store', 'cache-control')
     })
 }

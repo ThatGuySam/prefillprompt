@@ -4,10 +4,10 @@
  *
  * `nuxt.config.ts` replaces the `__NAME__` constants below at build time.
  * Outside a Nuxt build (the Node test runner) they are undefined and read as
- * off; a test turns one on with `test/helpers/enable-provider-compatibility.ts`
- * before it loads app code.
+ * off. Tests can set a flag on globalThis before loading app code.
  */
 declare const __PROVIDER_COMPATIBILITY__: boolean | undefined
+declare const __PROMPT_SAFETY__: boolean | undefined
 
 /**
  * The July 2026 builder work: a "recipient decides" option, the /choose
@@ -19,6 +19,10 @@ declare const __PROVIDER_COMPATIBILITY__: boolean | undefined
  */
 export const PROVIDER_COMPATIBILITY: boolean
     = typeof __PROVIDER_COMPATIBILITY__ !== 'undefined' && __PROVIDER_COMPATIBILITY__ === true
+
+/** Shared prompt warnings and the on-device scan. Turn on with NUXT_PUBLIC_PROMPT_SAFETY=true. */
+export const PROMPT_SAFETY: boolean
+    = typeof __PROMPT_SAFETY__ !== 'undefined' && __PROMPT_SAFETY__ === true
 
 export const flags = {
     providerCompatibility: PROVIDER_COMPATIBILITY,
